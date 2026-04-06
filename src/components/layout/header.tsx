@@ -361,16 +361,34 @@ function CTACluster({ scrolled }: { scrolled: boolean }) {
 
 // ─── Header (main export) ────────────────────────────────────────────────────
 
+// Pages with dark hero backgrounds where white header text works.
+// All other pages get dark header text immediately.
+const DARK_HERO_PAGES = ['/', '/platform/', '/about/', '/ca/', '/us/', '/resources/']
+
+function hasDarkHero(pathname: string): boolean {
+  if (DARK_HERO_PAGES.includes(pathname)) return true
+  if (pathname.startsWith('/solutions/') && pathname !== '/solutions/') return true
+  if (pathname.startsWith('/compare/revun-vs-')) return true
+  if (pathname.startsWith('/integrations/') && pathname !== '/integrations/') return true
+  return false
+}
+
 export function Header() {
-  const [scrolled, setScrolled] = useState(false)
+  const pathname = usePathname()
+  const forceDarkText = !hasDarkHero(pathname)
+  const [scrolled, setScrolled] = useState(forceDarkText)
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
 
   useEffect(() => {
+    if (forceDarkText) {
+      setScrolled(true)
+      return
+    }
     const onScroll = () => setScrolled(window.scrollY > 20)
-    onScroll() // check on mount
+    onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  }, [forceDarkText])
 
   // Close dropdowns on Escape anywhere
   const handleGlobalKeyDown = useCallback((e: KeyboardEvent) => {
