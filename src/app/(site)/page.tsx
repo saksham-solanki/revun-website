@@ -1,6 +1,4 @@
 import type { Metadata } from 'next'
-import { Header } from '@/components/layout/header'
-import { Footer } from '@/components/layout/footer'
 import { HeroSection } from '@/components/blocks/hero-section'
 import { AudienceRouter } from '@/components/blocks/audience-router'
 import { FeatureShowcase } from '@/components/blocks/feature-showcase'
@@ -20,16 +18,12 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      <Header />
-      <main>
-        <HeroSection />
-        <AudienceRouter />
-        <FeatureShowcase />
-        <StatsSection />
-        <IntegrationLogos />
-        <CTASection />
-      </main>
-      <Footer />
+      <HeroSection />
+      <AudienceRouter />
+      <FeatureShowcase />
+      <StatsSection />
+      <IntegrationLogos />
+      <CTASection />
     </>
   )
 }
