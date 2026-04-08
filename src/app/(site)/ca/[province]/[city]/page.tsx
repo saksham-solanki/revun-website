@@ -444,7 +444,7 @@ export default async function CityPage({
               <MapPin className="size-4" />
               <span>{data.province}, Canada</span>
             </div>
-            <h1 className="font-display text-4xl italic text-white sm:text-5xl lg:text-6xl">
+            <h1 className="font-heading font-extrabold text-4xl text-white sm:text-5xl lg:text-6xl">
               Property Management{' '}
               <span className="text-brand-blue-light">in {data.name}</span>
             </h1>
@@ -683,7 +683,7 @@ export default async function CityPage({
             <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-brand-blue-light">
               {data.name} Property Managers
             </p>
-            <h2 className="font-display text-4xl italic tracking-tight text-white md:text-5xl">
+            <h2 className="font-heading font-extrabold text-4xl tracking-tight text-white md:text-5xl">
               Run your {data.name} portfolio{' '}
               <span className="text-brand-blue-light">without the paperwork</span>
             </h2>

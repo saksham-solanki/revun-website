@@ -58,11 +58,11 @@ const competitors: Competitor[] = [
 
 const badgeColors: Record<Exclude<Category, 'All'>, string> = {
   'PM Software': 'bg-[#E8F2FE] text-[#176FEB]',
-  'Canadian Platforms': 'bg-red-50 text-red-600',
-  'Brokerage/CRM': 'bg-sky-50 text-sky-600',
-  Maintenance: 'bg-emerald-50 text-emerald-600',
-  Communications: 'bg-orange-50 text-orange-600',
-  Screening: 'bg-teal-50 text-teal-600',
+  'Canadian Platforms': 'bg-[#E8F2FE] text-[#0B5AD4]',
+  'Brokerage/CRM': 'bg-[#F5F6F8] text-[#555860]',
+  Maintenance: 'bg-[#F5F6F8] text-[#555860]',
+  Communications: 'bg-[#F5F6F8] text-[#555860]',
+  Screening: 'bg-[#F5F6F8] text-[#555860]',
 }
 
 export default function ComparePage() {
@@ -81,7 +81,7 @@ export default function ComparePage() {
           <RevealOnScroll>
             <motion.h1
               variants={revealItem}
-              className="font-display text-4xl italic leading-tight text-white md:text-5xl lg:text-6xl"
+              className="font-heading font-extrabold text-4xl leading-tight text-white md:text-5xl lg:text-6xl"
             >
               See How Revun{' '}
               <span className="text-[#176FEB]">Compares</span>

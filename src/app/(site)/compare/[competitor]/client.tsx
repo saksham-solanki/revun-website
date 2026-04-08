@@ -18,12 +18,12 @@ const fadeUp = {
 function getStatusIcon(value: string) {
   const lower = value.toLowerCase()
   if (lower === 'not available' || lower === 'not included') {
-    return <X className="size-4 shrink-0 text-red-500" />
+    return <X className="size-4 shrink-0 text-[#E7000B]" />
   }
   if (lower === 'coming soon') {
-    return <Minus className="size-4 shrink-0 text-amber-500" />
+    return <Minus className="size-4 shrink-0 text-[#D3D5DB]" />
   }
-  return <Check className="size-4 shrink-0 text-emerald-500" />
+  return <Check className="size-4 shrink-0 text-[#176FEB]" />
 }
 
 export function CompareDetailClient({ data }: { data: CompetitorData }) {
@@ -102,7 +102,7 @@ export function CompareDetailClient({ data }: { data: CompetitorData }) {
                     .slice(0, 4)
                     .map((f) => (
                       <li key={f.name} className="flex items-start gap-2 text-sm text-[#2C2E33]">
-                        <Check className="mt-0.5 size-4 shrink-0 text-emerald-500" />
+                        <Check className="mt-0.5 size-4 shrink-0 text-[#176FEB]" />
                         <span>
                           <span className="font-medium">{f.name}:</span> {f.revun}
                         </span>

@@ -21,7 +21,7 @@ export function AboutHero() {
     <section className="relative flex min-h-[65vh] items-center justify-center overflow-hidden bg-[#0A1628]">
       {/* Dot grid overlay */}
       <div
-        className="absolute inset-0 bg-dot-grid opacity-30"
+        className="absolute inset-0 bg-grid-dark bg-grid-mask opacity-30"
         aria-hidden
       />
 
@@ -50,7 +50,7 @@ export function AboutHero() {
         {/* Headline */}
         <motion.h1
           variants={fadeUp}
-          className="font-display italic text-5xl leading-[1.08] tracking-tight text-white md:text-7xl"
+          className="font-heading font-extrabold text-5xl leading-[1.08] tracking-tight text-white md:text-7xl"
         >
           Built for{' '}
           <span className="text-[#176FEB]">Canadian</span>

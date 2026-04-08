@@ -24,7 +24,7 @@ const integrations = [
 
 function LogoPill({ name }: { name: string }) {
   return (
-    <div className="group flex h-14 shrink-0 items-center justify-center rounded-xl border border-[#E5E7EB] bg-white px-8 transition-all duration-150 hover:border-brand-blue/20">
+    <div className="group flex h-14 shrink-0 items-center justify-center rounded-xl border border-[#E5E7EB] bg-white px-8 transition-all duration-150 hover:border-brand-blue/20 hover:shadow-card-hover">
       <span className="whitespace-nowrap text-sm font-heading font-semibold text-[#94A3B8] transition-colors duration-150 group-hover:text-brand-graphite">
         {name}
       </span>
@@ -59,8 +59,8 @@ export function IntegrationLogos() {
       {/* Marquee container */}
       <div className="relative mt-16 overflow-hidden">
         {/* Fade edges */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-white to-transparent" aria-hidden />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-white to-transparent" aria-hidden />
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-32 bg-gradient-to-r from-white to-transparent" aria-hidden />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-32 bg-gradient-to-l from-white to-transparent" aria-hidden />
 
         {/* Scrolling track */}
         <div className="animate-marquee flex w-max gap-5">

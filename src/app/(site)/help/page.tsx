@@ -98,7 +98,7 @@ export default function HelpPage() {
         >
           <motion.h1
             variants={fadeUp}
-            className="font-display italic text-4xl leading-[1.1] tracking-tight text-white sm:text-5xl"
+            className="font-heading font-extrabold text-4xl leading-[1.1] tracking-tight text-white sm:text-5xl"
           >
             Help{' '}
             <span className="text-brand-blue-light">Center</span>

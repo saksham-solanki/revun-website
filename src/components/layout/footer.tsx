@@ -154,7 +154,12 @@ export function Footer() {
                   type="submit"
                   className="shrink-0 rounded-lg bg-[#176FEB] px-4 py-2 text-sm font-semibold text-white hover:bg-[#1260CC] transition-colors focus:outline-none focus:ring-2 focus:ring-[#176FEB] focus:ring-offset-2 focus:ring-offset-[#0A1628]"
                 >
-                  Subscribe
+                  <span className="flex items-center gap-1.5">
+                    Subscribe
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                    </svg>
+                  </span>
                 </button>
               </form>
             </div>

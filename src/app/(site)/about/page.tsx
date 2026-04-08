@@ -142,7 +142,7 @@ export default function AboutPage() {
       <section className="bg-[#0A1628] py-24 md:py-32">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <RevealOnScroll>
-            <h2 className="font-display italic text-4xl tracking-tight text-white md:text-5xl">
+            <h2 className="font-heading font-extrabold text-4xl tracking-tight text-white md:text-5xl">
               Want to <span className="text-[#176FEB]">learn</span> more?
             </h2>
             <p className="mx-auto mt-5 max-w-lg text-lg text-[#94A3B8]">

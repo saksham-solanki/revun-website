@@ -51,7 +51,7 @@ export function PricingFaq() {
         <RevealOnScroll className="text-center mb-12">
           <motion.h2
             variants={revealItem}
-            className="font-display italic text-3xl text-[#0A1628]"
+            className="font-heading font-extrabold text-3xl text-[#0A1628]"
           >
             Frequently asked <span className="text-[#176FEB]">questions</span>
           </motion.h2>

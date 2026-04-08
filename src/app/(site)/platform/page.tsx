@@ -253,7 +253,7 @@ export default function PlatformPage() {
       <section className="bg-[#0A1628] py-24 md:py-32">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <RevealOnScroll stagger={0.12}>
-            <h2 className="font-display text-4xl italic tracking-tight text-white md:text-5xl">
+            <h2 className="font-heading text-4xl font-extrabold tracking-tight text-white md:text-5xl">
               See the full <span className="text-[#176FEB]">platform</span> in action
             </h2>
             <p className="mx-auto mt-5 max-w-lg text-lg text-[#94A3B8]">

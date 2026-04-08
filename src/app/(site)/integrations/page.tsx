@@ -199,9 +199,9 @@ const integrations: Integration[] = [
 ]
 
 const statusColors: Record<Status, string> = {
-  Available: 'bg-emerald-50 text-emerald-600',
-  'Coming Soon': 'bg-orange-50 text-orange-600',
-  Beta: 'bg-sky-50 text-sky-600',
+  Available: 'bg-[#E8F2FE] text-[#176FEB]',
+  'Coming Soon': 'bg-[#F5F6F8] text-[#555860]',
+  Beta: 'bg-[#E8F2FE] text-[#0B5AD4]',
 }
 
 const featuredSlugs = ['stripe', 'quickbooks', 'twilio', 'salesforce', 'zapier', 'docusign']

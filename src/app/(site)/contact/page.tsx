@@ -53,7 +53,7 @@ export default function ContactPage() {
             <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-[#176FEB]">
               Contact
             </p>
-            <h1 className="font-display italic text-4xl tracking-tight text-[#0A1628] md:text-5xl lg:text-6xl">
+            <h1 className="font-heading font-extrabold text-4xl tracking-tight text-[#0A1628] md:text-5xl lg:text-6xl">
               Get in <span className="text-[#176FEB]">touch</span>
             </h1>
             <p className="mt-5 max-w-md text-lg leading-relaxed text-[#555860]">

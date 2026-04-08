@@ -204,15 +204,15 @@ const integrationData: Record<string, IntegrationDetail> = {
 }
 
 const setupColors: Record<SetupDifficulty, string> = {
-  Easy: 'bg-emerald-100 text-emerald-700',
-  Medium: 'bg-amber-100 text-amber-700',
-  Advanced: 'bg-rose-100 text-rose-700',
+  Easy: 'bg-[#E8F2FE] text-[#176FEB]',
+  Medium: 'bg-[#F5F6F8] text-[#555860]',
+  Advanced: 'bg-[#F5F6F8] text-[#2C2E33]',
 }
 
 const statusColors: Record<string, string> = {
-  Available: 'bg-emerald-100 text-emerald-700',
-  'Coming Soon': 'bg-amber-100 text-amber-700',
-  Beta: 'bg-blue-100 text-blue-700',
+  Available: 'bg-[#E8F2FE] text-[#176FEB]',
+  'Coming Soon': 'bg-[#F5F6F8] text-[#555860]',
+  Beta: 'bg-[#E8F2FE] text-[#0B5AD4]',
 }
 
 /* ------------------------------------------------------------------ */
@@ -315,7 +315,7 @@ export default async function IntegrationDetailPage({
             <p className="mt-8 text-sm font-semibold uppercase tracking-widest text-[#176FEB]">
               Integration
             </p>
-            <h1 className="mt-3 font-display text-4xl italic text-white sm:text-5xl">
+            <h1 className="mt-3 font-heading font-extrabold text-4xl text-white sm:text-5xl">
               Revun + {data.name}
             </h1>
             <p className="mx-auto mt-4 max-w-xl text-lg text-slate-300">

@@ -102,7 +102,7 @@ export default function CanadaPage() {
             <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-brand-blue-light">
               Canadian Coverage
             </p>
-            <h1 className="font-display text-4xl italic text-white sm:text-5xl lg:text-6xl">
+            <h1 className="font-heading font-extrabold text-4xl text-white sm:text-5xl lg:text-6xl">
               Property Management{' '}
               <span className="text-brand-blue-light">Across</span> Canada
             </h1>
@@ -267,7 +267,7 @@ export default function CanadaPage() {
       <section className="bg-brand-navy py-24 md:py-32">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <RevealOnScroll>
-            <h2 className="font-display text-4xl italic tracking-tight text-white md:text-5xl">
+            <h2 className="font-heading font-extrabold text-4xl tracking-tight text-white md:text-5xl">
               Ready to go Canadian-first?
             </h2>
             <p className="mx-auto mt-5 max-w-lg text-lg text-[#D3D5DB]">

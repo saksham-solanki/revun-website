@@ -89,7 +89,7 @@ export default function USPage() {
           <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-brand-blue-light">
             United States
           </p>
-          <h1 className="font-display text-4xl italic text-white sm:text-5xl lg:text-6xl">
+          <h1 className="font-heading font-extrabold text-4xl text-white sm:text-5xl lg:text-6xl">
             Property Management Across the{' '}
             <span className="text-brand-blue">United States</span>
           </h1>
@@ -182,7 +182,7 @@ export default function USPage() {
       <section className="bg-brand-navy py-24 md:py-32">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <RevealOnScroll>
-            <h2 className="font-display text-4xl italic tracking-tight text-white md:text-5xl">
+            <h2 className="font-heading font-extrabold text-4xl tracking-tight text-white md:text-5xl">
               Manage properties across{' '}
               <span className="text-brand-blue">state lines</span>
             </h2>

@@ -12,6 +12,13 @@ const personas = [
         <path d="M9 21V12h6v9" />
       </svg>
     ),
+    watermarkIcon: (
+      <svg className="h-32 w-32 text-brand-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z" />
+        <path d="M9 21V12h6v9" />
+      </svg>
+    ),
+    gradientFrom: '#E8F2FE',
     title: (
       <>
         Property <span className="text-accent">Owners</span>
@@ -28,6 +35,13 @@ const personas = [
         <path d="M9 22V18h6v4M9 6h.01M15 6h.01M9 10h.01M15 10h.01M9 14h.01M15 14h.01" />
       </svg>
     ),
+    watermarkIcon: (
+      <svg className="h-32 w-32 text-brand-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
+        <rect x="4" y="2" width="16" height="20" rx="1" />
+        <path d="M9 22V18h6v4M9 6h.01M15 6h.01M9 10h.01M15 10h.01M9 14h.01M15 14h.01" />
+      </svg>
+    ),
+    gradientFrom: '#E8F2FE',
     title: (
       <>
         Property <span className="text-accent">Managers</span>
@@ -44,6 +58,13 @@ const personas = [
         <path d="M5.5 21a6.5 6.5 0 0113 0" />
       </svg>
     ),
+    watermarkIcon: (
+      <svg className="h-32 w-32 text-brand-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="7" r="4" />
+        <path d="M5.5 21a6.5 6.5 0 0113 0" />
+      </svg>
+    ),
+    gradientFrom: '#E8F2FE',
     title: (
       <>
         <span className="text-accent">Tenants</span>
@@ -83,40 +104,60 @@ export function AudienceRouter() {
         <RevealOnScroll className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {personas.map((persona) => (
             <motion.div key={persona.href} variants={revealItem}>
-              <Link
-                href={persona.href}
-                className="group flex h-full flex-col rounded-xl border border-[#E5E7EB] bg-white p-6 transition-colors hover:border-brand-blue/20"
+              <motion.div
+                whileHover={{ y: -4, scale: 1.02 }}
+                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
               >
-                <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-blue/8 text-brand-blue transition-colors group-hover:bg-brand-blue/12">
-                  {persona.icon}
-                </div>
+                <Link
+                  href={persona.href}
+                  className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-[#E5E7EB] bg-white p-6 transition-all hover:border-brand-blue/20 hover:shadow-card-hover"
+                >
+                  {/* Hover gradient overlay */}
+                  <div
+                    className="absolute inset-0 rounded-xl bg-gradient-to-br to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                    style={{ backgroundImage: `linear-gradient(to bottom right, ${persona.gradientFrom}, transparent)` }}
+                    aria-hidden="true"
+                  />
 
-                <h3 className="mt-4 font-heading text-lg font-semibold text-brand-graphite">
-                  {persona.title}
-                </h3>
+                  {/* Watermark icon */}
+                  <div className="absolute -right-4 -bottom-4 opacity-[0.06]" aria-hidden="true">
+                    {persona.watermarkIcon}
+                  </div>
 
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-brand-graphite/70">
-                  {persona.description}
-                </p>
+                  {/* Content (above overlays) */}
+                  <div className="relative">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-blue/8 text-brand-blue transition-colors group-hover:bg-brand-blue/12">
+                      {persona.icon}
+                    </div>
 
-                <div className="mt-5 flex items-center gap-1.5 text-sm font-medium text-brand-blue">
-                  Learn more
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={1.5}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="transition-transform group-hover:translate-x-1"
-                  >
-                    <path d="M3.5 8h9" />
-                    <path d="M9 4.5 12.5 8 9 11.5" />
-                  </svg>
-                </div>
-              </Link>
+                    <h3 className="mt-4 font-heading text-lg font-semibold text-brand-graphite">
+                      {persona.title}
+                    </h3>
+
+                    <p className="mt-2 flex-1 text-sm leading-relaxed text-brand-graphite/70">
+                      {persona.description}
+                    </p>
+
+                    <div className="mt-5 flex items-center gap-1.5 text-sm font-medium text-brand-blue">
+                      Learn more
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth={1.5}
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="transition-transform group-hover:translate-x-1"
+                      >
+                        <path d="M3.5 8h9" />
+                        <path d="M9 4.5 12.5 8 9 11.5" />
+                      </svg>
+                    </div>
+                  </div>
+                </Link>
+              </motion.div>
             </motion.div>
           ))}
         </RevealOnScroll>

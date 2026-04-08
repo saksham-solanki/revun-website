@@ -70,7 +70,7 @@ export function PlatformHero() {
         {/* Headline */}
         <motion.h1
           variants={fadeUp}
-          className="font-display mt-8 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl"
+          className="font-heading mt-8 text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl"
           style={{ color: '#FFFFFF' }}
         >
           One <span style={{ color: '#176FEB' }}>Platform</span>. Every

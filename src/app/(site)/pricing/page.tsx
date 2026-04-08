@@ -44,7 +44,7 @@ export default function PricingPage() {
         <div className="absolute inset-0 bg-dot-grid opacity-40" aria-hidden="true" />
 
         <div className="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-          <h1 className="animate-fade-up font-display text-4xl italic text-[#0A1628] md:text-5xl lg:text-6xl">
+          <h1 className="animate-fade-up font-heading font-extrabold text-4xl text-[#0A1628] md:text-5xl lg:text-6xl">
             Simple, <span className="text-[#176FEB]">transparent</span> pricing
           </h1>
           <p className="animate-fade-up delay-150 mt-6 text-lg text-[#555860]">

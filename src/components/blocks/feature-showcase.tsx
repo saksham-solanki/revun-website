@@ -43,11 +43,55 @@ function MessageIcon({ className }: { className?: string }) {
   )
 }
 
+/* ── Decorative SVGs ─────────────────────────────────────────────────────── */
+
+function DecorativeDots({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 80 80" fill="none" stroke="#176FEB" strokeWidth={1.5}>
+      <circle cx="20" cy="20" r="4" />
+      <circle cx="60" cy="20" r="4" />
+      <circle cx="20" cy="60" r="4" />
+      <circle cx="60" cy="60" r="4" />
+      <line x1="24" y1="20" x2="56" y2="20" />
+      <line x1="24" y1="60" x2="56" y2="60" />
+      <line x1="20" y1="24" x2="20" y2="56" />
+      <line x1="60" y1="24" x2="60" y2="56" />
+    </svg>
+  )
+}
+
+function DecorativeShield({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 80 80" fill="none" stroke="#176FEB" strokeWidth={1.5}>
+      <path d="M40 10L12 22v18c0 20 28 30 28 30s28-10 28-30V22L40 10z" />
+    </svg>
+  )
+}
+
+function DecorativeBars({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 80 80" fill="none" stroke="#176FEB" strokeWidth={1.5}>
+      <rect x="10" y="50" width="14" height="20" rx="2" />
+      <rect x="33" y="32" width="14" height="38" rx="2" />
+      <rect x="56" y="14" width="14" height="56" rx="2" />
+    </svg>
+  )
+}
+
+function DecorativeBubble({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 80 80" fill="none" stroke="#176FEB" strokeWidth={1.5}>
+      <path d="M68 48a6 6 0 01-6 6H24l-12 12V18a6 6 0 016-6h44a6 6 0 016 6v30z" />
+    </svg>
+  )
+}
+
 /* ── Feature data ─────────────────────────────────────────────────────────── */
 
 const features = [
   {
     icon: WorkflowIcon,
+    decorative: DecorativeDots,
     title: 'Unified',
     keyword: 'workflows',
     description:
@@ -56,6 +100,7 @@ const features = [
   },
   {
     icon: ShieldIcon,
+    decorative: DecorativeShield,
     title: 'Automated',
     keyword: 'compliance',
     description:
@@ -64,6 +109,7 @@ const features = [
   },
   {
     icon: CreditCardIcon,
+    decorative: DecorativeBars,
     title: 'Integrated',
     keyword: 'payments',
     description:
@@ -72,6 +118,7 @@ const features = [
   },
   {
     icon: MessageIcon,
+    decorative: DecorativeBubble,
     title: 'Communications',
     keyword: 'hub',
     description:
@@ -86,28 +133,47 @@ function FeatureCard({ feature }: { feature: (typeof features)[number] }) {
   return (
     <motion.div
       variants={revealItem}
-      className={`group relative overflow-hidden rounded-xl border border-[#E5E7EB] bg-white p-8 transition-colors duration-300 hover:border-brand-blue/30 ${feature.span}`}
+      className={`group relative overflow-hidden rounded-xl border border-[#E5E7EB] bg-white p-8 hover:shadow-card-hover hover:border-brand-blue/20 transition-all duration-300 ${feature.span}`}
     >
+      {/* Grid overlay */}
+      <div
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage:
+            'linear-gradient(to right, #176FEB 1px, transparent 1px), linear-gradient(to bottom, #176FEB 1px, transparent 1px)',
+          backgroundSize: '20px 20px',
+        }}
+        aria-hidden
+      />
+
       {/* Blue accent top bar */}
       <div
         className="absolute inset-x-0 top-0 h-[2px] bg-brand-blue"
         aria-hidden
       />
 
+      {/* Decorative SVG watermark */}
+      <feature.decorative className="absolute right-4 bottom-4 w-20 h-20 opacity-[0.06]" />
+
       {/* Icon */}
-      <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-brand-blue">
+      <div className="relative mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-brand-blue">
         <feature.icon className="h-6 w-6 text-white" />
       </div>
 
       {/* Title */}
-      <h3 className="font-heading text-lg font-semibold text-brand-graphite">
+      <h3 className="relative font-heading text-lg font-semibold text-brand-graphite">
         {feature.title}{' '}
         <span className="text-brand-blue">{feature.keyword}</span>
       </h3>
 
       {/* Description */}
-      <p className="mt-3 text-sm leading-relaxed text-[#555860]">
+      <p className="relative mt-3 text-sm leading-relaxed text-[#555860]">
         {feature.description}
+      </p>
+
+      {/* Hover tooltip */}
+      <p className="relative mt-3 text-sm font-medium text-brand-blue opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        Learn more &rarr;
       </p>
     </motion.div>
   )

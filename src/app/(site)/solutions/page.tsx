@@ -153,7 +153,7 @@ export default function SolutionsPage() {
           </motion.p>
           <motion.h1
             variants={fadeUp}
-            className="font-display italic text-4xl leading-[1.1] tracking-tight text-white sm:text-5xl md:text-6xl"
+            className="font-heading font-extrabold text-4xl leading-[1.1] tracking-tight text-white sm:text-5xl md:text-6xl"
           >
             Built for How You{' '}
             <span className="text-[#176FEB]">Work</span>

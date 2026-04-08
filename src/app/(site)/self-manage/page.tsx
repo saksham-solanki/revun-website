@@ -147,7 +147,7 @@ export default function SelfManagePage() {
 
           <motion.h1
             variants={fadeUp}
-            className="font-display italic text-4xl leading-[1.1] tracking-tight text-foreground md:text-5xl"
+            className="font-heading font-extrabold text-4xl leading-[1.1] tracking-tight text-foreground md:text-5xl"
           >
             Manage your properties{' '}
             <span className="text-brand-blue">like a pro</span>
@@ -509,7 +509,7 @@ export default function SelfManagePage() {
                   <Star key={i} className="h-4 w-4 fill-brand-blue text-brand-blue" />
                 ))}
               </div>
-              <p className="font-display italic text-xl leading-relaxed text-foreground md:text-2xl">
+              <p className="font-heading font-extrabold text-xl leading-relaxed text-foreground md:text-2xl">
                 "I was paying a property manager $200/month. Revun gives me everything they did, and I actually know what is happening with my property."
               </p>
               <div className="mt-8 flex items-center gap-4">

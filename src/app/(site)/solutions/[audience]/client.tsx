@@ -110,7 +110,7 @@ export function SolutionDetailClient({
 
           <motion.h1
             variants={fadeUp}
-            className="font-display italic text-4xl leading-[1.1] tracking-tight text-white sm:text-5xl md:text-6xl"
+            className="font-heading font-extrabold text-4xl leading-[1.1] tracking-tight text-white sm:text-5xl md:text-6xl"
           >
             {data.title}
           </motion.h1>
@@ -408,7 +408,7 @@ export function SolutionDetailClient({
         <RevealOnScroll className="relative z-10 mx-auto max-w-2xl px-6 text-center">
           <motion.h2
             variants={revealItem}
-            className="font-display italic text-3xl leading-tight tracking-tight text-white sm:text-4xl md:text-5xl"
+            className="font-heading font-extrabold text-3xl leading-tight tracking-tight text-white sm:text-4xl md:text-5xl"
           >
             {data.ctaHeading}
           </motion.h2>

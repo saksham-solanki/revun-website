@@ -134,7 +134,7 @@ export default function SupportPage() {
           </motion.p>
           <motion.h1
             variants={fadeUp}
-            className="font-display italic text-4xl leading-[1.1] tracking-tight text-white sm:text-5xl"
+            className="font-heading font-extrabold text-4xl leading-[1.1] tracking-tight text-white sm:text-5xl"
           >
             How can we{' '}
             <span className="text-brand-blue-light">help?</span>

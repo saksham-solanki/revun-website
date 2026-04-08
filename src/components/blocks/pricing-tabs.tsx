@@ -3,8 +3,9 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Check } from 'lucide-react'
+import NumberFlow from '@number-flow/react'
 import { cn } from '@/lib/utils'
-import { RevealOnScroll, revealItem } from '@/components/ui/reveal-on-scroll'
+import { RevealOnScroll, revealItemBlur } from '@/components/ui/reveal-on-scroll'
 
 /* ------------------------------------------------------------------ */
 /*  Data                                                               */
@@ -112,21 +113,25 @@ const TIERS: Tier[] = [
 /*  Card                                                               */
 /* ------------------------------------------------------------------ */
 
+function parsePrice(price: string): number {
+  return parseInt(price.replace(/[^0-9]/g, ''), 10) || 0
+}
+
 function PricingCard({ tier, isAnnual }: { tier: Tier; isAnnual: boolean }) {
   const isCustom = tier.monthlyPrice === 'Custom'
-  const displayPrice = isCustom
-    ? 'Custom'
+  const numericPrice = isCustom
+    ? 0
     : isAnnual && tier.annualPrice
-      ? tier.annualPrice
-      : tier.monthlyPrice
+      ? parsePrice(tier.annualPrice)
+      : parsePrice(tier.monthlyPrice)
 
   return (
-    <motion.div variants={revealItem} className="flex">
+    <motion.div variants={revealItemBlur} className="flex">
       <div
         className={cn(
           'relative flex h-full w-full flex-col rounded-xl border border-[#D3D5DB] p-6 md:p-8',
           tier.bg,
-          tier.popular && 'border-t-4 border-t-[#176FEB]'
+          tier.popular && 'border-t-4 border-t-[#176FEB] ring-2 ring-brand-blue/20'
         )}
       >
         {/* Popular badge */}
@@ -146,9 +151,11 @@ function PricingCard({ tier, isAnnual }: { tier: Tier; isAnnual: boolean }) {
               <span className="font-heading text-4xl font-bold text-[#0A1628]">Custom</span>
             ) : (
               <>
-                <span className="font-heading text-4xl font-bold text-[#0A1628]">
-                  {displayPrice}
-                </span>
+                <span className="font-heading text-4xl font-bold text-[#0A1628]">$</span>
+                <NumberFlow
+                  value={numericPrice}
+                  className="font-heading text-4xl font-bold text-[#0A1628]"
+                />
                 {tier.unit && (
                   <span className="text-sm text-[#555860]">{tier.unit}</span>
                 )}
@@ -181,7 +188,7 @@ function PricingCard({ tier, isAnnual }: { tier: Tier; isAnnual: boolean }) {
           className={cn(
             'inline-flex h-11 items-center justify-center rounded-lg px-6 text-sm font-semibold transition-colors',
             tier.popular
-              ? 'bg-[#176FEB] text-white hover:bg-[#1260CC]'
+              ? 'bg-[#176FEB] text-white hover:bg-[#1260CC] shadow-cta-glow'
               : 'border border-[#D3D5DB] bg-white text-[#2C2E33] hover:bg-[#F5F6F8]'
           )}
         >
@@ -218,39 +225,40 @@ export function PricingTabs() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Billing toggle */}
         <div className="flex items-center justify-center gap-3">
-          <span
-            className={cn(
-              'text-sm font-medium transition-colors',
-              !isAnnual ? 'text-[#0A1628]' : 'text-[#555860]'
-            )}
-          >
-            Monthly
-          </span>
-          <button
-            type="button"
-            role="switch"
-            aria-checked={isAnnual}
-            onClick={() => setIsAnnual(!isAnnual)}
-            className={cn(
-              'relative inline-flex h-7 w-12 shrink-0 cursor-pointer items-center rounded-full border border-[#D3D5DB] transition-colors',
-              isAnnual ? 'bg-[#176FEB]' : 'bg-[#F5F6F8]'
-            )}
-          >
-            <span
-              className={cn(
-                'pointer-events-none inline-block size-5 rounded-full bg-white transition-transform',
-                isAnnual ? 'translate-x-6' : 'translate-x-1'
+          <div className="relative inline-flex rounded-lg border border-[#D3D5DB] bg-[#F5F6F8] p-1">
+            <button
+              type="button"
+              onClick={() => setIsAnnual(false)}
+              className="relative z-10 rounded-lg px-4 py-1.5 text-sm font-medium transition-colors"
+            >
+              {!isAnnual && (
+                <motion.span
+                  layoutId="pricing-pill"
+                  className="absolute inset-0 rounded-lg bg-white shadow-sm"
+                  transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+                />
               )}
-            />
-          </button>
-          <span
-            className={cn(
-              'text-sm font-medium transition-colors',
-              isAnnual ? 'text-[#0A1628]' : 'text-[#555860]'
-            )}
-          >
-            Annual
-          </span>
+              <span className={cn('relative z-10', !isAnnual ? 'text-[#0A1628]' : 'text-[#555860]')}>
+                Monthly
+              </span>
+            </button>
+            <button
+              type="button"
+              onClick={() => setIsAnnual(true)}
+              className="relative z-10 rounded-lg px-4 py-1.5 text-sm font-medium transition-colors"
+            >
+              {isAnnual && (
+                <motion.span
+                  layoutId="pricing-pill"
+                  className="absolute inset-0 rounded-lg bg-white shadow-sm"
+                  transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+                />
+              )}
+              <span className={cn('relative z-10', isAnnual ? 'text-[#0A1628]' : 'text-[#555860]')}>
+                Annual
+              </span>
+            </button>
+          </div>
           <span className="ml-1 rounded-full bg-[#E8F2FE] px-2.5 py-0.5 text-xs font-semibold text-[#176FEB]">
             Save 20%
           </span>

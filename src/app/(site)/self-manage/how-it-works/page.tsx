@@ -111,7 +111,7 @@ export default function SelfManageHowItWorksPage() {
           </motion.p>
           <motion.h1
             variants={fadeUp}
-            className="font-display italic text-4xl leading-[1.1] tracking-tight text-foreground md:text-5xl"
+            className="font-heading font-extrabold text-4xl leading-[1.1] tracking-tight text-foreground md:text-5xl"
           >
             From signup to{' '}
             <span className="text-brand-blue">fully managed</span>

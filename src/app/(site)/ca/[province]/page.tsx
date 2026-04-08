@@ -419,7 +419,7 @@ export default async function ProvincePage({ params }: Props) {
             <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-brand-blue-light">
               Canada / {data.name}
             </p>
-            <h1 className="font-display text-4xl italic text-white sm:text-5xl lg:text-6xl">
+            <h1 className="font-heading font-extrabold text-4xl text-white sm:text-5xl lg:text-6xl">
               Property Management in{' '}
               <span className="text-brand-blue-light">{data.name}</span>
             </h1>
@@ -559,7 +559,7 @@ export default async function ProvincePage({ params }: Props) {
       <section className="bg-brand-navy py-24 md:py-32">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <RevealOnScroll>
-            <h2 className="font-display text-4xl italic tracking-tight text-white md:text-5xl">
+            <h2 className="font-heading font-extrabold text-4xl tracking-tight text-white md:text-5xl">
               Ready to manage {data.name} properties the right way?
             </h2>
             <p className="mx-auto mt-5 max-w-lg text-lg text-[#D3D5DB]">
