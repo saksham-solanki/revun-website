@@ -3,11 +3,16 @@
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ArrowRight, Check, X, Minus, ChevronDown } from 'lucide-react'
-import { RevealOnScroll, revealItem } from '@/components/ui/reveal-on-scroll'
+import { RevealOnScroll } from '@/components/ui/reveal-on-scroll'
 import type { CompetitorData } from './page'
 
+const heroStagger = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.15 } },
+}
+
 const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 10 },
   visible: {
     opacity: 1,
     y: 0,
@@ -30,18 +35,32 @@ export function CompareDetailClient({ data }: { data: CompetitorData }) {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden bg-[#0A1628]">
-        <div className="relative mx-auto max-w-7xl px-6 py-24 text-center sm:py-32 lg:px-8">
-          <span className="mb-4 inline-block rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#176FEB]">
+      <section className="relative overflow-hidden bg-[#F5F6F8]">
+        <motion.div
+          className="relative mx-auto max-w-7xl px-6 py-16 text-center sm:py-16 lg:px-8"
+          variants={heroStagger}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.span
+            variants={fadeUp}
+            className="mb-4 inline-block rounded-full border border-[#E5E7EB] bg-white px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#176FEB]"
+          >
             {data.category}
-          </span>
-          <h1 className="font-heading text-4xl italic text-white sm:text-5xl lg:text-6xl">
+          </motion.span>
+          <motion.h1
+            variants={fadeUp}
+            className="font-display text-4xl font-normal text-[#0A1628] sm:text-5xl lg:text-6xl"
+          >
             Revun vs {data.name}
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-white/60">
+          </motion.h1>
+          <motion.p
+            variants={fadeUp}
+            className="mx-auto mt-6 max-w-2xl text-lg text-[#555860]"
+          >
             {data.description}
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
       </section>
 
       {/* ── TL;DR Box ── */}
@@ -58,7 +77,7 @@ export function CompareDetailClient({ data }: { data: CompetitorData }) {
                 </h2>
                 <ul className="space-y-3">
                   {data.tldr.map((point, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm leading-relaxed text-[#2C2E33]">
+                    <li key={point} className="flex items-start gap-3 text-sm leading-relaxed text-[#2C2E33]">
                       <span className="mt-1 flex size-5 shrink-0 items-center justify-center rounded-full bg-[#176FEB] text-[10px] font-bold text-white">
                         {i + 1}
                       </span>
@@ -73,7 +92,7 @@ export function CompareDetailClient({ data }: { data: CompetitorData }) {
       )}
 
       {/* ── Quick Comparison Cards ── */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-14">
         <div className="mx-auto max-w-5xl px-6 lg:px-8">
           <RevealOnScroll stagger={0.1}>
             <div className="grid gap-6 md:grid-cols-2">
@@ -150,10 +169,10 @@ export function CompareDetailClient({ data }: { data: CompetitorData }) {
       </section>
 
       {/* ── Feature Comparison Table ── */}
-      <section className="bg-[#F5F6F8] py-20">
+      <section className="bg-[#F5F6F8] py-14">
         <div className="mx-auto max-w-5xl px-6 lg:px-8">
           <RevealOnScroll>
-            <motion.div variants={fadeUp} className="mb-12 text-center">
+            <motion.div variants={fadeUp} className="mb-8 text-center">
               <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#176FEB]">
                 Feature Comparison
               </p>
@@ -202,7 +221,7 @@ export function CompareDetailClient({ data }: { data: CompetitorData }) {
       </section>
 
       {/* ── Pricing Comparison ── */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-14">
         <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
           <RevealOnScroll>
             <motion.div variants={fadeUp}>
@@ -238,10 +257,10 @@ export function CompareDetailClient({ data }: { data: CompetitorData }) {
       </section>
 
       {/* ── Why Teams Choose Revun ── */}
-      <section className="bg-[#F5F6F8] py-20">
+      <section className="bg-[#F5F6F8] py-14">
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <RevealOnScroll>
-            <motion.div variants={fadeUp} className="mb-12 text-center">
+            <motion.div variants={fadeUp} className="mb-8 text-center">
               <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#176FEB]">
                 The Revun Advantage
               </p>
@@ -275,7 +294,7 @@ export function CompareDetailClient({ data }: { data: CompetitorData }) {
 
       {/* ── FAQ ── */}
       {data.faq && data.faq.length > 0 && (
-        <section className="bg-white py-20">
+        <section className="bg-white py-14">
           <div className="mx-auto max-w-3xl px-6 lg:px-8">
             <RevealOnScroll>
               <motion.div variants={fadeUp} className="mb-10 text-center">
@@ -306,14 +325,26 @@ export function CompareDetailClient({ data }: { data: CompetitorData }) {
       )}
 
       {/* ── CTA ── */}
-      <section className="relative overflow-hidden bg-[#0A1628] py-24 md:py-32">
+      <section className="relative overflow-hidden bg-[#F5F6F8] py-12 md:py-12">
+        <div className="absolute inset-0" aria-hidden>
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage:
+                'radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px)',
+              backgroundSize: '24px 24px',
+            }}
+          />
+          <div className="absolute left-[20%] top-[30%] h-[400px] w-[400px] rounded-full bg-[radial-gradient(circle,rgba(23,111,235,0.18)_0%,transparent_70%)] blur-3xl" />
+          <div className="absolute right-[15%] bottom-[20%] h-[350px] w-[350px] rounded-full bg-[radial-gradient(circle,rgba(23,111,235,0.1)_0%,transparent_70%)] blur-3xl" />
+        </div>
         <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
           <RevealOnScroll>
             <motion.div variants={fadeUp}>
-              <h2 className="font-heading text-4xl italic tracking-tight text-white md:text-5xl">
+              <h2 className="font-heading text-3xl font-bold tracking-tight text-[#2C2E33] md:text-4xl">
                 Ready to switch?
               </h2>
-              <p className="mx-auto mt-5 max-w-lg text-lg text-white/60">
+              <p className="mx-auto mt-5 max-w-lg text-lg text-[#555860]">
                 See why property managers are choosing Revun over {data.name}. Start free or book a personalized demo.
               </p>
               <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
@@ -326,7 +357,7 @@ export function CompareDetailClient({ data }: { data: CompetitorData }) {
                 </Link>
                 <Link
                   href="/contact/"
-                  className="inline-flex h-12 items-center justify-center rounded-xl border border-white/20 px-8 text-base font-semibold text-white transition-colors hover:bg-white/10"
+                  className="inline-flex h-12 items-center justify-center rounded-xl border border-[#E5E7EB] px-8 text-base font-semibold text-[#0A1628] transition-colors hover:bg-white"
                 >
                   Book a Demo
                 </Link>

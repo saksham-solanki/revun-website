@@ -14,7 +14,9 @@ import {
 } from 'lucide-react'
 import { RevealOnScroll, revealItem } from '@/components/ui/reveal-on-scroll'
 import { PlatformHero } from '@/components/blocks/platform-hero'
-import { buildCanonicalUrl } from '@/lib/utils'
+import { PlatformModules } from '@/components/blocks/platform-modules'
+import { buildCanonicalUrl, sanitizeJsonLd } from '@/lib/utils'
+import { buildSoftwareApplicationSchema, buildBreadcrumbSchema, buildHowToSchema } from '@/lib/schema-builders'
 
 export const metadata: Metadata = {
   title: 'Platform',
@@ -126,51 +128,46 @@ const integrations = [
 export default function PlatformPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: sanitizeJsonLd(buildSoftwareApplicationSchema()),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: sanitizeJsonLd(buildBreadcrumbSchema([
+            { name: 'Home', url: 'https://revun.com/' },
+            { name: 'Platform', url: 'https://revun.com/platform/' },
+          ])),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: sanitizeJsonLd(buildHowToSchema({
+            name: 'How to Get Started with Revun Property Management',
+            description: 'Set up your property management account in three simple steps.',
+            steps: [
+              { name: 'Sign Up', text: 'Create your account in under 2 minutes. No credit card required for Free plan.' },
+              { name: 'Connect Properties', text: 'Add your properties, import tenant data, and connect your existing tools.' },
+              { name: 'Go Live', text: 'Start managing. Leasing, payments, maintenance, and reporting from day one.' },
+            ],
+          })),
+        }}
+      />
+
       {/* ── Hero ── */}
       <PlatformHero />
 
-      {/* ── Core Modules (Bento Grid) ── */}
-      <section className="bg-white py-24 md:py-32">
-        <div className="mx-auto max-w-6xl px-6">
-          <RevealOnScroll className="mb-16 text-center" stagger={0.12}>
-            <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#176FEB]">
-              Core Modules
-            </p>
-            <h2 className="font-heading text-3xl font-bold text-[#2C2E33] md:text-4xl">
-              Everything your <span className="text-[#176FEB]">operation</span> needs
-            </h2>
-          </RevealOnScroll>
-
-          <RevealOnScroll stagger={0.08}>
-            <div className="grid gap-5 md:grid-cols-3">
-              {modules.map((m) => {
-                const Icon = m.icon
-                return (
-                  <div
-                    key={m.title}
-                    className={`rounded-2xl border border-[#D3D5DB] bg-white p-8 transition hover:border-[#176FEB]/40 ${m.accent ? 'border-t-4 border-t-[#176FEB]' : ''} ${m.span}`}
-                  >
-                    <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-[#E8F2FE]">
-                      <Icon className="h-6 w-6 text-[#176FEB]" />
-                    </div>
-                    <h3 className="mb-2 font-heading text-lg font-bold text-[#2C2E33]">
-                      {m.title}
-                    </h3>
-                    <p className="text-sm leading-relaxed text-[#555860]">
-                      {m.description}
-                    </p>
-                  </div>
-                )
-              })}
-            </div>
-          </RevealOnScroll>
-        </div>
-      </section>
+      {/* ── Core Modules ── */}
+      <PlatformModules />
 
       {/* ── How It Works ── */}
-      <section className="bg-[#F5F6F8] py-24 md:py-32">
+      <section className="bg-[#F5F6F8] py-14">
         <div className="mx-auto max-w-6xl px-6">
-          <RevealOnScroll className="mb-16 text-center" stagger={0.12}>
+          <RevealOnScroll className="mb-10 text-center" stagger={0.12}>
             <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#176FEB]">
               How It Works
             </p>
@@ -186,7 +183,7 @@ export default function PlatformPage() {
                 return (
                   <div
                     key={s.step}
-                    className="rounded-2xl border border-[#D3D5DB] bg-white p-8"
+                    className="rounded-2xl border border-[#E5E7EB] bg-white p-8 hover:border-[#176FEB]/40"
                   >
                     <span className="mb-4 block font-mono text-sm font-semibold text-[#176FEB]">
                       Step {s.step}
@@ -209,9 +206,9 @@ export default function PlatformPage() {
       </section>
 
       {/* ── Integrations ── */}
-      <section className="bg-white py-24 md:py-32">
+      <section className="bg-white py-14">
         <div className="mx-auto max-w-6xl px-6">
-          <RevealOnScroll className="mb-16 text-center" stagger={0.12}>
+          <RevealOnScroll className="mb-10 text-center" stagger={0.12}>
             <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#176FEB]">
               Ecosystem
             </p>
@@ -229,7 +226,7 @@ export default function PlatformPage() {
               {integrations.map((name) => (
                 <div
                   key={name}
-                  className="flex h-16 items-center justify-center rounded-xl border border-[#D3D5DB] bg-white text-sm font-medium text-[#555860] transition hover:border-[#176FEB]/40"
+                  className="flex h-16 items-center justify-center rounded-xl border border-[#E5E7EB] bg-white text-sm font-medium text-[#555860] hover:border-[#176FEB]/40 hover:text-[#176FEB]"
                 >
                   {name}
                 </div>
@@ -250,13 +247,13 @@ export default function PlatformPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="bg-[#0A1628] py-24 md:py-32">
+      <section className="bg-[#F5F6F8] py-14">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <RevealOnScroll stagger={0.12}>
-            <h2 className="font-heading text-4xl font-extrabold tracking-tight text-white md:text-5xl">
+            <h2 className="font-heading text-4xl font-extrabold tracking-tight text-[#0A1628] md:text-5xl">
               See the full <span className="text-[#176FEB]">platform</span> in action
             </h2>
-            <p className="mx-auto mt-5 max-w-lg text-lg text-[#94A3B8]">
+            <p className="mx-auto mt-5 max-w-lg text-lg text-[#555860]">
               Whether you manage 10 units or 10,000, Revun scales with your
               operation. Get a walkthrough from our team.
             </p>
@@ -269,7 +266,7 @@ export default function PlatformPage() {
               </Link>
               <Link
                 href="/signup/"
-                className="inline-flex h-12 items-center justify-center rounded-xl border border-white/25 px-8 text-base font-semibold text-white transition-colors hover:bg-white/10"
+                className="inline-flex h-12 items-center justify-center rounded-xl border border-[#E5E7EB] px-8 text-base font-semibold text-[#0A1628] transition-colors hover:bg-white"
               >
                 Start Free
               </Link>

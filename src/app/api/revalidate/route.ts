@@ -9,13 +9,13 @@ export async function POST(request: NextRequest) {
 
   try {
     const body = await request.json()
-    const type = body?._type
+    const type = typeof body?._type === 'string' ? body._type.replace(/[^a-zA-Z0-9._-]/g, '') : null
 
     if (type) {
-      revalidateTag(type, 'default')
+      revalidateTag(type, 'max')
     }
 
-    return NextResponse.json({ revalidated: true, type })
+    return NextResponse.json({ revalidated: true, type: type || null })
   } catch (err) {
     console.error('Revalidation error:', err)
     return NextResponse.json({ message: 'Error revalidating' }, { status: 500 })

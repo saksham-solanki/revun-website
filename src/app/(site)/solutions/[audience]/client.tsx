@@ -73,51 +73,37 @@ const fadeUp = {
 
 export function SolutionDetailClient({
   data,
-  slug,
 }: {
   data: SolutionContent
-  slug: string
+  slug?: string
 }) {
   return (
     <>
       {/* ────────────────────── HERO ────────────────────── */}
-      <section className="relative overflow-hidden bg-[#0A1628]">
-        <div className="absolute inset-0" aria-hidden>
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage:
-                'radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px)',
-              backgroundSize: '24px 24px',
-            }}
-          />
-          <div className="absolute -left-[10%] top-[20%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle,rgba(23,111,235,0.2)_0%,transparent_70%)] blur-3xl" />
-          <div className="absolute right-[5%] bottom-[10%] h-[400px] w-[400px] rounded-full bg-[radial-gradient(circle,rgba(23,111,235,0.1)_0%,transparent_70%)] blur-3xl" />
-        </div>
-
+      <section className="relative overflow-hidden bg-[#F5F6F8]">
         <motion.div
-          className="relative z-10 mx-auto max-w-4xl px-6 pt-36 pb-28 text-center lg:pt-40 lg:pb-32"
+          className="relative z-10 mx-auto max-w-4xl px-6 py-16 text-center"
           variants={heroStagger}
           initial="hidden"
           animate="visible"
         >
           <motion.p
             variants={fadeUp}
-            className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm font-medium text-[#E8F2FE] backdrop-blur-sm"
+            className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#E5E7EB] bg-white px-4 py-1.5 text-sm font-medium text-[#555860]"
           >
             {data.heroEyebrow}
           </motion.p>
 
           <motion.h1
             variants={fadeUp}
-            className="font-heading font-extrabold text-4xl leading-[1.1] tracking-tight text-white sm:text-5xl md:text-6xl"
+            className="font-display text-4xl font-normal leading-[1.1] tracking-tight text-[#0A1628] sm:text-5xl md:text-6xl"
           >
             {data.title}
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
-            className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[#94A3B8]"
+            className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[#555860]"
           >
             {data.subtitle}
           </motion.p>
@@ -134,7 +120,7 @@ export function SolutionDetailClient({
             </Link>
             <Link
               href="/pricing/"
-              className="inline-flex h-12 items-center justify-center rounded-xl border border-white/25 px-8 text-base font-semibold text-white transition-colors duration-150 hover:bg-white/10"
+              className="inline-flex h-12 items-center justify-center rounded-xl border border-[#E5E7EB] px-8 text-base font-semibold text-[#0A1628] transition-colors duration-150 hover:border-[#176FEB]/40 hover:bg-white"
             >
               View Pricing
             </Link>
@@ -143,7 +129,7 @@ export function SolutionDetailClient({
       </section>
 
       {/* ────────────────────── PROBLEM ────────────────────── */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-12">
         <div className="mx-auto max-w-6xl px-6">
           <RevealOnScroll className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
             <div>
@@ -170,7 +156,7 @@ export function SolutionDetailClient({
             <motion.ul variants={revealItemRight} className="space-y-4">
               {data.problemBullets.map((bullet, i) => (
                 <li
-                  key={i}
+                  key={bullet}
                   className="flex items-start gap-3 rounded-xl border border-[#D3D5DB] bg-[#F5F6F8] p-4"
                 >
                   <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#E8F2FE] text-[#176FEB]">
@@ -187,9 +173,9 @@ export function SolutionDetailClient({
       </section>
 
       {/* ────────────────────── FEATURES ────────────────────── */}
-      <section className="bg-[#F5F6F8] py-24">
+      <section className="bg-[#F5F6F8] py-12">
         <div className="mx-auto max-w-6xl px-6">
-          <RevealOnScroll className="mb-16 text-center">
+          <RevealOnScroll className="mb-10 text-center">
             <motion.p
               variants={revealItem}
               className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#176FEB]"
@@ -205,11 +191,11 @@ export function SolutionDetailClient({
           </RevealOnScroll>
 
           <RevealOnScroll stagger={0.08} className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {data.features.map((f, i) => {
+            {data.features.map((f) => {
               const Icon = iconMap[f.iconName] || CheckCircle2
               return (
                 <motion.div
-                  key={i}
+                  key={f.title}
                   variants={revealItem}
                   className="rounded-2xl border border-[#D3D5DB] bg-white p-7 transition-colors duration-150 hover:border-[#176FEB]/40"
                 >
@@ -230,9 +216,9 @@ export function SolutionDetailClient({
       </section>
 
       {/* ────────────────────── HOW IT WORKS ────────────────────── */}
-      <section className="bg-white py-24">
+      <section className="bg-white py-12">
         <div className="mx-auto max-w-5xl px-6">
-          <RevealOnScroll className="mb-16 text-center">
+          <RevealOnScroll className="mb-10 text-center">
             <motion.p
               variants={revealItem}
               className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#176FEB]"
@@ -254,14 +240,14 @@ export function SolutionDetailClient({
             />
 
             <div className="space-y-8 lg:space-y-12">
-              {data.steps.map((step, i) => (
+              {data.steps.map((step) => (
                 <motion.div
-                  key={i}
+                  key={step.number}
                   variants={revealItem}
                   className="flex gap-6 lg:gap-8"
                 >
                   <div className="flex shrink-0 flex-col items-center">
-                    <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#0A1628] text-white">
+                    <div className="relative z-10 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#176FEB]/10 text-[#176FEB]">
                       <span className="font-heading text-lg font-bold">{step.number}</span>
                     </div>
                   </div>
@@ -283,7 +269,7 @@ export function SolutionDetailClient({
 
       {/* ────────────────────── REPLACES ────────────────────── */}
       {data.replaces.length > 0 && (
-        <section className="bg-[#F5F6F8] py-24">
+        <section className="bg-[#F5F6F8] py-12">
           <div className="mx-auto max-w-4xl px-6">
             <RevealOnScroll className="text-center">
               <motion.h2
@@ -301,9 +287,9 @@ export function SolutionDetailClient({
             </RevealOnScroll>
 
             <RevealOnScroll stagger={0.06} className="mt-12 flex flex-wrap items-center justify-center gap-3">
-              {data.replaces.map((tool, i) => (
+              {data.replaces.map((tool) => (
                 <motion.span
-                  key={i}
+                  key={tool}
                   variants={revealItem}
                   className="inline-flex items-center gap-2 rounded-full border border-[#D3D5DB] bg-white px-5 py-2.5 text-sm font-medium text-[#555860] line-through decoration-[#176FEB]/60 decoration-2"
                 >
@@ -317,7 +303,7 @@ export function SolutionDetailClient({
       )}
 
       {/* ────────────────────── PRICING PREVIEW ────────────────────── */}
-      <section className="bg-[#F5F6F8] py-24">
+      <section className="bg-white py-12">
         <RevealOnScroll className="mx-auto max-w-2xl px-6 text-center">
           <motion.p
             variants={revealItem}
@@ -351,9 +337,9 @@ export function SolutionDetailClient({
 
       {/* ────────────────────── RELATED SOLUTIONS ────────────────────── */}
       {data.relatedSolutions.length > 0 && (
-        <section className="bg-white py-24">
+        <section className="bg-white py-12">
           <div className="mx-auto max-w-6xl px-6">
-            <RevealOnScroll className="mb-12 text-center">
+            <RevealOnScroll className="mb-8 text-center">
               <motion.p
                 variants={revealItem}
                 className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#176FEB]"
@@ -391,7 +377,7 @@ export function SolutionDetailClient({
       )}
 
       {/* ────────────────────── FINAL CTA ────────────────────── */}
-      <section className="relative overflow-hidden bg-[#0A1628] py-28">
+      <section className="relative overflow-hidden bg-[#F5F6F8] py-12">
         <div className="absolute inset-0" aria-hidden>
           <div
             className="absolute inset-0"
@@ -408,13 +394,13 @@ export function SolutionDetailClient({
         <RevealOnScroll className="relative z-10 mx-auto max-w-2xl px-6 text-center">
           <motion.h2
             variants={revealItem}
-            className="font-heading font-extrabold text-3xl leading-tight tracking-tight text-white sm:text-4xl md:text-5xl"
+            className="font-heading font-extrabold text-3xl leading-tight tracking-tight text-[#0A1628] sm:text-4xl md:text-5xl"
           >
             {data.ctaHeading}
           </motion.h2>
           <motion.p
             variants={revealItem}
-            className="mx-auto mt-5 max-w-lg text-lg leading-relaxed text-[#94A3B8]"
+            className="mx-auto mt-5 max-w-lg text-lg leading-relaxed text-[#555860]"
           >
             {data.ctaBody}
           </motion.p>
@@ -430,7 +416,7 @@ export function SolutionDetailClient({
             </Link>
             <Link
               href="/signup/"
-              className="inline-flex h-12 items-center justify-center rounded-xl border border-white/25 px-8 text-base font-semibold text-white transition-colors duration-150 hover:bg-white/10"
+              className="inline-flex h-12 items-center justify-center rounded-xl border border-[#E5E7EB] px-8 text-base font-semibold text-[#0A1628] transition-colors duration-150 hover:bg-white"
             >
               Start Free
             </Link>

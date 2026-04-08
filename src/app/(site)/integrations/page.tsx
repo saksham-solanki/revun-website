@@ -11,7 +11,9 @@ const filterCategories = [
   'Accounting',
   'CRM',
   'Communications',
+  'Documents',
   'Identity',
+  'Listings',
   'Payments',
   'Productivity',
 ] as const
@@ -60,6 +62,13 @@ const integrations: Integration[] = [
     status: 'Coming Soon',
     description: 'Full ERP integration for large-scale property operations.',
   },
+  {
+    name: 'Zoho Books',
+    slug: 'zoho-books',
+    category: 'Accounting',
+    status: 'Available',
+    description: 'Cloud accounting for small business property management.',
+  },
   // CRM
   {
     name: 'Salesforce',
@@ -82,6 +91,13 @@ const integrations: Integration[] = [
     category: 'CRM',
     status: 'Beta',
     description: 'Track brokerage deals and pipeline stages in Pipedrive.',
+  },
+  {
+    name: 'Zoho CRM',
+    slug: 'zoho-crm',
+    category: 'CRM',
+    status: 'Coming Soon',
+    description: 'Customer relationship management for property teams.',
   },
   // Communications
   {
@@ -113,6 +129,71 @@ const integrations: Integration[] = [
     status: 'Available',
     description: 'Shared phone numbers and SMS for leasing and maintenance.',
   },
+  {
+    name: 'Aircall',
+    slug: 'aircall',
+    category: 'Communications',
+    status: 'Available',
+    description: 'Cloud-based phone system for property management teams.',
+  },
+  {
+    name: 'Zoom Phone',
+    slug: 'zoom-phone',
+    category: 'Communications',
+    status: 'Coming Soon',
+    description: 'Business phone with video for property teams.',
+  },
+  {
+    name: 'Intercom',
+    slug: 'intercom',
+    category: 'Communications',
+    status: 'Available',
+    description: 'Customer messaging platform for tenant engagement.',
+  },
+  {
+    name: 'Zendesk',
+    slug: 'zendesk',
+    category: 'Communications',
+    status: 'Available',
+    description: 'Customer service platform for tenant support.',
+  },
+  {
+    name: 'Freshdesk',
+    slug: 'freshdesk',
+    category: 'Communications',
+    status: 'Coming Soon',
+    description: 'Help desk and support for property management.',
+  },
+  {
+    name: 'Zoho Desk',
+    slug: 'zoho-desk',
+    category: 'Communications',
+    status: 'Coming Soon',
+    description: 'Help desk software for tenant support.',
+  },
+  // Documents
+  {
+    name: 'DocuSign',
+    slug: 'docusign',
+    category: 'Documents',
+    status: 'Available',
+    description: 'Electronic lease signing and document management.',
+    featured: true,
+  },
+  {
+    name: 'Dropbox Sign',
+    slug: 'dropbox-sign',
+    category: 'Documents',
+    status: 'Coming Soon',
+    description: 'eSignature solution for lease and property documents.',
+  },
+  {
+    name: 'Adobe Acrobat Sign',
+    slug: 'adobe-sign',
+    category: 'Documents',
+    status: 'Coming Soon',
+    description: 'PDF signatures for leases and compliance documents.',
+  },
   // Identity
   {
     name: 'Persona',
@@ -134,6 +215,42 @@ const integrations: Integration[] = [
     category: 'Identity',
     status: 'Coming Soon',
     description: 'Canadian credit bureau integration for tenant screening.',
+  },
+  {
+    name: 'Trustii',
+    slug: 'trustii',
+    category: 'Identity',
+    status: 'Available',
+    description: 'Canadian tenant verification for property managers.',
+  },
+  {
+    name: 'Flinks',
+    slug: 'flinks',
+    category: 'Identity',
+    status: 'Available',
+    description: 'Financial data connectivity for tenant screening.',
+  },
+  {
+    name: 'SingleKey',
+    slug: 'singlekey-integration',
+    category: 'Identity',
+    status: 'Available',
+    description: 'Canadian tenant screening and rent guarantee.',
+  },
+  // Listings
+  {
+    name: 'BrokerBay',
+    slug: 'brokerbay',
+    category: 'Listings',
+    status: 'Coming Soon',
+    description: 'Showing management for property listings.',
+  },
+  {
+    name: 'MLS/IDX',
+    slug: 'mls-idx',
+    category: 'Listings',
+    status: 'Coming Soon',
+    description: 'Listing data connectors for property syndication.',
   },
   // Payments
   {
@@ -159,12 +276,25 @@ const integrations: Integration[] = [
     description: 'Canadian e-Transfer for rent collection and deposits.',
   },
   {
-    name: 'DocuSign',
-    slug: 'docusign',
+    name: 'Klarna',
+    slug: 'klarna',
     category: 'Payments',
-    status: 'Available',
-    description: 'Electronic lease signing and document management.',
-    featured: true,
+    status: 'Coming Soon',
+    description: 'Buy now pay later for property deposits.',
+  },
+  {
+    name: 'Affirm',
+    slug: 'affirm',
+    category: 'Payments',
+    status: 'Coming Soon',
+    description: 'Pay over time for large property expenses.',
+  },
+  {
+    name: 'PayBright',
+    slug: 'paybright',
+    category: 'Payments',
+    status: 'Coming Soon',
+    description: 'Canadian buy now pay later for property payments.',
   },
   // Productivity
   {
@@ -178,7 +308,7 @@ const integrations: Integration[] = [
     name: 'Microsoft 365',
     slug: 'microsoft-365',
     category: 'Productivity',
-    status: 'Available',
+    status: 'Coming Soon',
     description: 'Outlook calendar, OneDrive, and Teams integration.',
   },
   {
@@ -196,6 +326,34 @@ const integrations: Integration[] = [
     description: 'Connect Revun to 5,000+ apps with custom automations.',
     featured: true,
   },
+  {
+    name: 'Calendly',
+    slug: 'calendly',
+    category: 'Productivity',
+    status: 'Available',
+    description: 'Scheduling automation for property showings and meetings.',
+  },
+  {
+    name: 'Google Calendar',
+    slug: 'google-calendar',
+    category: 'Productivity',
+    status: 'Available',
+    description: 'Calendar sync for showings and inspections.',
+  },
+  {
+    name: 'Google Maps',
+    slug: 'google-maps',
+    category: 'Productivity',
+    status: 'Available',
+    description: 'Location services for property mapping and directions.',
+  },
+  {
+    name: 'Mapbox',
+    slug: 'mapbox',
+    category: 'Productivity',
+    status: 'Available',
+    description: 'Custom mapping for property portfolios.',
+  },
 ]
 
 const statusColors: Record<Status, string> = {
@@ -210,7 +368,7 @@ function IntegrationCard({ integration }: { integration: Integration }) {
   return (
     <Link
       href={`/integrations/${integration.slug}/`}
-      className="group flex flex-col justify-between rounded-2xl border border-[#D3D5DB] bg-white p-6 transition-colors duration-150 hover:border-[#176FEB]"
+      className="group flex flex-col justify-between rounded-2xl border border-[#D3D5DB] bg-white p-6 transition-all duration-200 hover:border-[#176FEB] hover:shadow-md"
     >
       <div>
         <div className="flex items-start justify-between">
@@ -259,19 +417,21 @@ export default function IntegrationsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-[#0A1628]">
-        <div className="relative mx-auto max-w-7xl px-6 py-24 text-center sm:py-32 lg:px-8">
-          <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-white/70">
-            <Plug className="size-4" />
-            22+ integrations
-          </div>
-          <h1 className="font-heading text-4xl font-bold text-white sm:text-5xl lg:text-6xl">
-            Connect Revun with Your Favorite{' '}
-            <span className="text-[#176FEB]">Tools</span>
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-white/60">
-            Revun connects to the tools your business already runs on, from accounting and payments to communications and identity verification.
-          </p>
+      <section className="relative overflow-hidden bg-[#F5F6F8]">
+        <div className="relative mx-auto max-w-7xl px-6 py-16 text-center sm:py-16 lg:px-8">
+          <RevealOnScroll>
+            <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-[#E5E7EB] bg-white px-4 py-1.5 text-sm text-[#555860]">
+              <Plug className="size-4" />
+              45+ integrations
+            </div>
+            <h1 className="font-display text-4xl font-normal text-[#0A1628] sm:text-5xl lg:text-6xl">
+              Connect Revun with Your Favorite{' '}
+              <span className="text-[#176FEB]">Tools</span>
+            </h1>
+            <p className="mx-auto mt-6 max-w-2xl text-lg text-[#555860]">
+              Revun connects to the tools your business already runs on, from accounting and payments to communications and identity verification.
+            </p>
+          </RevealOnScroll>
         </div>
       </section>
 
@@ -314,7 +474,7 @@ export default function IntegrationsPage() {
 
       {/* Featured Integrations */}
       {active === 'All' && !search && (
-        <section className="bg-[#F5F6F8] py-16">
+        <section className="bg-[#F5F6F8] py-12">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <h2 className="font-heading text-2xl font-bold text-[#2C2E33] sm:text-3xl">
               Featured <span className="text-[#176FEB]">Integrations</span>
@@ -336,7 +496,7 @@ export default function IntegrationsPage() {
       )}
 
       {/* Full Directory Grid */}
-      <section className="bg-white py-16">
+      <section className="bg-white py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <h2 className="font-heading text-2xl font-bold text-[#2C2E33] sm:text-3xl">
             All <span className="text-[#176FEB]">Integrations</span>
@@ -367,7 +527,7 @@ export default function IntegrationsPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-14">
         <div className="mx-auto max-w-3xl border-t border-[#D3D5DB] px-6 pt-20 text-center lg:px-8">
           <h2 className="font-heading text-2xl font-bold text-[#2C2E33] sm:text-3xl">
             Need a Custom <span className="text-[#176FEB]">Integration</span>?

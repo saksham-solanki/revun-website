@@ -1,5 +1,3 @@
-'use client'
-
 interface ScoreRingProps {
   value: number
   size?: number

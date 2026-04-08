@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { ArrowRight, Check, Plug, Zap } from 'lucide-react'
 import { buildCanonicalUrl, sanitizeJsonLd } from '@/lib/utils'
+import { RevealOnScroll } from '@/components/ui/reveal-on-scroll'
 
 /* ------------------------------------------------------------------ */
 /*                             Data                                    */
@@ -21,6 +22,7 @@ interface IntegrationDetail {
 }
 
 const integrationData: Record<string, IntegrationDetail> = {
+  /* ---- Accounting ---- */
   quickbooks: {
     name: 'QuickBooks',
     slug: 'quickbooks',
@@ -51,6 +53,23 @@ const integrationData: Record<string, IntegrationDetail> = {
     setup: 'Easy',
     status: 'Available',
   },
+  'zoho-books': {
+    name: 'Zoho Books',
+    slug: 'zoho-books',
+    category: 'Accounting',
+    description:
+      'Sync your Revun property financials with Zoho Books cloud accounting. Automate invoice generation, expense tracking, and financial reporting for small business property managers.',
+    features: [
+      'Automatic invoice creation from rent schedules',
+      'Expense categorization mapped to property chart of accounts',
+      'Bank feed reconciliation with Revun payment data',
+      'Custom financial reports by property and portfolio',
+    ],
+    setup: 'Easy',
+    status: 'Available',
+  },
+
+  /* ---- CRM ---- */
   salesforce: {
     name: 'Salesforce',
     slug: 'salesforce',
@@ -81,6 +100,23 @@ const integrationData: Record<string, IntegrationDetail> = {
     setup: 'Easy',
     status: 'Available',
   },
+  'zoho-crm': {
+    name: 'Zoho CRM',
+    slug: 'zoho-crm',
+    category: 'CRM',
+    description:
+      'Connect Revun with Zoho CRM to manage leads, tenants, and owner relationships in one place. Automate follow-ups and track deal progress across your property portfolio.',
+    features: [
+      'Lead capture from Revun inquiries into Zoho CRM',
+      'Custom module mapping for properties and units',
+      'Automated follow-up workflows for lease renewals',
+      'Contact timeline with full Revun activity history',
+    ],
+    setup: 'Medium',
+    status: 'Coming Soon',
+  },
+
+  /* ---- Communications ---- */
   twilio: {
     name: 'Twilio',
     slug: 'twilio',
@@ -96,6 +132,254 @@ const integrationData: Record<string, IntegrationDetail> = {
     setup: 'Medium',
     status: 'Available',
   },
+  aircall: {
+    name: 'Aircall',
+    slug: 'aircall',
+    category: 'Communications',
+    description:
+      'Connect Revun with Aircall for cloud-based phone operations. Route calls to the right property manager, log conversations automatically, and track call analytics across your portfolio.',
+    features: [
+      'Smart call routing based on property assignments',
+      'Automatic call logging linked to tenant records',
+      'IVR menus for maintenance and leasing inquiries',
+      'Real-time call analytics and team performance dashboards',
+    ],
+    setup: 'Easy',
+    status: 'Available',
+  },
+  'zoom-phone': {
+    name: 'Zoom Phone',
+    slug: 'zoom-phone',
+    category: 'Communications',
+    description:
+      'Integrate Revun with Zoom Phone for unified business communication. Combine voice, video, and messaging for property management teams with seamless call tracking.',
+    features: [
+      'Business phone lines with video conferencing',
+      'Call recording and transcription for compliance',
+      'Auto-attendant with property-specific routing',
+      'Voicemail-to-text with Revun notification sync',
+    ],
+    setup: 'Medium',
+    status: 'Coming Soon',
+  },
+  intercom: {
+    name: 'Intercom',
+    slug: 'intercom',
+    category: 'Communications',
+    description:
+      'Use Intercom with Revun to provide real-time tenant messaging, automated support workflows, and proactive communication for maintenance updates and lease renewals.',
+    features: [
+      'Live chat widget for tenant portals and websites',
+      'Automated message sequences for onboarding new tenants',
+      'Custom bots for maintenance request triage',
+      'Inbox management with property-based team routing',
+    ],
+    setup: 'Easy',
+    status: 'Available',
+  },
+  zendesk: {
+    name: 'Zendesk',
+    slug: 'zendesk',
+    category: 'Communications',
+    description:
+      'Connect Revun to Zendesk for structured tenant support. Create tickets from maintenance requests, track SLAs, and provide multi-channel support across email, chat, and phone.',
+    features: [
+      'Automatic ticket creation from Revun maintenance requests',
+      'SLA tracking and escalation rules by property type',
+      'Multi-channel support: email, chat, phone, and social',
+      'Knowledge base for common tenant questions',
+    ],
+    setup: 'Medium',
+    status: 'Available',
+  },
+  freshdesk: {
+    name: 'Freshdesk',
+    slug: 'freshdesk',
+    category: 'Communications',
+    description:
+      'Integrate Revun with Freshdesk for help desk and support ticket management. Streamline tenant issue resolution with automated workflows, SLA policies, and self-service portals.',
+    features: [
+      'Ticket creation from Revun maintenance and support requests',
+      'Automated assignment rules based on property and issue type',
+      'Self-service portal for tenants with FAQ and status tracking',
+      'SLA policies with escalation for urgent property issues',
+    ],
+    setup: 'Easy',
+    status: 'Coming Soon',
+  },
+  'zoho-desk': {
+    name: 'Zoho Desk',
+    slug: 'zoho-desk',
+    category: 'Communications',
+    description:
+      'Connect Revun with Zoho Desk for help desk operations. Manage tenant support tickets, automate responses, and track resolution times across your property portfolio.',
+    features: [
+      'Multi-channel ticket management for tenant issues',
+      'Automated ticket routing by property and category',
+      'AI-powered response suggestions for common queries',
+      'Customer satisfaction surveys after ticket resolution',
+    ],
+    setup: 'Easy',
+    status: 'Coming Soon',
+  },
+
+  /* ---- Documents ---- */
+  docusign: {
+    name: 'DocuSign',
+    slug: 'docusign',
+    category: 'Documents',
+    description:
+      'Electronic lease signing and document management with DocuSign. Send, sign, and store leases, amendments, and compliance documents directly within Revun.',
+    features: [
+      'E-signature for leases and amendments',
+      'Template library with auto-populated fields',
+      'Audit trail and completion tracking',
+      'Mobile signing for tenants and owners',
+    ],
+    setup: 'Easy',
+    status: 'Available',
+  },
+  'dropbox-sign': {
+    name: 'Dropbox Sign',
+    slug: 'dropbox-sign',
+    category: 'Documents',
+    description:
+      'Use Dropbox Sign with Revun for streamlined eSignature workflows. Send leases, addendums, and property documents for electronic signature with built-in template management.',
+    features: [
+      'eSignature workflows for leases and property documents',
+      'Reusable templates with merge fields from Revun',
+      'Bulk send for multi-unit lease renewals',
+      'Completed document auto-filing to tenant records',
+    ],
+    setup: 'Easy',
+    status: 'Coming Soon',
+  },
+  'adobe-sign': {
+    name: 'Adobe Acrobat Sign',
+    slug: 'adobe-sign',
+    category: 'Documents',
+    description:
+      'Integrate Revun with Adobe Acrobat Sign for enterprise-grade PDF signatures. Manage lease execution, compliance forms, and multi-party signing workflows with full audit trails.',
+    features: [
+      'PDF-native electronic signatures for all property documents',
+      'Multi-party signing workflows for complex lease agreements',
+      'Government ID verification for high-value transactions',
+      'Integration with Adobe Document Cloud for storage and archiving',
+    ],
+    setup: 'Medium',
+    status: 'Coming Soon',
+  },
+
+  /* ---- Identity/Verification ---- */
+  persona: {
+    name: 'Persona',
+    slug: 'persona',
+    category: 'Identity',
+    description:
+      'Use Persona with Revun for KYC identity verification during tenant applications. Verify government IDs, run watchlist checks, and ensure compliance with Canadian regulations.',
+    features: [
+      'Government ID verification with photo matching',
+      'Watchlist and sanctions screening',
+      'Configurable verification flows per property type',
+      'Compliance audit logs and reporting',
+    ],
+    setup: 'Medium',
+    status: 'Available',
+  },
+  equifax: {
+    name: 'Equifax',
+    slug: 'equifax',
+    category: 'Identity',
+    description:
+      'Canadian credit bureau integration for comprehensive tenant screening. Pull credit reports and background checks directly within Revun.',
+    features: [
+      'Canadian credit report pulls',
+      'Background check integration',
+      'Risk score assessment',
+      'Automated screening workflows',
+    ],
+    setup: 'Medium',
+    status: 'Coming Soon',
+  },
+  trustii: {
+    name: 'Trustii',
+    slug: 'trustii',
+    category: 'Identity',
+    description:
+      'Integrate Revun with Trustii for Canadian tenant verification. Run credit checks, employment verification, and reference checks tailored to the Canadian rental market.',
+    features: [
+      'Canadian credit bureau checks with consent management',
+      'Employment and income verification workflows',
+      'Previous landlord reference automation',
+      'Risk scoring calibrated for Canadian rental markets',
+    ],
+    setup: 'Easy',
+    status: 'Available',
+  },
+  flinks: {
+    name: 'Flinks',
+    slug: 'flinks',
+    category: 'Identity',
+    description:
+      'Connect Revun with Flinks for financial data connectivity. Verify tenant income, bank balances, and transaction history through secure open-banking connections with Canadian financial institutions.',
+    features: [
+      'Secure bank account linking with Canadian institutions',
+      'Real-time income and balance verification',
+      'Transaction history analysis for affordability assessment',
+      'Open-banking compliant data access and consent management',
+    ],
+    setup: 'Medium',
+    status: 'Available',
+  },
+  'singlekey-integration': {
+    name: 'SingleKey',
+    slug: 'singlekey-integration',
+    category: 'Identity',
+    description:
+      'Use SingleKey with Revun for Canadian tenant screening and rent guarantee insurance. Screen applicants, verify identity, and protect against missed rent payments with integrated coverage.',
+    features: [
+      'Comprehensive Canadian tenant screening reports',
+      'Rent guarantee insurance for qualifying tenants',
+      'Identity verification with Canadian data sources',
+      'Automated screening decisions with customizable criteria',
+    ],
+    setup: 'Easy',
+    status: 'Available',
+  },
+
+  /* ---- Listings ---- */
+  brokerbay: {
+    name: 'BrokerBay',
+    slug: 'brokerbay',
+    category: 'Listings',
+    description:
+      'Connect Revun with BrokerBay for showing management and scheduling. Coordinate property viewings, manage agent calendars, and track showing feedback all from one platform.',
+    features: [
+      'Automated showing scheduling with calendar sync',
+      'Agent and tenant showing confirmation workflows',
+      'Feedback collection after each property viewing',
+      'Lockbox and access management integration',
+    ],
+    setup: 'Medium',
+    status: 'Coming Soon',
+  },
+  'mls-idx': {
+    name: 'MLS/IDX',
+    slug: 'mls-idx',
+    category: 'Listings',
+    description:
+      'Integrate Revun with MLS/IDX data connectors for property listing syndication. Push vacancy listings to MLS boards and pull market data for pricing intelligence.',
+    features: [
+      'Automatic listing syndication to Canadian MLS boards',
+      'IDX feed integration for website property search',
+      'Market data pulls for rental pricing intelligence',
+      'Listing status sync between Revun and MLS',
+    ],
+    setup: 'Advanced',
+    status: 'Coming Soon',
+  },
+
+  /* ---- Payments/Fintech ---- */
   stripe: {
     name: 'Stripe',
     slug: 'stripe',
@@ -141,6 +425,53 @@ const integrationData: Record<string, IntegrationDetail> = {
     setup: 'Easy',
     status: 'Available',
   },
+  klarna: {
+    name: 'Klarna',
+    slug: 'klarna',
+    category: 'Payments',
+    description:
+      'Offer tenants flexible payment options with Klarna buy now pay later. Split large deposits, move-in costs, or first/last month rent into manageable installments.',
+    features: [
+      'Buy now pay later for security deposits and move-in costs',
+      'Installment plans configurable by property manager',
+      'Automated payment collection on installment schedules',
+      'Tenant credit assessment with instant approval decisions',
+    ],
+    setup: 'Easy',
+    status: 'Coming Soon',
+  },
+  affirm: {
+    name: 'Affirm',
+    slug: 'affirm',
+    category: 'Payments',
+    description:
+      'Integrate Revun with Affirm to offer tenants pay-over-time options for large property expenses. Enable flexible financing for deposits, renovations, and premium upgrades.',
+    features: [
+      'Pay-over-time financing for large tenant expenses',
+      'Transparent interest rates with no hidden fees',
+      'Instant credit decisions for qualified applicants',
+      'Automated repayment tracking synced with Revun ledger',
+    ],
+    setup: 'Easy',
+    status: 'Coming Soon',
+  },
+  paybright: {
+    name: 'PayBright',
+    slug: 'paybright',
+    category: 'Payments',
+    description:
+      'Connect Revun with PayBright for Canadian buy now pay later solutions. Help tenants finance deposits and move-in costs with installment plans built for the Canadian market.',
+    features: [
+      'Canadian BNPL for deposits and move-in costs',
+      'Integration with Canadian financial institutions',
+      'Flexible installment terms configurable by property',
+      'Bilingual support for English and French tenants',
+    ],
+    setup: 'Easy',
+    status: 'Coming Soon',
+  },
+
+  /* ---- Productivity ---- */
   'google-workspace': {
     name: 'Google Workspace',
     slug: 'google-workspace',
@@ -155,6 +486,21 @@ const integrationData: Record<string, IntegrationDetail> = {
     ],
     setup: 'Easy',
     status: 'Available',
+  },
+  'microsoft-365': {
+    name: 'Microsoft 365',
+    slug: 'microsoft-365',
+    category: 'Productivity',
+    description:
+      'Connect Revun with Microsoft 365 for full Office suite integration. Sync Outlook calendars, store documents in OneDrive, and collaborate via Teams across your property management team.',
+    features: [
+      'Outlook calendar sync for showings and inspections',
+      'OneDrive document storage for lease files and reports',
+      'Microsoft Teams notifications for property events',
+      'Excel export templates for financial reporting',
+    ],
+    setup: 'Medium',
+    status: 'Coming Soon',
   },
   slack: {
     name: 'Slack',
@@ -171,35 +517,195 @@ const integrationData: Record<string, IntegrationDetail> = {
     setup: 'Easy',
     status: 'Available',
   },
-  docusign: {
-    name: 'DocuSign',
-    slug: 'docusign',
-    category: 'Communications',
+  calendly: {
+    name: 'Calendly',
+    slug: 'calendly',
+    category: 'Productivity',
     description:
-      'Electronic lease signing and document management with DocuSign. Send, sign, and store leases, amendments, and compliance documents.',
+      'Integrate Revun with Calendly for automated scheduling. Let tenants and prospects book property showings, maintenance windows, and meetings without back-and-forth emails.',
     features: [
-      'E-signature for leases and amendments',
-      'Template library with auto-populated fields',
-      'Audit trail and completion tracking',
-      'Mobile signing for tenants and owners',
+      'Self-service booking for property showings and tours',
+      'Automated reminders and follow-ups for scheduled events',
+      'Round-robin scheduling across property management team',
+      'Calendar sync with Google, Outlook, and Revun events',
     ],
     setup: 'Easy',
     status: 'Available',
   },
-  equifax: {
-    name: 'Equifax',
-    slug: 'equifax',
-    category: 'Identity',
+  'google-calendar': {
+    name: 'Google Calendar',
+    slug: 'google-calendar',
+    category: 'Productivity',
     description:
-      'Canadian credit bureau integration for comprehensive tenant screening. Pull credit reports and background checks directly within Revun.',
+      'Sync Revun events directly with Google Calendar. Property showings, maintenance schedules, lease renewal dates, and inspection appointments appear automatically on your calendar.',
     features: [
-      'Canadian credit report pulls',
-      'Background check integration',
-      'Risk score assessment',
-      'Automated screening workflows',
+      'Two-way sync of showings and inspection schedules',
+      'Automatic calendar events for lease milestones',
+      'Shared team calendars for property portfolios',
+      'Color-coded events by property and event type',
+    ],
+    setup: 'Easy',
+    status: 'Available',
+  },
+  'google-maps': {
+    name: 'Google Maps',
+    slug: 'google-maps',
+    category: 'Productivity',
+    description:
+      'Embed Google Maps into Revun for property location services. Display property locations, nearby amenities, transit routes, and distance calculations for tenants and prospects.',
+    features: [
+      'Interactive property maps on listing pages',
+      'Nearby amenities and points of interest display',
+      'Transit and commute time calculations for tenants',
+      'Geocoding and address validation for property records',
+    ],
+    setup: 'Easy',
+    status: 'Available',
+  },
+  mapbox: {
+    name: 'Mapbox',
+    slug: 'mapbox',
+    category: 'Productivity',
+    description:
+      'Use Mapbox with Revun for custom mapping experiences. Build branded property maps, portfolio heatmaps, and location-based search with full design control.',
+    features: [
+      'Custom-branded property portfolio maps',
+      'Heatmap visualization for vacancy and pricing data',
+      'Location-based property search with radius filtering',
+      'Custom map styles matching your brand guidelines',
+    ],
+    setup: 'Medium',
+    status: 'Available',
+  },
+
+  /* ---- Accounting (additional) ---- */
+  'sage-intacct': {
+    name: 'Sage Intacct',
+    slug: 'sage-intacct',
+    category: 'Accounting',
+    description:
+      'Connect Revun with Sage Intacct for enterprise-grade multi-entity accounting. Automate journal entries, consolidations, and financial reporting across large property portfolios.',
+    features: [
+      'Multi-entity financial consolidation across portfolios',
+      'Automated journal entries from rent and expense transactions',
+      'Dimensional reporting by property, region, and entity',
+      'Accounts payable and receivable automation',
+    ],
+    setup: 'Advanced',
+    status: 'Coming Soon',
+  },
+  netsuite: {
+    name: 'NetSuite',
+    slug: 'netsuite',
+    category: 'Accounting',
+    description:
+      'Integrate Revun with Oracle NetSuite for full ERP connectivity. Sync financial data, automate vendor payments, and consolidate reporting for large-scale property operations.',
+    features: [
+      'Full ERP integration for property financials',
+      'Automated vendor bill processing and payment',
+      'Real-time financial dashboards across portfolios',
+      'Custom record types for property and unit data',
+    ],
+    setup: 'Advanced',
+    status: 'Coming Soon',
+  },
+
+  /* ---- CRM (additional) ---- */
+  pipedrive: {
+    name: 'Pipedrive',
+    slug: 'pipedrive',
+    category: 'CRM',
+    description:
+      'Connect Revun with Pipedrive to track brokerage deals and pipeline stages. Sync contacts, automate follow-ups, and keep your sales pipeline aligned with property operations.',
+    features: [
+      'Deal pipeline sync between Revun and Pipedrive',
+      'Automatic contact creation from Revun inquiries',
+      'Activity logging and follow-up automation',
+      'Custom fields for property and portfolio data',
+    ],
+    setup: 'Easy',
+    status: 'Beta',
+  },
+
+  /* ---- Communications (additional) ---- */
+  ringcentral: {
+    name: 'RingCentral',
+    slug: 'ringcentral',
+    category: 'Communications',
+    description:
+      'Integrate Revun with RingCentral for unified phone, video, and messaging. Route tenant and owner calls through your property management workflow with full call logging.',
+    features: [
+      'Unified phone, video, and team messaging',
+      'Automatic call logging linked to tenant and property records',
+      'Smart call routing based on property assignments',
+      'Voicemail transcription and notification sync',
+    ],
+    setup: 'Medium',
+    status: 'Available',
+  },
+  dialpad: {
+    name: 'Dialpad',
+    slug: 'dialpad',
+    category: 'Communications',
+    description:
+      'Connect Revun with Dialpad for AI-powered calling and transcription. Automate call summaries, track sentiment, and keep all tenant communications in context.',
+    features: [
+      'AI-powered call transcription and summaries',
+      'Real-time sentiment analysis for tenant calls',
+      'Automatic call logging to tenant records in Revun',
+      'Smart routing based on property and team assignments',
     ],
     setup: 'Medium',
     status: 'Coming Soon',
+  },
+  openphone: {
+    name: 'OpenPhone',
+    slug: 'openphone',
+    category: 'Communications',
+    description:
+      'Use OpenPhone with Revun for shared business phone numbers. Manage leasing and maintenance calls with shared inboxes, auto-replies, and SMS templates for your team.',
+    features: [
+      'Shared phone numbers for leasing and maintenance teams',
+      'SMS templates for common tenant communications',
+      'Auto-reply and away messaging for off-hours',
+      'Call and text history synced to Revun records',
+    ],
+    setup: 'Easy',
+    status: 'Available',
+  },
+
+  /* ---- Identity (additional) ---- */
+  transunion: {
+    name: 'TransUnion',
+    slug: 'transunion',
+    category: 'Identity',
+    description:
+      'Integrate Revun with TransUnion for comprehensive tenant credit and background checks. Pull credit reports, verify identity, and assess risk directly within the application workflow.',
+    features: [
+      'Credit report pulls with SmartMove integration',
+      'Criminal and eviction background checks',
+      'Identity verification with fraud detection',
+      'Risk scoring calibrated for rental applications',
+    ],
+    setup: 'Medium',
+    status: 'Available',
+  },
+
+  /* ---- Productivity (additional) ---- */
+  zapier: {
+    name: 'Zapier',
+    slug: 'zapier',
+    category: 'Productivity',
+    description:
+      'Connect Revun to 5,000+ apps with Zapier. Build custom automations triggered by lease events, maintenance requests, payment receipts, and more without writing code.',
+    features: [
+      'Triggers for lease events, payments, and maintenance',
+      'Actions to create records in any connected app',
+      'Multi-step workflows with conditional logic',
+      'Pre-built templates for common property management automations',
+    ],
+    setup: 'Easy',
+    status: 'Available',
   },
 }
 
@@ -292,21 +798,20 @@ export default async function IntegrationDetailPage({
       />
 
       {/* Hero */}
-      <section className="relative overflow-hidden bg-[#0A1628]">
-        <div className="absolute inset-0 bg-dot-grid opacity-20" />
-        <div className="relative mx-auto max-w-5xl px-6 py-24 sm:py-32 lg:px-8">
-          <div className="flex flex-col items-center text-center">
+      <section className="relative overflow-hidden bg-[#F5F6F8]">
+        <div className="relative mx-auto max-w-5xl px-6 py-16 sm:py-16 lg:px-8">
+          <RevealOnScroll className="flex flex-col items-center text-center">
             {/* Connection visual */}
             <div className="flex items-center gap-4">
-              <div className="flex size-16 items-center justify-center rounded-2xl bg-white/10 backdrop-blur-sm">
-                <span className="font-heading text-2xl font-bold text-white">R</span>
+              <div className="flex size-16 items-center justify-center rounded-2xl border border-[#E5E7EB] bg-white">
+                <span className="font-heading text-2xl font-bold text-[#0A1628]">R</span>
               </div>
               <div className="flex flex-col items-center gap-1">
                 <Zap className="size-5 text-[#176FEB]" />
                 <div className="h-px w-8 bg-[#176FEB]" />
               </div>
-              <div className="flex size-16 items-center justify-center rounded-2xl bg-white/10 backdrop-blur-sm">
-                <span className="font-heading text-2xl font-bold text-white">
+              <div className="flex size-16 items-center justify-center rounded-2xl bg-white border border-[#E5E7EB]">
+                <span className="font-heading text-2xl font-bold text-[#0A1628]">
                   {data.name.charAt(0)}
                 </span>
               </div>
@@ -315,10 +820,10 @@ export default async function IntegrationDetailPage({
             <p className="mt-8 text-sm font-semibold uppercase tracking-widest text-[#176FEB]">
               Integration
             </p>
-            <h1 className="mt-3 font-heading font-extrabold text-4xl text-white sm:text-5xl">
+            <h1 className="mt-3 font-display text-4xl font-normal text-[#0A1628] sm:text-5xl">
               Revun + {data.name}
             </h1>
-            <p className="mx-auto mt-4 max-w-xl text-lg text-slate-300">
+            <p className="mx-auto mt-4 max-w-xl text-lg text-[#555860]">
               {data.category} integration
             </p>
 
@@ -334,14 +839,14 @@ export default async function IntegrationDetailPage({
                 {data.setup} Setup
               </span>
             </div>
-          </div>
+          </RevealOnScroll>
         </div>
       </section>
 
       {/* What This Integration Does */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-14">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr]">
+          <RevealOnScroll className="grid gap-12 lg:grid-cols-[1fr_1.2fr]">
             <div>
               <h2 className="font-heading text-2xl font-bold text-[#2C2E33]">
                 What this integration does
@@ -357,8 +862,8 @@ export default async function IntegrationDetailPage({
                 Key features
               </h3>
               <ul className="mt-5 space-y-4">
-                {data.features.map((feature, i) => (
-                  <li key={i} className="flex gap-3">
+                {data.features.map((feature) => (
+                  <li key={feature} className="flex gap-3">
                     <span className="mt-0.5 inline-flex size-5 shrink-0 items-center justify-center rounded-full bg-[#E8F2FE]">
                       <Check className="size-3 text-[#176FEB]" strokeWidth={3} />
                     </span>
@@ -367,12 +872,12 @@ export default async function IntegrationDetailPage({
                 ))}
               </ul>
             </div>
-          </div>
+          </RevealOnScroll>
         </div>
       </section>
 
       {/* Setup Info */}
-      <section className="bg-[#F5F6F8] py-20">
+      <section className="bg-[#F5F6F8] py-14">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <div className="rounded-2xl border border-[#D3D5DB] bg-white p-8 md:p-12">
             <div className="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
@@ -426,18 +931,18 @@ export default async function IntegrationDetailPage({
       </section>
 
       {/* CTA */}
-      <section className="bg-[#0A1628] py-20">
+      <section className="bg-[#F5F6F8] py-14">
         <div className="mx-auto max-w-3xl px-6 text-center lg:px-8">
-          <div className="mx-auto flex w-fit items-center gap-3 rounded-full bg-white/10 px-5 py-2 backdrop-blur-sm">
+          <div className="mx-auto flex w-fit items-center gap-3 rounded-full bg-white border border-[#E5E7EB] px-5 py-2">
             <Plug className="size-4 text-[#176FEB]" />
-            <span className="text-sm font-medium text-white">
+            <span className="text-sm font-medium text-[#0A1628]">
               Ready to connect
             </span>
           </div>
-          <h2 className="mt-6 font-heading text-2xl font-bold text-white sm:text-3xl">
+          <h2 className="mt-6 font-heading text-2xl font-bold text-[#0A1628] sm:text-3xl">
             Get started with Revun + {data.name}
           </h2>
-          <p className="mt-4 text-slate-300">
+          <p className="mt-4 text-[#555860]">
             Start your free trial and connect {data.name} in minutes.
           </p>
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
@@ -450,7 +955,7 @@ export default async function IntegrationDetailPage({
             </Link>
             <Link
               href="/contact/"
-              className="inline-flex h-12 items-center rounded-lg border border-white/20 px-8 text-sm font-semibold text-white hover:bg-white/10"
+              className="inline-flex h-12 items-center rounded-lg border border-[#E5E7EB] px-8 text-sm font-semibold text-[#0A1628] hover:bg-white"
             >
               Book a Demo
             </Link>

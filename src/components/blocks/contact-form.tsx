@@ -2,7 +2,6 @@
 
 import { useForm } from 'react-hook-form'
 import { useState } from 'react'
-import { z } from 'zod/v4'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
@@ -13,16 +12,14 @@ import { Loader2, CheckCircle2, AlertCircle } from 'lucide-react'
 const portfolioSizes = ['1-5', '6-25', '26-100', '101-500', '500+'] as const
 const roleOptions = ['Owner', 'Property Manager', 'Tenant', 'Brokerage', 'Maintenance', 'Other'] as const
 
-const contactSchema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters'),
-  email: z.email('Please enter a valid email address'),
-  company: z.string().optional(),
-  portfolio_size: z.enum(portfolioSizes),
-  role: z.enum(roleOptions),
-  message: z.string().min(10, 'Message must be at least 10 characters'),
-})
-
-type ContactFormData = z.infer<typeof contactSchema>
+interface ContactFormData {
+  name: string
+  email: string
+  company?: string
+  portfolio_size: (typeof portfolioSizes)[number]
+  role: (typeof roleOptions)[number]
+  message: string
+}
 
 const portfolioSizeLabels: Record<(typeof portfolioSizes)[number], string> = {
   '1-5': '1-5 units',
@@ -238,7 +235,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === 'loading'}
-        className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#176FEB] px-8 text-base font-semibold text-white transition-all hover:bg-[#176FEB]/90 disabled:cursor-not-allowed disabled:opacity-60"
+        className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#176FEB] px-8 text-base font-semibold text-white transition-all hover:bg-[#0B5AD4] disabled:cursor-not-allowed disabled:opacity-60"
       >
         {status === 'loading' ? (
           <>

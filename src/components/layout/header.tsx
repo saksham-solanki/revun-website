@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, Home, Building2, Handshake, FileText, Wrench, TrendingUp, Layers, Sparkles, Calendar, Wallet, Plug, MapPin } from 'lucide-react'
 import { MobileMenu } from './mobile-menu'
 
 // ─── Types ───────────────────────────────────────────────────────────────────
@@ -31,52 +31,62 @@ const SOLUTIONS_ITEMS: NavChild[] = [
     label: 'Self-Managing Owners',
     description: 'Manage your property from one app',
     href: '/solutions/self-managing-owners/',
-    icon: '🏠',
+    icon: 'Home',
   },
   {
     label: 'Property Management Companies',
     description: 'Replace fragmented systems',
     href: '/solutions/property-management-companies/',
-    icon: '🏢',
+    icon: 'Building2',
   },
   {
     label: 'Brokerages & Agents',
     description: 'Run deals, docs, and communication',
     href: '/solutions/brokerages/',
-    icon: '🤝',
+    icon: 'Handshake',
   },
   {
     label: 'Leasing Companies',
     description: 'Automate leasing operations',
     href: '/solutions/leasing-companies/',
-    icon: '📋',
+    icon: 'FileText',
   },
   {
     label: 'Maintenance Companies',
     description: 'Dispatch, proof of work, invoicing',
     href: '/solutions/maintenance-companies/',
-    icon: '🔧',
+    icon: 'Wrench',
   },
   {
     label: 'REITs & Asset Managers',
     description: 'Scale with consistency',
     href: '/solutions/reits/',
-    icon: '📊',
+    icon: 'TrendingUp',
   },
 ]
 
+const PLATFORM_ITEMS: NavChild[] = [
+  { label: 'Platform Overview', description: 'The full operating system', href: '/platform/', icon: 'Layers' },
+  { label: 'Features', description: 'Six core modules', href: '/features/', icon: 'Sparkles' },
+  { label: 'Events & Tours', description: 'Schedule and manage tours', href: '/events/', icon: 'Calendar' },
+  { label: 'Wallet', description: 'Payments and financials', href: '/wallet/', icon: 'Wallet' },
+  { label: 'Integrations', description: '40+ connected tools', href: '/integrations/', icon: 'Plug' },
+  { label: 'Coverage', description: 'Canada & US availability', href: '/coverage/', icon: 'MapPin' },
+]
+
 const RESOURCES_ITEMS: NavChild[] = [
-  { label: 'Blog', description: 'Insights and updates', href: '/blog/' },
   { label: 'Help Center', description: 'Guides and documentation', href: '/help/' },
-  { label: 'Guides', description: 'Step-by-step playbooks', href: '/guides/' },
-  { label: 'Case Studies', description: 'Real customer results', href: '/case-studies/' },
+  { label: 'About', description: 'Our story and mission', href: '/about/' },
+  { label: 'Compare', description: 'See how Revun stacks up', href: '/compare/' },
+  { label: 'Contact', description: 'Get in touch with our team', href: '/contact/' },
 ]
 
 export const NAV_ITEMS: NavItem[] = [
-  { label: 'Platform', href: '/platform/' },
+  { label: 'Platform', children: PLATFORM_ITEMS },
   { label: 'Solutions', children: SOLUTIONS_ITEMS },
+  { label: 'Investment', href: '/investment/' },
   { label: 'Pricing', href: '/pricing/' },
-  { label: 'Integrations', href: '/integrations/' },
+  { label: 'Demo', href: '/demo/' },
   { label: 'Resources', children: RESOURCES_ITEMS },
 ]
 
@@ -115,7 +125,7 @@ function Logo({ scrolled }: { scrolled: boolean }) {
   return (
     <Link href="/" className="relative flex items-center outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm">
       <Image
-        src={scrolled ? '/logo-dark.svg' : '/logo-white.svg'}
+        src="/logo-dark.svg"
         alt="Revun"
         width={110}
         height={34}
@@ -128,6 +138,10 @@ function Logo({ scrolled }: { scrolled: boolean }) {
 
 // ─── Mega menu: Solutions ────────────────────────────────────────────────────
 
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  Home, Building2, Handshake, FileText, Wrench, TrendingUp, Layers, Sparkles, Calendar, Wallet, Plug, MapPin,
+}
+
 function SolutionsMegaMenu({ onClose }: { onClose: () => void }) {
   return (
     <motion.div
@@ -135,7 +149,7 @@ function SolutionsMegaMenu({ onClose }: { onClose: () => void }) {
       initial="hidden"
       animate="visible"
       exit="exit"
-      className="absolute left-1/2 top-full mt-2 w-[680px] -translate-x-1/2 rounded-xl border border-[#E5E7EB] bg-white p-5 shadow-lg"
+      className="absolute left-1/2 top-full mt-2 w-[680px] -translate-x-1/2 rounded-xl border border-[#E5E7EB] bg-white p-5"
       role="menu"
       onKeyDown={(e) => e.key === 'Escape' && onClose()}
     >
@@ -160,8 +174,49 @@ function SolutionsMegaMenu({ onClose }: { onClose: () => void }) {
               role="menuitem"
               onClick={onClose}
             >
-              <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-brand-blue/8 text-base transition-colors group-hover/card:bg-brand-blue/12">
-                {item.icon}
+              <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-brand-blue/8 text-brand-blue transition-colors group-hover/card:bg-brand-blue/12">
+                {item.icon && iconMap[item.icon] && (() => { const Icon = iconMap[item.icon!]; return <Icon className="h-5 w-5" /> })()}
+              </span>
+              <div className="min-w-0">
+                <p className="text-sm font-heading font-semibold text-brand-graphite group-hover/card:text-brand-blue transition-colors">
+                  {item.label}
+                </p>
+                <p className="mt-0.5 text-xs text-[#555860] leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+            </Link>
+          </motion.div>
+        ))}
+      </div>
+    </motion.div>
+  )
+}
+
+// ─── Dropdown: Platform ──────────────────────────────────────────────────────
+
+function PlatformDropdown({ onClose }: { onClose: () => void }) {
+  return (
+    <motion.div
+      variants={dropdownVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      className="absolute left-1/2 top-full mt-2 w-[360px] -translate-x-1/2 rounded-xl border border-[#E5E7EB] bg-white p-4"
+      role="menu"
+      onKeyDown={(e) => e.key === 'Escape' && onClose()}
+    >
+      <div className="space-y-1">
+        {PLATFORM_ITEMS.map((item) => (
+          <motion.div key={item.href} variants={itemVariants}>
+            <Link
+              href={item.href}
+              className="group/card flex items-start gap-3 rounded-lg p-3 transition-colors hover:bg-[#F5F6F8]"
+              role="menuitem"
+              onClick={onClose}
+            >
+              <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-brand-blue/8 text-brand-blue transition-colors group-hover/card:bg-brand-blue/12">
+                {item.icon && iconMap[item.icon] && (() => { const Icon = iconMap[item.icon!]; return <Icon className="h-5 w-5" /> })()}
               </span>
               <div className="min-w-0">
                 <p className="text-sm font-heading font-semibold text-brand-graphite group-hover/card:text-brand-blue transition-colors">
@@ -188,7 +243,7 @@ function ResourcesDropdown({ onClose }: { onClose: () => void }) {
       initial="hidden"
       animate="visible"
       exit="exit"
-      className="absolute left-1/2 top-full mt-2 w-[280px] -translate-x-1/2 rounded-xl border border-[#E5E7EB] bg-white p-2 shadow-lg"
+      className="absolute left-1/2 top-full mt-2 w-[280px] -translate-x-1/2 rounded-xl border border-[#E5E7EB] bg-white p-2"
       role="menu"
       onKeyDown={(e) => e.key === 'Escape' && onClose()}
     >
@@ -257,8 +312,8 @@ function DesktopNavItem({
       ? 'text-brand-blue'
       : 'text-[#334155] hover:text-brand-graphite'
     : isActive
-      ? 'text-white'
-      : 'text-white/80 hover:text-white'
+      ? 'text-brand-blue'
+      : 'text-[#334155] hover:text-brand-graphite'
 
   if (hasChildren) {
     return (
@@ -289,6 +344,8 @@ function DesktopNavItem({
           {isOpen && (
             item.label === 'Solutions' ? (
               <SolutionsMegaMenu onClose={() => setOpenDropdown(null)} />
+            ) : item.label === 'Platform' ? (
+              <PlatformDropdown onClose={() => setOpenDropdown(null)} />
             ) : (
               <ResourcesDropdown onClose={() => setOpenDropdown(null)} />
             )
@@ -322,7 +379,7 @@ function CTACluster({ scrolled }: { scrolled: boolean }) {
           'rounded-lg px-3.5 py-2 text-sm font-medium transition-colors duration-200 outline-none focus-visible:ring-2 focus-visible:ring-ring',
           scrolled
             ? 'text-[#555860] hover:text-brand-graphite hover:bg-[#F5F6F8]'
-            : 'text-white/80 hover:text-white hover:bg-white/10'
+            : 'text-[#555860] hover:text-brand-graphite hover:bg-[#F5F6F8]'
         )}
       >
         Log In
@@ -341,13 +398,34 @@ function CTACluster({ scrolled }: { scrolled: boolean }) {
 
 // Pages with dark hero backgrounds where white header text works.
 // All other pages get dark header text immediately.
-const DARK_HERO_PAGES = ['/', '/platform/', '/about/', '/ca/', '/us/', '/resources/']
+const DARK_HERO_PAGES = [
+  '/ca/',
+  '/us/',
+  '/resources/',
+  '/solutions/',
+  '/compare/',
+  '/integrations/',
+  '/industries/',
+  '/download/',
+  '/how-revun-works/',
+  '/what-is-revun/',
+  '/furnished-rentals/',
+  '/relocation-rentals/',
+  '/corporate-housing/',
+  '/traveling-tenants/',
+  '/use-cases/',
+  '/powered-by-revun/',
+]
 
 function hasDarkHero(pathname: string): boolean {
   if (DARK_HERO_PAGES.includes(pathname)) return true
-  if (pathname.startsWith('/solutions/') && pathname !== '/solutions/') return true
-  if (pathname.startsWith('/compare/revun-vs-')) return true
-  if (pathname.startsWith('/integrations/') && pathname !== '/integrations/') return true
+  if (pathname.startsWith('/solutions/')) return true
+  if (pathname.startsWith('/compare/')) return true
+  if (pathname.startsWith('/integrations/')) return true
+  if (pathname.startsWith('/ca/')) return true
+  if (pathname.startsWith('/us/')) return true
+  if (pathname.startsWith('/support/')) return true
+  if (pathname.startsWith('/use-cases/')) return true
   return false
 }
 
@@ -383,7 +461,7 @@ export function Header() {
       className={cn(
         'fixed inset-x-0 top-0 z-50 transition-all duration-300',
         scrolled
-          ? 'border-b border-border bg-white/80 shadow-editorial backdrop-blur-xl'
+          ? 'border-b border-border bg-white/80 backdrop-blur-xl'
           : 'bg-transparent'
       )}
     >

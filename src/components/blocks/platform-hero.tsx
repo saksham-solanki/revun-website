@@ -23,32 +23,12 @@ const fadeUp = {
 export function PlatformHero() {
   return (
     <section
-      className="relative min-h-[70vh] overflow-hidden pt-36 pb-24"
-      style={{ backgroundColor: '#0A1628' }}
+      className="relative min-h-[70vh] overflow-hidden bg-[#F5F6F8] pt-28 pb-20"
     >
       {/* Dot grid pattern */}
       <div
-        className="pointer-events-none absolute inset-0"
+        className="pointer-events-none absolute inset-0 bg-dot-grid opacity-40"
         aria-hidden
-        style={{
-          backgroundImage:
-            'radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px)',
-          backgroundSize: '24px 24px',
-        }}
-      />
-
-      {/* Radial gradient blob */}
-      <div
-        className="pointer-events-none absolute"
-        aria-hidden
-        style={{
-          width: '800px',
-          height: '800px',
-          top: '-200px',
-          right: '-100px',
-          background:
-            'radial-gradient(circle, rgba(23,111,235,0.12) 0%, transparent 70%)',
-        }}
       />
 
       <motion.div
@@ -60,8 +40,7 @@ export function PlatformHero() {
         {/* Eyebrow pill */}
         <motion.div variants={fadeUp}>
           <span
-            className="inline-block rounded-full border px-4 py-1.5 text-sm font-medium"
-            style={{ borderColor: 'rgba(23,111,235,0.3)', color: '#94A3B8' }}
+            className="inline-block rounded-full border border-[#E5E7EB] bg-white px-4 py-1.5 text-sm font-medium text-[#555860]"
           >
             Platform Overview
           </span>
@@ -70,8 +49,7 @@ export function PlatformHero() {
         {/* Headline */}
         <motion.h1
           variants={fadeUp}
-          className="font-heading mt-8 text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl"
-          style={{ color: '#FFFFFF' }}
+          className="font-display mt-8 text-4xl font-extrabold tracking-tight text-[#0A1628] sm:text-5xl md:text-6xl"
         >
           One <span style={{ color: '#176FEB' }}>Platform</span>. Every
           Workflow.
@@ -80,8 +58,7 @@ export function PlatformHero() {
         {/* Subtitle */}
         <motion.p
           variants={fadeUp}
-          className="mt-6 max-w-2xl text-lg sm:text-xl"
-          style={{ color: '#94A3B8' }}
+          className="mt-6 max-w-2xl text-lg text-[#555860] sm:text-xl"
         >
           Manage properties, tenants, maintenance, and financials from a single
           dashboard built for Canadian property managers.

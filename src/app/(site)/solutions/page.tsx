@@ -124,23 +124,9 @@ export default function SolutionsPage() {
   return (
     <>
       {/* ── Hero ──────────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-[#0A1628]">
-        {/* Dot-grid pattern */}
-        <div className="absolute inset-0" aria-hidden="true">
-          <div
-            className="absolute inset-0 opacity-[0.15]"
-            style={{
-              backgroundImage:
-                'radial-gradient(circle, rgba(255,255,255,0.5) 1px, transparent 1px)',
-              backgroundSize: '24px 24px',
-            }}
-          />
-          {/* Subtle radial mask from center */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,#0A1628_80%)]" />
-        </div>
-
+      <section className="relative overflow-hidden bg-[#F5F6F8]">
         <motion.div
-          className="relative z-10 mx-auto max-w-3xl px-6 pt-36 pb-28 text-center"
+          className="relative z-10 mx-auto max-w-3xl px-6 py-16 text-center"
           variants={heroStagger}
           initial="hidden"
           animate="visible"
@@ -153,14 +139,14 @@ export default function SolutionsPage() {
           </motion.p>
           <motion.h1
             variants={fadeUp}
-            className="font-heading font-extrabold text-4xl leading-[1.1] tracking-tight text-white sm:text-5xl md:text-6xl"
+            className="font-display text-4xl font-normal leading-[1.1] tracking-tight text-[#0A1628] sm:text-5xl md:text-6xl"
           >
             Built for How You{' '}
             <span className="text-[#176FEB]">Work</span>
           </motion.h1>
           <motion.p
             variants={fadeUp}
-            className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/70"
+            className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[#555860]"
           >
             From self-managing a single unit to operating a national portfolio,
             Revun adapts to your role, your workflow, and your scale.
@@ -169,7 +155,7 @@ export default function SolutionsPage() {
       </section>
 
       {/* ── Solutions grid ────────────────────────────────────────────── */}
-      <section className="bg-[#F5F6F8] py-24">
+      <section className="bg-[#F5F6F8] py-12">
         <div className="mx-auto max-w-7xl px-6">
           <RevealOnScroll
             stagger={0.08}
@@ -231,20 +217,7 @@ export default function SolutionsPage() {
       </section>
 
       {/* ── Bottom CTA ────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-[#0A1628] py-28">
-        {/* Dot-grid pattern */}
-        <div className="absolute inset-0" aria-hidden="true">
-          <div
-            className="absolute inset-0 opacity-[0.1]"
-            style={{
-              backgroundImage:
-                'radial-gradient(circle, rgba(255,255,255,0.5) 1px, transparent 1px)',
-              backgroundSize: '24px 24px',
-            }}
-          />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,#0A1628_75%)]" />
-        </div>
-
+      <section className="relative overflow-hidden bg-white py-12">
         <RevealOnScroll className="relative z-10 mx-auto max-w-2xl px-6 text-center">
           <motion.p
             variants={revealItem}
@@ -254,14 +227,14 @@ export default function SolutionsPage() {
           </motion.p>
           <motion.h2
             variants={revealItem}
-            className="font-heading text-3xl font-bold tracking-tight text-white sm:text-4xl"
+            className="font-heading text-3xl font-bold tracking-tight text-[#0A1628] sm:text-4xl"
           >
             Tell us about your{' '}
             <span className="text-[#176FEB]">operation</span>
           </motion.h2>
           <motion.p
             variants={revealItem}
-            className="mt-4 text-lg leading-relaxed text-white/70"
+            className="mt-4 text-lg leading-relaxed text-[#555860]"
           >
             Book a 15-minute discovery call and we will map Revun to your exact
             workflow.
@@ -278,7 +251,7 @@ export default function SolutionsPage() {
             </Link>
             <Link
               href="/pricing/"
-              className="inline-flex h-12 items-center justify-center rounded-xl border border-white/20 px-8 text-base font-semibold text-white transition-colors duration-150 hover:border-white/40 hover:bg-white/5"
+              className="inline-flex h-12 items-center justify-center rounded-xl border border-[#E5E7EB] px-8 text-base font-semibold text-[#0A1628] transition-colors duration-150 hover:border-[#176FEB]/40 hover:bg-white"
             >
               View Pricing
             </Link>

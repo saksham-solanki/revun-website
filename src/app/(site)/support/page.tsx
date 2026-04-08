@@ -119,29 +119,29 @@ export default function SupportPage() {
         }}
       />
       {/* ── Hero ──────────────────────────────────────────────────── */}
-      <section className="bg-brand-navy">
+      <section className="bg-[#F5F6F8]">
         <motion.div
-          className="mx-auto max-w-3xl px-6 pt-36 pb-24 text-center"
+          className="mx-auto max-w-3xl px-6 pt-24 pb-16 text-center"
           variants={heroStagger}
           initial="hidden"
           animate="visible"
         >
           <motion.p
             variants={fadeUp}
-            className="mb-4 text-sm font-medium uppercase tracking-widest text-brand-blue-light"
+            className="mb-4 text-sm font-medium uppercase tracking-widest text-[#176FEB]"
           >
             Support
           </motion.p>
           <motion.h1
             variants={fadeUp}
-            className="font-heading font-extrabold text-4xl leading-[1.1] tracking-tight text-white sm:text-5xl"
+            className="font-display font-extrabold text-4xl leading-[1.1] tracking-tight text-[#0A1628] sm:text-5xl"
           >
             How can we{' '}
-            <span className="text-brand-blue-light">help?</span>
+            <span className="text-[#176FEB]">help?</span>
           </motion.h1>
           <motion.p
             variants={fadeUp}
-            className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[#D3D5DB]"
+            className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[#555860]"
           >
             Choose the path that matches your situation to find the right support.
           </motion.p>
@@ -149,7 +149,7 @@ export default function SupportPage() {
       </section>
 
       {/* ── Two-path cards ────────────────────────────────────────── */}
-      <section className="bg-brand-off-white py-24 dark:bg-[#0B0A1A]">
+      <section className="bg-white py-12">
         <div className="mx-auto max-w-4xl px-6">
           <RevealOnScroll
             stagger={0.15}
@@ -158,20 +158,20 @@ export default function SupportPage() {
             {/* Left: Powered by Revun */}
             <motion.div
               variants={revealItem}
-              className="flex flex-col rounded-2xl border border-border bg-brand-navy p-8 text-white dark:border-white/8"
+              className="flex flex-col rounded-2xl border border-[#D3D5DB] bg-[#F5F6F8] p-8 text-[#0A1628]"
             >
-              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-white/10">
-                <Building2 className="h-6 w-6 text-brand-blue-light" strokeWidth={1.8} />
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-white">
+                <Building2 className="h-6 w-6 text-[#176FEB]" strokeWidth={1.8} />
               </div>
               <h2 className="font-heading text-xl font-bold">
                 I use a Powered by Revun company
               </h2>
-              <p className="mt-3 flex-1 text-[0.938rem] leading-relaxed text-[#D3D5DB]">
+              <p className="mt-3 flex-1 text-[0.938rem] leading-relaxed text-[#555860]">
                 Your property management company, brokerage, or maintenance provider uses Revun to manage your experience. For questions about your lease, maintenance requests, payments, or showings, contact your property manager directly.
               </p>
               <Link
                 href="/help/"
-                className="mt-8 inline-flex h-11 items-center justify-center rounded-xl border border-white/20 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+                className="mt-8 inline-flex h-11 items-center justify-center rounded-xl border border-[#E5E7EB] text-sm font-semibold text-[#0A1628] transition-colors hover:bg-white"
               >
                 Contact Your Operator
               </Link>
@@ -180,9 +180,9 @@ export default function SupportPage() {
             {/* Right: Self-Manage */}
             <motion.div
               variants={revealItem}
-              className="flex flex-col rounded-2xl border border-border bg-card p-8 dark:border-white/8 dark:bg-card"
+              className="flex flex-col rounded-2xl border border-[#D3D5DB] bg-white p-8"
             >
-              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-brand-blue/10 dark:bg-brand-blue/20">
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-[#E8F2FE]">
                 <User className="h-6 w-6 text-brand-blue" strokeWidth={1.8} />
               </div>
               <h2 className="font-heading text-xl font-bold text-foreground">
@@ -211,7 +211,7 @@ export default function SupportPage() {
       </section>
 
       {/* ── FAQ ───────────────────────────────────────────────────── */}
-      <section className="bg-white py-24 dark:bg-[#0B0A1A]">
+      <section className="bg-white py-12">
         <div className="mx-auto max-w-2xl px-6">
           <RevealOnScroll className="text-center">
             <motion.p
@@ -231,7 +231,7 @@ export default function SupportPage() {
           <RevealOnScroll className="mt-12">
             <motion.div
               variants={revealItem}
-              className="divide-y divide-border rounded-2xl border border-border bg-card p-6 dark:border-white/8 dark:bg-card"
+              className="divide-y divide-[#E5E7EB] rounded-2xl border border-[#D3D5DB] bg-white p-6"
             >
               {faqs.map((faq) => (
                 <FAQItem key={faq.question} faq={faq} />

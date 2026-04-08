@@ -38,14 +38,14 @@ function StarRating() {
 
 export function Testimonials() {
   return (
-    <section className="bg-white py-24 md:py-32">
+    <section className="bg-white py-12 md:py-16">
       <div className="mx-auto max-w-7xl px-6">
         <RevealOnScroll className="text-center mb-16">
           <motion.p variants={revealItemBlur} className="text-sm font-heading font-semibold uppercase tracking-wider text-brand-blue">
             Testimonials
           </motion.p>
           <motion.h2 variants={revealItemBlur} className="mt-3 font-heading text-3xl md:text-4xl font-bold text-brand-graphite">
-            Trusted by property managers across <span className="text-accent">Canada</span>
+            Trusted by property managers across <span className="text-keyword">Canada</span>
           </motion.h2>
         </RevealOnScroll>
 
@@ -54,8 +54,9 @@ export function Testimonials() {
             <motion.div
               key={t.name}
               variants={revealItemBlur}
-              className="rounded-xl border border-[#E5E7EB] bg-white p-8 transition-all duration-300 hover:shadow-card-hover"
+              className="group relative rounded-xl border border-[#E5E7EB] bg-white p-8 transition-all duration-300 hover:border-[#176FEB]/20 hover:shadow-card-hover"
             >
+              <div className="absolute inset-x-0 top-0 h-[2px] bg-[#176FEB] opacity-0 transition-opacity duration-300 group-hover:opacity-100 rounded-t-xl" aria-hidden="true" />
               <StarRating />
               <p className="text-brand-graphite text-sm leading-relaxed mb-8 italic">
                 &ldquo;{t.quote}&rdquo;

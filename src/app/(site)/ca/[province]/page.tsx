@@ -24,7 +24,7 @@ const provinceData = {
         '2025 rent increase guideline: 2.5%',
         'Ontario Standard Lease mandatory for most agreements',
         'N4/N8/N12/N13 notice workflows with prescribed forms',
-        'LTB Application (A1–A4) filing for disputes',
+        'LTB Application (A1-A4) filing for disputes',
         'Above-guideline increase applications via LTB',
         'Interac e-Transfer accepted as legal payment method',
       ],
@@ -57,13 +57,29 @@ const provinceData = {
     ],
     cities: [
       { name: 'Toronto', slug: 'toronto' },
-      { name: 'Ottawa', slug: 'ottawa' },
       { name: 'Mississauga', slug: 'mississauga' },
+      { name: 'Brampton', slug: 'brampton' },
       { name: 'Hamilton', slug: 'hamilton' },
+      { name: 'Ottawa', slug: 'ottawa' },
       { name: 'London', slug: 'london' },
       { name: 'Vaughan', slug: 'vaughan' },
-      { name: 'Brampton', slug: 'brampton' },
+      { name: 'Markham', slug: 'markham' },
+      { name: 'Richmond Hill', slug: 'richmond-hill' },
+      { name: 'Oakville', slug: 'oakville' },
+      { name: 'Burlington', slug: 'burlington' },
       { name: 'Kitchener', slug: 'kitchener' },
+      { name: 'Waterloo', slug: 'waterloo' },
+      { name: 'Cambridge', slug: 'cambridge' },
+      { name: 'Guelph', slug: 'guelph' },
+      { name: 'Barrie', slug: 'barrie' },
+      { name: 'Milton', slug: 'milton' },
+      { name: 'Oshawa', slug: 'oshawa' },
+      { name: 'Ajax', slug: 'ajax' },
+      { name: 'Pickering', slug: 'pickering' },
+      { name: 'Whitby', slug: 'whitby' },
+      { name: 'St. Catharines', slug: 'st-catharines' },
+      { name: 'Niagara Falls', slug: 'niagara-falls' },
+      { name: 'Kingston', slug: 'kingston' },
     ],
     ctaText: 'Start managing properties in Ontario',
   },
@@ -114,13 +130,15 @@ const provinceData = {
     ],
     cities: [
       { name: 'Vancouver', slug: 'vancouver' },
-      { name: 'Surrey', slug: 'surrey' },
       { name: 'Burnaby', slug: 'burnaby' },
+      { name: 'Surrey', slug: 'surrey' },
       { name: 'Richmond', slug: 'richmond' },
+      { name: 'Coquitlam', slug: 'coquitlam' },
+      { name: 'Langley', slug: 'langley' },
       { name: 'Victoria', slug: 'victoria' },
       { name: 'Kelowna', slug: 'kelowna' },
       { name: 'Abbotsford', slug: 'abbotsford' },
-      { name: 'Langley', slug: 'langley' },
+      { name: 'Nanaimo', slug: 'nanaimo' },
     ],
     ctaText: 'Start managing properties in British Columbia',
   },
@@ -160,7 +178,7 @@ const provinceData = {
         icon: CheckCircle2,
         title: 'Rent Increase Notice Workflows',
         description:
-          'Prescribed notice periods (3–6 months depending on lease type) with correct TAL wording. Tenant response tracking for accepted, refused, or negotiated outcomes.',
+          'Prescribed notice periods (3-6 months depending on lease type) with correct TAL wording. Tenant response tracking for accepted, refused, or negotiated outcomes.',
       },
       {
         icon: Clock,
@@ -190,7 +208,7 @@ const provinceData = {
       title: 'Residential Tenancies Act (Alberta) & RTDRS',
       body: 'Alberta residential tenancies are governed by the Residential Tenancies Act (RTA Alberta) with no rent control provisions. Landlords can increase rent with a minimum 3 months\' written notice for month-to-month tenancies. Periodic tenancies (month-to-month) require 3 months\' notice to end a tenancy without cause. Fixed-term tenancies end automatically at the term date unless renewed. Disputes go to the Residential Tenancy Dispute Resolution Service (RTDRS), a faster alternative to court.',
       highlights: [
-        'No rent control — increases permitted with 3 months\' written notice',
+        'No rent control - increases permitted with 3 months\' written notice',
         'Month-to-month: 3 months\' notice to terminate without cause',
         'Fixed-term tenancies end automatically at term date',
         'RTDRS for dispute resolution (faster than court, $75 filing fee)',
@@ -340,6 +358,217 @@ const provinceData = {
     ],
     ctaText: 'Start managing properties in Manitoba',
   },
+
+  saskatchewan: {
+    name: 'Saskatchewan',
+    slug: 'saskatchewan',
+    abbreviation: 'SK',
+    heroSubtitle:
+      'Saskatchewan\'s stable rental market governed by the Office of Residential Tenancies, with clear rules on deposits, notices, and dispute resolution.',
+    regulation: {
+      title: 'Residential Tenancies Act (Saskatchewan) & Office of Residential Tenancies',
+      body: 'Saskatchewan residential tenancies are governed by The Residential Tenancies Act, 2006 and administered by the Office of Residential Tenancies (ORT). Rent increases require one full rental period\'s written notice (typically one month for month-to-month tenancies). There is no rent control in Saskatchewan - landlords may increase rent by any amount with proper notice. Security deposits are capped at one month\'s rent and must be held by the landlord with interest paid at a rate set annually by the government. The ORT handles disputes through a hearing process that is faster and less formal than court.',
+      highlights: [
+        'No rent control - increases permitted with one rental period\'s notice',
+        'Security deposit capped at one month\'s rent with mandatory interest',
+        'Office of Residential Tenancies (ORT) for dispute resolution',
+        'Written lease required for tenancies over one year',
+        'Landlord must provide 24 hours\' notice before entry',
+        'Move-out inspection required within one week of vacancy',
+      ],
+    },
+    valueProps: [
+      {
+        icon: CheckCircle2,
+        title: 'ORT Dispute Preparation',
+        description:
+          'Evidence packages, payment histories, and inspection reports formatted for ORT hearings. Application tracking from filing to order with deadline alerts.',
+      },
+      {
+        icon: FileText,
+        title: 'Saskatchewan Notice Automation',
+        description:
+          'Generate rent increase notices, termination notices, and entry notices with correct notice periods calculated automatically under the SK Residential Tenancies Act.',
+      },
+      {
+        icon: Shield,
+        title: 'Security Deposit Interest Tracking',
+        description:
+          'Automatic interest calculation at the provincially prescribed rate. Move-out inspection workflows and deposit return within the legislated timeline.',
+      },
+      {
+        icon: Clock,
+        title: 'Interac Rent Collection',
+        description:
+          'Native Interac e-Transfer for rent collection with automatic reconciliation, NSF tracking, and ORT-ready payment histories for dispute applications.',
+      },
+    ],
+    cities: [
+      { name: 'Saskatoon', slug: 'saskatoon' },
+      { name: 'Regina', slug: 'regina' },
+      { name: 'Prince Albert', slug: 'prince-albert' },
+      { name: 'Moose Jaw', slug: 'moose-jaw' },
+    ],
+    ctaText: 'Start managing properties in Saskatchewan',
+  },
+
+  'new-brunswick': {
+    name: 'New Brunswick',
+    slug: 'new-brunswick',
+    abbreviation: 'NB',
+    heroSubtitle:
+      'New Brunswick\'s growing rental market with Residential Tenancies Tribunal oversight, rent increase rules, and bilingual document requirements.',
+    regulation: {
+      title: 'Residential Tenancies Act (NB) & Residential Tenancies Tribunal',
+      body: 'New Brunswick residential tenancies are governed by the Residential Tenancies Act and regulated by the Residential Tenancies Tribunal (RTT). New Brunswick introduced rent increase caps in 2022, limiting annual increases to a percentage set by the province. Landlords must give at least two months\' notice for rent increases using prescribed forms. Security deposits are capped at one month\'s rent and must be deposited with the Residential Tenancies Tribunal within 15 days. The RTT handles all disputes including evictions, deposit claims, and rent increase challenges. Bilingual (English/French) documentation is common given NB\'s official bilingualism.',
+      highlights: [
+        'Rent increase cap set annually by the province (introduced 2022)',
+        'Two months\' notice required for rent increases',
+        'Security deposit capped at one month\'s rent, held by RTT',
+        'Deposits must be filed with RTT within 15 days of receipt',
+        'Residential Tenancies Tribunal for all dispute resolution',
+        'Bilingual documentation common (official bilingualism)',
+      ],
+    },
+    valueProps: [
+      {
+        icon: CheckCircle2,
+        title: 'NB Rent Cap Compliance',
+        description:
+          'Annual rent increase cap applied automatically to scheduled increases. Notices generated with correct cap percentages and two-month notice periods.',
+      },
+      {
+        icon: FileText,
+        title: 'RTT Deposit Filing Workflows',
+        description:
+          'Security deposit tracking with RTT filing reminders within the 15-day window. Move-out reconciliation and return workflows within legislated timelines.',
+      },
+      {
+        icon: Shield,
+        title: 'Bilingual Document Generation',
+        description:
+          'Notices, lease agreements, and tenant communications generated in English and French to meet New Brunswick\'s bilingual requirements.',
+      },
+      {
+        icon: Clock,
+        title: 'RTT Dispute Documentation',
+        description:
+          'Evidence packages formatted for Residential Tenancies Tribunal hearings: payment histories, inspection reports, and maintenance logs in required format.',
+      },
+    ],
+    cities: [
+      { name: 'Moncton', slug: 'moncton' },
+      { name: 'Saint John', slug: 'saint-john' },
+      { name: 'Fredericton', slug: 'fredericton' },
+      { name: 'Dieppe', slug: 'dieppe' },
+    ],
+    ctaText: 'Start managing properties in New Brunswick',
+  },
+
+  'prince-edward-island': {
+    name: 'Prince Edward Island',
+    slug: 'prince-edward-island',
+    abbreviation: 'PE',
+    heroSubtitle:
+      'PEI\'s tight rental market with IRAC-administered rent control, strict vacancy decontrol rules, and island-specific compliance requirements.',
+    regulation: {
+      title: 'Rental of Residential Property Act & Island Regulatory and Appeals Commission (IRAC)',
+      body: 'Prince Edward Island residential tenancies are governed by the Rental of Residential Property Act and administered by the Island Regulatory and Appeals Commission (IRAC). PEI has rent control: annual rent increases are capped at a percentage set by IRAC each year. Landlords must apply to IRAC for above-guideline increases. Security deposits are capped at one month\'s rent. The Residential Rental Property Board (a division of IRAC) handles disputes. PEI\'s small size and tight housing market mean vacancy rates have been among the lowest in Canada, driving significant regulatory attention to tenant protections.',
+      highlights: [
+        'Rent control: annual cap set by IRAC (applies to all rental units)',
+        'Above-guideline increases require IRAC application',
+        'Security deposit capped at one month\'s rent',
+        'IRAC Residential Rental Property Board for dispute resolution',
+        'Three months\' notice to end a year-to-year tenancy',
+        'Landlord must provide 24 hours\' notice before entry',
+      ],
+    },
+    valueProps: [
+      {
+        icon: CheckCircle2,
+        title: 'IRAC Rent Cap Tracking',
+        description:
+          'Annual IRAC rent increase cap applied automatically. Above-guideline application documentation prepared when capital improvements or extraordinary costs justify it.',
+      },
+      {
+        icon: FileText,
+        title: 'PEI Lease & Notice Templates',
+        description:
+          'Current PEI-compliant lease agreements and notice forms. Correct notice periods for termination, rent increases, and entry built into every workflow.',
+      },
+      {
+        icon: Shield,
+        title: 'IRAC Dispute Preparation',
+        description:
+          'Evidence packages formatted for IRAC Residential Rental Property Board hearings. Payment histories, maintenance records, and inspection reports organized automatically.',
+      },
+      {
+        icon: Clock,
+        title: 'Island-Specific Compliance Calendar',
+        description:
+          'PEI-specific deadlines for rent increase notices, deposit returns, and IRAC filings tracked in one compliance calendar with automated reminders.',
+      },
+    ],
+    cities: [
+      { name: 'Charlottetown', slug: 'charlottetown' },
+      { name: 'Summerside', slug: 'summerside' },
+      { name: 'Stratford', slug: 'stratford' },
+    ],
+    ctaText: 'Start managing properties in Prince Edward Island',
+  },
+
+  'newfoundland-and-labrador': {
+    name: 'Newfoundland and Labrador',
+    slug: 'newfoundland-and-labrador',
+    abbreviation: 'NL',
+    heroSubtitle:
+      'Newfoundland and Labrador\'s affordable rental market with Residential Tenancies Act compliance, Service NL oversight, and no rent control.',
+    regulation: {
+      title: 'Residential Tenancies Act (NL) & Service NL',
+      body: 'Newfoundland and Labrador residential tenancies are governed by the Residential Tenancies Act, 2000 and administered by the Residential Tenancy Enforcement Unit within Service NL. There is no rent control in NL - landlords can increase rent by any amount with proper notice. Rent increases require at least six months\' written notice for yearly tenancies and three months\' for monthly tenancies. Security deposits are capped at 75% of one month\'s rent. The Residential Tenancy Enforcement Unit investigates complaints and can issue compliance orders. Disputes may also be resolved through Small Claims Court.',
+      highlights: [
+        'No rent control - increases permitted with 3-6 months\' notice',
+        'Security deposit capped at 75% of one month\'s rent',
+        'Service NL Residential Tenancy Enforcement Unit',
+        'Six months\' notice for yearly tenancy rent increases',
+        'Three months\' notice for monthly tenancy rent increases',
+        'Small Claims Court available for disputes up to $25,000',
+      ],
+    },
+    valueProps: [
+      {
+        icon: CheckCircle2,
+        title: 'NL Notice Period Automation',
+        description:
+          'Correct notice periods calculated automatically: six months for yearly tenancies, three months for monthly. Notices generated with legislated wording and delivery confirmation.',
+      },
+      {
+        icon: FileText,
+        title: 'Service NL Compliance',
+        description:
+          'Documentation formatted for Service NL Residential Tenancy Enforcement Unit investigations. Payment histories, maintenance logs, and inspection records organized automatically.',
+      },
+      {
+        icon: Shield,
+        title: '75% Deposit Cap Tracking',
+        description:
+          'Security deposit collection enforced at the 75% cap. Move-out inspection workflows and deposit return within the legislated 15-business-day timeline.',
+      },
+      {
+        icon: Clock,
+        title: 'Interac Rent Collection',
+        description:
+          'Native Interac e-Transfer for rent collection with automatic reconciliation, late payment tracking, and enforcement-ready payment histories.',
+      },
+    ],
+    cities: [
+      { name: "St. John's", slug: 'st-johns' },
+      { name: 'Mount Pearl', slug: 'mount-pearl' },
+      { name: 'Corner Brook', slug: 'corner-brook' },
+      { name: 'Paradise', slug: 'paradise' },
+    ],
+    ctaText: 'Start managing properties in Newfoundland and Labrador',
+  },
 } as const
 
 type ProvinceSlug = keyof typeof provinceData
@@ -413,17 +642,17 @@ export default async function ProvincePage({ params }: Props) {
         }}
       />
       {/* ── Hero ── */}
-      <section className="bg-brand-navy">
-        <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
+      <section className="bg-[#F5F6F8]">
+        <div className="mx-auto max-w-7xl px-6 py-16 sm:py-16 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-brand-blue-light">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-brand-blue">
               Canada / {data.name}
             </p>
-            <h1 className="font-heading font-extrabold text-4xl text-white sm:text-5xl lg:text-6xl">
+            <h1 className="font-display font-extrabold text-4xl text-[#0A1628] sm:text-5xl lg:text-6xl">
               Property Management in{' '}
-              <span className="text-brand-blue-light">{data.name}</span>
+              <span className="text-brand-blue">{data.name}</span>
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg text-[#D3D5DB]">
+            <p className="mx-auto mt-6 max-w-2xl text-lg text-[#555860]">
               {data.heroSubtitle}
             </p>
             <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
@@ -436,7 +665,7 @@ export default async function ProvincePage({ params }: Props) {
               </Link>
               <Link
                 href="/ca/"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-white/20 px-8 text-base font-semibold text-white transition-colors duration-100 hover:border-white/40 hover:text-white/90"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-[#E5E7EB] px-8 text-base font-semibold text-[#0A1628] transition-colors duration-100 hover:border-[#E5E7EB] hover:text-[#555860]"
               >
                 All Provinces
               </Link>
@@ -446,7 +675,7 @@ export default async function ProvincePage({ params }: Props) {
       </section>
 
       {/* ── Regulation Summary ── */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-14">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <RevealOnScroll>
             <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-brand-blue">
@@ -479,10 +708,10 @@ export default async function ProvincePage({ params }: Props) {
       </section>
 
       {/* ── Value Props ── */}
-      <section className="bg-brand-off-white py-20">
+      <section className="bg-brand-off-white py-14">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <RevealOnScroll>
-            <div className="mb-12 text-center">
+            <div className="mb-8 text-center">
               <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-brand-blue">
                 Built for {data.name}
               </p>
@@ -520,7 +749,7 @@ export default async function ProvincePage({ params }: Props) {
       </section>
 
       {/* ── Cities Grid ── */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-14">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <RevealOnScroll>
             <div className="mb-10 text-center">
@@ -556,20 +785,20 @@ export default async function ProvincePage({ params }: Props) {
       </section>
 
       {/* ── CTA ── */}
-      <section className="bg-brand-navy py-24 md:py-32">
+      <section className="bg-[#176FEB] py-12 md:py-12">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <RevealOnScroll>
             <h2 className="font-heading font-extrabold text-4xl tracking-tight text-white md:text-5xl">
               Ready to manage {data.name} properties the right way?
             </h2>
-            <p className="mx-auto mt-5 max-w-lg text-lg text-[#D3D5DB]">
+            <p className="mx-auto mt-5 max-w-lg text-lg text-white/80">
               Revun handles {data.regulation.title.split('&')[0].trim()} compliance so you can
               focus on your portfolio.
             </p>
             <div className="mt-10">
               <Link
                 href="/contact/"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-brand-blue px-8 text-base font-semibold text-white transition-colors duration-100 hover:bg-brand-blue-dark"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-white px-8 text-base font-semibold text-[#176FEB] transition-colors duration-100 hover:bg-white/90"
               >
                 {data.ctaText}
                 <ArrowRight className="h-4 w-4" />

@@ -13,7 +13,7 @@ import {
 } from 'lucide-react'
 import { RevealOnScroll, revealItem } from '@/components/ui/reveal-on-scroll'
 import { sanitizeJsonLd } from '@/lib/utils'
-import { buildBreadcrumbSchema } from '@/lib/schema-builders'
+import { buildBreadcrumbSchema, buildHowToSchema } from '@/lib/schema-builders'
 
 /* ── Animation variants ─────────────────────────────────────────────── */
 
@@ -95,10 +95,26 @@ export default function SelfManageHowItWorksPage() {
           ),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: sanitizeJsonLd(
+            buildHowToSchema({
+              name: 'How to Self-Manage Your Rental Property with Revun',
+              description:
+                'A step-by-step guide to setting up and managing your rental property using the Revun platform. From account creation to ongoing management.',
+              steps: timelineSteps.map((step) => ({
+                name: step.title,
+                text: step.description,
+              })),
+            })
+          ),
+        }}
+      />
       {/* ── Hero ──────────────────────────────────────────────────── */}
-      <section className="bg-white dark:bg-[#0B0A1A]">
+      <section className="bg-white">
         <motion.div
-          className="mx-auto max-w-3xl px-6 pt-36 pb-20 text-center"
+          className="mx-auto max-w-3xl px-6 pt-28 pb-16 text-center"
           variants={heroStagger}
           initial="hidden"
           animate="visible"
@@ -111,7 +127,7 @@ export default function SelfManageHowItWorksPage() {
           </motion.p>
           <motion.h1
             variants={fadeUp}
-            className="font-heading font-extrabold text-4xl leading-[1.1] tracking-tight text-foreground md:text-5xl"
+            className="font-display font-extrabold text-4xl leading-[1.1] tracking-tight text-foreground md:text-5xl"
           >
             From signup to{' '}
             <span className="text-brand-blue">fully managed</span>
@@ -126,8 +142,24 @@ export default function SelfManageHowItWorksPage() {
       </section>
 
       {/* ── Timeline ──────────────────────────────────────────────── */}
-      <section className="bg-brand-off-white py-24 dark:bg-[#0f0e1e]">
+      <section className="bg-brand-off-white py-12">
         <div className="mx-auto max-w-3xl px-6">
+          <RevealOnScroll className="mb-10 text-center">
+            <motion.p
+              variants={revealItem}
+              className="mb-3 text-sm font-medium uppercase tracking-widest text-brand-blue"
+            >
+              Step by step
+            </motion.p>
+            <motion.h2
+              variants={revealItem}
+              className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl"
+            >
+              Your complete{' '}
+              <span className="text-brand-blue">walkthrough</span>
+            </motion.h2>
+          </RevealOnScroll>
+
           <div className="relative">
             {/* Vertical line */}
             <div
@@ -144,7 +176,7 @@ export default function SelfManageHowItWorksPage() {
                     className="flex gap-6 md:gap-8"
                   >
                     {/* Icon circle */}
-                    <div className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-brand-blue/20 bg-brand-blue/10 text-brand-blue dark:bg-brand-blue/20 md:h-16 md:w-16">
+                    <div className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-brand-blue/20 bg-brand-blue/10 text-brand-blue md:h-16 md:w-16">
                       <Icon className="h-5 w-5 md:h-6 md:w-6" strokeWidth={1.8} />
                     </div>
 
@@ -161,7 +193,7 @@ export default function SelfManageHowItWorksPage() {
                       </p>
 
                       {/* Screenshot placeholder */}
-                      <div className="mt-6 flex h-48 items-center justify-center rounded-xl border-2 border-dashed border-border bg-white text-sm text-muted-foreground dark:bg-[#0B0A1A]">
+                      <div className="mt-6 flex h-48 items-center justify-center rounded-xl border-2 border-dashed border-border bg-white text-sm text-muted-foreground transition-colors hover:border-brand-blue/30 hover:text-brand-blue/60">
                         Screenshot / illustration placeholder
                       </div>
                     </div>
@@ -174,7 +206,7 @@ export default function SelfManageHowItWorksPage() {
       </section>
 
       {/* ── Bottom CTA ────────────────────────────────────────────── */}
-      <section className="bg-white py-24 dark:bg-[#0B0A1A]">
+      <section className="bg-white py-12">
         <RevealOnScroll className="mx-auto max-w-2xl px-6 text-center">
           <motion.h2
             variants={revealItem}

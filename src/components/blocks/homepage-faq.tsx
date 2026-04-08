@@ -33,14 +33,14 @@ const faqs = [
 
 export function HomepageFaq() {
   return (
-    <section className="bg-brand-off-white py-24 md:py-32">
+    <section className="bg-brand-off-white py-12 md:py-16">
       <div className="mx-auto max-w-3xl px-6">
         <div className="text-center mb-12">
           <p className="text-sm font-heading font-semibold uppercase tracking-wider text-brand-blue">
             FAQ
           </p>
           <h2 className="mt-3 font-heading text-3xl md:text-4xl font-bold text-brand-graphite">
-            Frequently asked <span className="text-accent">questions</span>
+            Frequently asked <span className="text-keyword">questions</span>
           </h2>
         </div>
 

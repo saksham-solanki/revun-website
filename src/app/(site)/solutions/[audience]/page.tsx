@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { buildCanonicalUrl, sanitizeJsonLd } from '@/lib/utils'
+import { buildServiceSchema } from '@/lib/schema-builders'
 import { SolutionDetailClient } from './client'
 
 /* ── Types ────────────────────────────────────────────────────────────────── */
@@ -350,11 +351,22 @@ export default async function SolutionDetailPage({
     ],
   }
 
+  const serviceJsonLd = buildServiceSchema({
+    name: `Revun for ${data.metaTitle.split(' | ')[0]}`,
+    description: data.metaDescription,
+    serviceType: 'Property Management Software',
+    url: buildCanonicalUrl(`/solutions/${audience}`),
+  })
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: sanitizeJsonLd(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: sanitizeJsonLd(serviceJsonLd) }}
       />
       <SolutionDetailClient
         data={data}

@@ -16,7 +16,7 @@ export function DashboardProof() {
   const satisfaction = useCounter(48, 1500, inView) // 4.8
 
   return (
-    <section className="bg-brand-off-white py-24 md:py-32">
+    <section className="bg-brand-off-white py-12 md:py-16">
       <div className="mx-auto max-w-7xl px-6">
         {/* Section header */}
         <div className="text-center mb-12">
@@ -27,17 +27,17 @@ export function DashboardProof() {
             </span>
             Live client data
           </div>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-brand-graphite">
-            Real <span className="text-accent">results</span>. Not projections.
+          <h2 className="font-display text-3xl md:text-5xl font-normal text-brand-graphite">
+            See your portfolio in <span className="text-keyword">real time</span>
           </h2>
           <p className="mt-4 text-[#555860] text-lg max-w-xl mx-auto">
-            Every number comes from real portfolios managed on Revun.
+            Track occupancy, revenue, maintenance, and tenant satisfaction from a single dashboard.
           </p>
         </div>
 
         {/* Dashboard frame */}
         <div ref={ref} className="mx-auto max-w-4xl">
-          <div className="shadow-device rounded-2xl overflow-hidden bg-white border border-[#E5E7EB]">
+          <div className="shadow-device rounded-2xl overflow-hidden bg-white border border-[#E5E7EB] transition-shadow duration-200 hover:shadow-editorial">
             {/* Browser chrome */}
             <div className="flex items-center gap-2 px-4 py-3 bg-[#F5F6F8] border-b border-[#E5E7EB]">
               <div className="flex gap-1.5">

@@ -54,6 +54,58 @@ const competitors: Competitor[] = [
   { name: 'TransUnion SmartMove', slug: 'transunion-smartmove', category: 'Screening', description: 'TransUnion SmartMove is screening-only. Revun integrates screening directly into your leasing pipeline.' },
   { name: 'Naborly', slug: 'naborly', category: 'Screening', description: 'Naborly offers tenant screening for Canada. Revun offers screening plus the full management platform around it.' },
   { name: 'RentPrep', slug: 'rentprep', category: 'Screening', description: 'RentPrep handles background checks. Revun handles background checks, leasing, accounting, and more.' },
+  // PM Software (additional)
+  { name: 'Entrata', slug: 'entrata', category: 'PM Software', description: 'Compare Revun\'s flexible pricing against Entrata\'s enterprise-only platform for large multifamily portfolios.' },
+  { name: 'MRI Software', slug: 'mri-software', category: 'PM Software', description: 'MRI Software targets enterprise real estate. See how Revun delivers similar power without the complexity.' },
+  { name: 'TenantCloud', slug: 'tenantcloud', category: 'PM Software', description: 'TenantCloud targets small landlords. Revun scales from single units to enterprise portfolios.' },
+  { name: 'Hemlane', slug: 'hemlane', category: 'PM Software', description: 'Hemlane offers hybrid PM and self-manage. Revun gives you the full platform without the hybrid limitations.' },
+  { name: 'Avail', slug: 'avail', category: 'PM Software', description: 'Avail by Realtor.com offers DIY landlord tools. Revun adds professional-grade features on top.' },
+  { name: 'TurboTenant', slug: 'turbo-tenant', category: 'PM Software', description: 'TurboTenant is free for landlords. See what you gain by upgrading to Revun\'s full platform.' },
+  { name: 'Innago', slug: 'innago', category: 'PM Software', description: 'Innago is free PM software. Revun adds Canadian compliance, vendor dispatch, and brokerage tools.' },
+  { name: 'Rentec Direct', slug: 'rentec-direct', category: 'PM Software', description: 'Rentec Direct offers affordable PM. Revun adds Canadian-first features and deeper automation.' },
+  { name: 'SimplifyEm', slug: 'simplifyem', category: 'PM Software', description: 'SimplifyEm keeps it simple. Revun keeps it simple and adds compliance, communications, and scale.' },
+  { name: 'ResMan', slug: 'resman', category: 'PM Software', description: 'ResMan targets multifamily operators. Revun covers multifamily plus every other property type.' },
+  { name: 'PayProp', slug: 'payrop', category: 'PM Software', description: 'PayProp automates rental payments. Revun automates payments plus the entire PM workflow.' },
+  // Canadian Platforms (additional)
+  { name: 'RentMoola', slug: 'rentmoola', category: 'Canadian Platforms', description: 'RentMoola handles Canadian rent payments. Revun handles payments plus full property management.' },
+  { name: 'Openroom', slug: 'openroom', category: 'Canadian Platforms', description: 'Openroom is a Canadian rental platform. Revun goes beyond listings with full operational tools.' },
+  { name: 'Zumper', slug: 'zumper', category: 'Canadian Platforms', description: 'Zumper is a rental marketplace. Revun is a complete property management platform with listing syndication.' },
+  { name: 'PadMapper', slug: 'padmapper', category: 'Canadian Platforms', description: 'PadMapper helps tenants find apartments. Revun helps property managers run their entire operation.' },
+  { name: 'Rent Panda', slug: 'rent-panda', category: 'Canadian Platforms', description: 'Rent Panda serves Ontario landlords. Revun serves property managers across all Canadian provinces.' },
+  // Brokerage/CRM (additional)
+  { name: 'Dotloop', slug: 'dotloop', category: 'Brokerage/CRM', description: 'Dotloop handles transactions. Revun handles transactions plus ongoing property management operations.' },
+  { name: 'SkySlope', slug: 'skyslope', category: 'Brokerage/CRM', description: 'SkySlope focuses on compliance. Revun builds compliance into a full property management workflow.' },
+  { name: 'BrokerMint', slug: 'brokermint', category: 'Brokerage/CRM', description: 'BrokerMint is a back office tool. Revun is a front-to-back property management platform.' },
+  { name: 'TransactionDesk', slug: 'transaction-desk', category: 'Brokerage/CRM', description: 'TransactionDesk manages forms and transactions. Revun manages the entire property lifecycle.' },
+  { name: 'Wise Agent', slug: 'wise-agent', category: 'Brokerage/CRM', description: 'Wise Agent is a real estate CRM. Revun is a CRM plus full property management in one platform.' },
+  { name: 'Top Producer', slug: 'top-producer', category: 'Brokerage/CRM', description: 'Top Producer is an agent CRM. Revun extends CRM with property operations, compliance, and accounting.' },
+  { name: 'BoomTown', slug: 'boomtown', category: 'Brokerage/CRM', description: 'BoomTown generates leads. Revun manages leads plus the entire property management lifecycle.' },
+  { name: 'Real Geeks', slug: 'real-geeks', category: 'Brokerage/CRM', description: 'Real Geeks offers agent websites and CRM. Revun offers CRM plus property management operations.' },
+  { name: 'CINC', slug: 'cinc', category: 'Brokerage/CRM', description: 'CINC is a real estate lead platform. Revun converts leads into managed properties with a full PM suite.' },
+  { name: 'LionDesk', slug: 'liondesk', category: 'Brokerage/CRM', description: 'LionDesk is a CRM for agents. Revun is a CRM plus property management platform for the full lifecycle.' },
+  // Maintenance (additional)
+  { name: 'HappyCo', slug: 'happyco', category: 'Maintenance', description: 'HappyCo handles inspections and ops. Revun handles inspections inside a full PM workflow.' },
+  { name: 'UpKeep', slug: 'upkeep', category: 'Maintenance', description: 'UpKeep is a maintenance management tool. Revun embeds maintenance into your property management platform.' },
+  { name: 'Housecall Pro', slug: 'housecall-pro', category: 'Maintenance', description: 'Housecall Pro is for field service businesses. Revun brings field service into property management.' },
+  { name: 'MaintainX', slug: 'maintainx', category: 'Maintenance', description: 'MaintainX manages work orders. Revun manages work orders inside a full property operations platform.' },
+  { name: 'FieldPulse', slug: 'fieldpulse', category: 'Maintenance', description: 'FieldPulse is field service management. Revun integrates field service with property management workflows.' },
+  { name: 'AppWork', slug: 'appwork', category: 'Maintenance', description: 'AppWork handles property inspections. Revun handles inspections, maintenance, and full PM operations.' },
+  { name: 'Building Engines', slug: 'building-engines', category: 'Maintenance', description: 'Building Engines runs building operations. Revun runs building operations plus full property management.' },
+  // Communications (additional)
+  { name: 'Aircall', slug: 'aircall', category: 'Communications', description: 'Aircall is a cloud phone system. Revun embeds calling into your property management workflow.' },
+  { name: 'Zoom Phone', slug: 'zoom-phone', category: 'Communications', description: 'Zoom Phone is a business phone. Revun gives you business phone plus property management in one.' },
+  { name: 'Intercom', slug: 'intercom', category: 'Communications', description: 'Intercom is a customer messaging platform. Revun builds tenant and owner messaging into your PM workflow.' },
+  { name: 'Zendesk', slug: 'zendesk', category: 'Communications', description: 'Zendesk is customer service software. Revun is property management software with built-in service tools.' },
+  { name: 'Freshdesk', slug: 'freshdesk', category: 'Communications', description: 'Freshdesk is a help desk tool. Revun is a property management platform with built-in help desk features.' },
+  // Screening (additional)
+  { name: 'Sure', slug: 'sure', category: 'Screening', description: 'Sure offers rent guarantee. Revun offers rent guarantee inside a complete property management platform.' },
+  { name: 'TheGuarantors', slug: 'the-guarantors', category: 'Screening', description: 'TheGuarantors provides lease guarantees. Revun provides lease guarantees plus full PM operations.' },
+  { name: 'Insurent', slug: 'insurent', category: 'Screening', description: 'Insurent offers lease guaranty. Revun offers guaranty plus screening, leasing, and property management.' },
+  { name: 'Rhino', slug: 'rhino', category: 'Screening', description: 'Rhino replaces security deposits with insurance. Revun integrates deposit alternatives into your PM workflow.' },
+  { name: 'Jetty', slug: 'jetty', category: 'Screening', description: 'Jetty offers renters insurance and deposit alternatives. Revun integrates these into full property management.' },
+  { name: 'LeaseLock', slug: 'leaselock', category: 'Screening', description: 'LeaseLock provides lease insurance. Revun provides lease insurance integrated with your PM operations.' },
+  { name: 'Trustii', slug: 'trustii', category: 'Screening', description: 'Trustii verifies tenant identity. Revun verifies identity as part of a complete screening and leasing pipeline.' },
+  { name: 'Persona', slug: 'persona', category: 'Screening', description: 'Persona handles identity verification. Revun handles identity verification inside your property management workflow.' },
 ]
 
 const badgeColors: Record<Exclude<Category, 'All'>, string> = {
@@ -63,6 +115,20 @@ const badgeColors: Record<Exclude<Category, 'All'>, string> = {
   Maintenance: 'bg-[#F5F6F8] text-[#555860]',
   Communications: 'bg-[#F5F6F8] text-[#555860]',
   Screening: 'bg-[#F5F6F8] text-[#555860]',
+}
+
+const heroStagger = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.15 } },
+}
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 10 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
+  },
 }
 
 export default function ComparePage() {
@@ -76,25 +142,34 @@ export default function ComparePage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-[#0A1628] py-24 md:py-32">
-        <div className="mx-auto max-w-3xl px-6 text-center">
-          <RevealOnScroll>
-            <motion.h1
-              variants={revealItem}
-              className="font-heading font-extrabold text-4xl leading-tight text-white md:text-5xl lg:text-6xl"
-            >
-              See How Revun{' '}
-              <span className="text-[#176FEB]">Compares</span>
-            </motion.h1>
-            <motion.p
-              variants={revealItem}
-              className="mx-auto mt-6 max-w-xl text-lg text-white/70"
-            >
-              Honest, side-by-side breakdowns so you can pick the right
-              tool for your portfolio. No spin, just facts.
-            </motion.p>
-          </RevealOnScroll>
-        </div>
+      <section className="bg-[#F5F6F8] py-12 md:py-12">
+        <motion.div
+          className="mx-auto max-w-3xl px-6 text-center"
+          variants={heroStagger}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.p
+            variants={fadeUp}
+            className="mb-4 text-sm font-medium uppercase tracking-widest text-[#176FEB]"
+          >
+            Comparisons
+          </motion.p>
+          <motion.h1
+            variants={fadeUp}
+            className="font-display text-4xl font-normal text-[#0A1628] md:text-5xl lg:text-6xl"
+          >
+            See How Revun{' '}
+            <span className="text-[#176FEB]">Compares</span>
+          </motion.h1>
+          <motion.p
+            variants={fadeUp}
+            className="mx-auto mt-6 max-w-xl text-lg text-[#555860]"
+          >
+            Honest, side-by-side breakdowns so you can pick the right
+            tool for your portfolio. No spin, just facts.
+          </motion.p>
+        </motion.div>
       </section>
 
       {/* Filter Tabs */}
@@ -119,7 +194,7 @@ export default function ComparePage() {
       </section>
 
       {/* Competitor Grid */}
-      <section className="bg-[#F5F6F8] py-20">
+      <section className="bg-[#F5F6F8] py-14">
         <div className="mx-auto max-w-6xl px-6">
           <RevealOnScroll
             className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
@@ -154,8 +229,10 @@ export default function ComparePage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="bg-white py-20">
-        <div className="mx-auto max-w-2xl px-6 text-center">
+      <section className="relative overflow-hidden bg-white py-14">
+        <div className="absolute left-[15%] top-[20%] h-[300px] w-[300px] rounded-full bg-[radial-gradient(circle,rgba(23,111,235,0.08)_0%,transparent_70%)] blur-3xl" aria-hidden />
+        <div className="absolute right-[10%] bottom-[10%] h-[250px] w-[250px] rounded-full bg-[radial-gradient(circle,rgba(23,111,235,0.06)_0%,transparent_70%)] blur-3xl" aria-hidden />
+        <div className="relative z-10 mx-auto max-w-2xl px-6 text-center">
           <RevealOnScroll>
             <motion.h2
               variants={revealItem}

@@ -89,23 +89,23 @@ export default function HelpPage() {
         }}
       />
       {/* ── Hero with search ──────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-brand-navy">
+      <section className="relative overflow-hidden bg-[#F5F6F8]">
         <motion.div
-          className="relative z-10 mx-auto max-w-3xl px-6 pt-36 pb-24 text-center"
+          className="relative z-10 mx-auto max-w-3xl px-6 pt-24 pb-16 text-center"
           variants={heroStagger}
           initial="hidden"
           animate="visible"
         >
           <motion.h1
             variants={fadeUp}
-            className="font-heading font-extrabold text-4xl leading-[1.1] tracking-tight text-white sm:text-5xl"
+            className="font-display font-extrabold text-4xl leading-[1.1] tracking-tight text-[#0A1628] sm:text-5xl"
           >
             Help{' '}
-            <span className="text-brand-blue-light">Center</span>
+            <span className="text-[#176FEB]">Center</span>
           </motion.h1>
           <motion.p
             variants={fadeUp}
-            className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[#D3D5DB]"
+            className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[#555860]"
           >
             Find guides, tutorials, and answers to common questions.
           </motion.p>
@@ -120,7 +120,7 @@ export default function HelpPage() {
               <input
                 type="text"
                 placeholder="Search for help articles..."
-                className="h-13 w-full rounded-xl border border-white/10 bg-white/5 py-3.5 pl-12 pr-4 text-base text-white placeholder:text-[#94A3B8] transition-colors focus:border-brand-blue-light focus:outline-none focus:ring-2 focus:ring-brand-blue-light/30"
+                className="h-13 w-full rounded-xl border border-[#E5E7EB] bg-white py-3.5 pl-12 pr-4 text-base text-[#0A1628] placeholder:text-[#94A3B8] transition-colors focus:border-[#176FEB] focus:outline-none focus:ring-2 focus:ring-[#176FEB]/30"
                 readOnly
               />
             </div>
@@ -129,7 +129,7 @@ export default function HelpPage() {
       </section>
 
       {/* ── Category cards ────────────────────────────────────────── */}
-      <section className="bg-brand-off-white py-24 dark:bg-[#0B0A1A]">
+      <section className="bg-[#F5F6F8] py-12">
         <div className="mx-auto max-w-5xl px-6">
           <RevealOnScroll
             stagger={0.08}
@@ -141,9 +141,9 @@ export default function HelpPage() {
                 <motion.div key={cat.slug} variants={revealItem}>
                   <Link
                     href={`/help/${cat.slug}/`}
-                    className="group flex flex-col rounded-2xl border border-border bg-card p-8 transition-colors hover:border-brand-blue dark:border-white/8 dark:bg-card"
+                    className="group flex flex-col rounded-2xl border border-[#D3D5DB] bg-white p-8 transition-colors hover:border-[#176FEB]/40"
                   >
-                    <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-brand-blue/10 text-brand-blue dark:bg-brand-blue/20">
+                    <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-[#E8F2FE] text-[#176FEB]">
                       <Icon className="h-5 w-5" strokeWidth={1.8} />
                     </div>
                     <h2 className="font-heading text-lg font-bold text-foreground">
@@ -167,7 +167,7 @@ export default function HelpPage() {
       </section>
 
       {/* ── Contact CTA ───────────────────────────────────────────── */}
-      <section className="bg-white py-24 dark:bg-[#0B0A1A]">
+      <section className="bg-white py-12">
         <RevealOnScroll className="mx-auto max-w-2xl px-6 text-center">
           <motion.h2
             variants={revealItem}

@@ -129,7 +129,7 @@ function PricingCard({ tier, isAnnual }: { tier: Tier; isAnnual: boolean }) {
     <motion.div variants={revealItemBlur} className="flex">
       <div
         className={cn(
-          'relative flex h-full w-full flex-col rounded-xl border border-[#D3D5DB] p-6 md:p-8',
+          'relative flex h-full w-full flex-col rounded-xl border border-[#E5E7EB] p-6 md:p-8 hover:border-[#176FEB]/40',
           tier.bg,
           tier.popular && 'border-t-4 border-t-[#176FEB] ring-2 ring-brand-blue/20'
         )}
@@ -189,7 +189,7 @@ function PricingCard({ tier, isAnnual }: { tier: Tier; isAnnual: boolean }) {
             'inline-flex h-11 items-center justify-center rounded-lg px-6 text-sm font-semibold transition-colors',
             tier.popular
               ? 'bg-[#176FEB] text-white hover:bg-[#1260CC] shadow-cta-glow'
-              : 'border border-[#D3D5DB] bg-white text-[#2C2E33] hover:bg-[#F5F6F8]'
+              : 'border border-[#E5E7EB] bg-white text-[#2C2E33] hover:bg-[#F5F6F8]'
           )}
         >
           {tier.cta}
@@ -221,11 +221,11 @@ export function PricingTabs() {
   const [isAnnual, setIsAnnual] = useState(false)
 
   return (
-    <section className="py-16 md:py-24">
+    <section className="py-12 md:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Billing toggle */}
         <div className="flex items-center justify-center gap-3">
-          <div className="relative inline-flex rounded-lg border border-[#D3D5DB] bg-[#F5F6F8] p-1">
+          <div className="relative inline-flex rounded-lg border border-[#E5E7EB] bg-[#F5F6F8] p-1">
             <button
               type="button"
               onClick={() => setIsAnnual(false)}

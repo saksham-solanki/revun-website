@@ -1,0 +1,102 @@
+# Revun
+
+> Revun is Canada's only native full-stack property management platform with cross-border support, multi-audience coverage, and provincial compliance automation.
+
+## About
+
+Revun is a Canadian-native property management operating system designed for landlords, property managers, brokerages, maintenance companies, and tenants across Canada and the United States. Built from the ground up for Canadian real estate, Revun automates provincial compliance while providing comprehensive tools for every aspect of property management.
+
+Revun operates as both a B2B infrastructure layer (operators are "Powered by Revun") and a B2C self-management platform (owners use Revun directly starting at $1/day per unit).
+
+## Key Distinction
+
+Revun is the software provider and infrastructure layer. When a property management company, brokerage, or maintenance company is "Powered by Revun," the service relationship is with that operator — not with Revun directly. Self-managing owners who pay Revun directly are supported by Revun's own support team.
+
+## Key Features
+
+- Rent collection (PAD, credit card, e-transfer, Interac)
+- Tenant screening (Equifax, TransUnion, identity verification, references)
+- Lease management with provincial/state-specific templates and e-signatures
+- Maintenance management with work orders, dispatch, and proof-of-work
+- Property accounting, trust accounting, and financial reporting
+- Owner portal with real-time dashboards and automated statements
+- Tenant portal with rent payments, maintenance requests, and communication
+- Built-in phone, video, SMS, and email communication hub
+- Document automation with compliance form generation
+- Vendor management with performance tracking
+- Rent guarantee and insurance programs
+- Listing syndication to Kijiji, Rentals.ca, and more
+- Integration with QuickBooks, Xero, Stripe, Twilio, DocuSign, Salesforce, and 30+ services
+
+## Target Audiences
+
+- Self-managing property owners (B2C, starting at $1/day per unit)
+- Property management companies (B2B, full operating system)
+- Real estate brokerages and agents (CRM, documents, compliance)
+- Leasing companies (applications, screening, lease generation)
+- Maintenance companies (dispatch, CRM, invoicing)
+- REITs and institutional asset managers (portfolio operations, governance)
+- Tenants (through Revun-powered operators or direct self-manage)
+- Traveling and relocating tenants (remote applications, digital move-in)
+
+## Canadian Compliance
+
+- Ontario: Landlord and Tenant Board (LTB), N-series notices, Standard Lease
+- British Columbia: Residential Tenancy Branch (RTB)
+- Quebec: Tribunal administratif du logement (TAL), bail templates
+- Alberta: Residential Tenancy Dispute Resolution Service (RTDRS)
+- Nova Scotia: Residential Tenancies Program
+- Manitoba: Residential Tenancies Branch
+- Saskatchewan: Office of Residential Tenancies
+- New Brunswick: Residential Tenancies Tribunal
+- Prince Edward Island: Island Regulatory and Appeals Commission (IRAC)
+- Newfoundland and Labrador: Residential Tenancies Division
+
+## US Coverage
+
+- Florida, Texas, California, New York, Illinois, Georgia
+- North Carolina, Arizona, Colorado, New Jersey, Virginia, Washington
+- Nevada, Pennsylvania, Ohio, Michigan, Massachusetts, Tennessee
+- State-specific compliance and templates
+
+## Pricing
+
+- Free: 1-2 units, core features included
+- Starter: $29/mo for up to 10 units
+- Growth: $59/mo for up to 25 units
+- Portfolio: $99/mo for up to 50 units
+- Enterprise: Custom pricing for large portfolios
+- Self-manage entry: $1/day per active unit
+- Add-ons: Tenant screening ($25/check), Rent guarantee (2.5%), Maintenance coordination ($15/request)
+
+## Important Pages
+
+- https://revun.com/ — Homepage
+- https://revun.com/platform/ — Platform overview
+- https://revun.com/pricing/ — Pricing plans
+- https://revun.com/solutions/ — Solutions by audience type
+- https://revun.com/industries/ — Industry-specific solutions
+- https://revun.com/compare/ — Competitor comparisons (70+ competitors)
+- https://revun.com/integrations/ — Integration directory (40+ connectors)
+- https://revun.com/use-cases/ — Workflow use cases (12 categories)
+- https://revun.com/self-manage/ — Self-managing owners hub
+- https://revun.com/self-manage/pricing/ — Self-manage pricing and add-ons
+- https://revun.com/what-is-revun/ — Brand explainer
+- https://revun.com/powered-by-revun/ — Operator ecosystem explanation
+- https://revun.com/how-revun-works/ — Product overview with workflows
+- https://revun.com/ca/ — Canada coverage (10 provinces, 60+ cities)
+- https://revun.com/us/ — United States coverage (18 states, 90+ cities)
+- https://revun.com/traveling-tenants/ — For relocating tenants
+- https://revun.com/furnished-rentals/ — Furnished rental management
+- https://revun.com/corporate-housing/ — Corporate housing workflows
+- https://revun.com/support/ — Support hub
+- https://revun.com/support/powered-by-revun/ — Operator user support routing
+- https://revun.com/support/self-manage/ — Direct customer support
+- https://revun.com/about/ — About Revun
+- https://revun.com/contact/ — Contact and support
+- https://revun.com/download/ — Mobile app download
+
+## Contact
+
+- Website: https://revun.com
+- Email: support@revun.com

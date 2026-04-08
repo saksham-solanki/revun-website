@@ -10,7 +10,7 @@ const navigation = {
       { label: 'Pricing', href: '/pricing/' },
       { label: 'Integrations', href: '/integrations/' },
       { label: 'Compare', href: '/compare/' },
-      { label: 'Security', href: '/security/' },
+      { label: 'Coverage', href: '/coverage/' },
     ],
   },
   solutions: {
@@ -27,12 +27,12 @@ const navigation = {
   resources: {
     title: 'Resources',
     links: [
-      { label: 'Blog', href: '/blog/' },
       { label: 'Help Center', href: '/help/' },
-      { label: 'Guides', href: '/guides/' },
-      { label: 'Case Studies', href: '/case-studies/' },
-      { label: 'API Docs', href: '/docs/api/' },
-      { label: 'Status', href: '/status/' },
+      { label: 'Resources', href: '/resources/' },
+      { label: 'How Revun Works', href: '/how-revun-works/' },
+      { label: 'What is Revun', href: '/what-is-revun/' },
+      { label: 'Download', href: '/download/' },
+      { label: 'Events', href: '/events/' },
     ],
   },
   company: {
@@ -40,9 +40,9 @@ const navigation = {
     links: [
       { label: 'About', href: '/about/' },
       { label: 'Contact', href: '/contact/' },
-      { label: 'Careers', href: '/careers/' },
-      { label: 'Press', href: '/press/' },
-      { label: 'Partners', href: '/partners/' },
+      { label: 'Investment', href: '/investment/' },
+      { label: 'Demo', href: '/demo/' },
+      { label: 'Support', href: '/support/' },
     ],
   },
   legal: {
@@ -50,8 +50,6 @@ const navigation = {
     links: [
       { label: 'Privacy Policy', href: '/privacy/' },
       { label: 'Terms of Service', href: '/terms/' },
-      { label: 'Cookie Policy', href: '/cookies/' },
-      { label: 'Accessibility', href: '/accessibility/' },
     ],
   },
 } as const
@@ -59,7 +57,7 @@ const navigation = {
 function FooterColumn({ title, links }: { title: string; links: ReadonlyArray<{ label: string; href: string }> }) {
   return (
     <div>
-      <h3 className="text-sm font-semibold text-white uppercase tracking-wider">
+      <h3 className="text-sm font-semibold text-[#0A1628] uppercase tracking-wider">
         {title}
       </h3>
       <ul className="mt-4 space-y-3">
@@ -67,7 +65,7 @@ function FooterColumn({ title, links }: { title: string; links: ReadonlyArray<{ 
           <li key={link.href}>
             <Link
               href={link.href}
-              className="text-sm text-[#64748B] hover:text-white transition-colors duration-150"
+              className="text-sm text-[#64748B] hover:text-[#0A1628] transition-colors duration-150"
             >
               {link.label}
             </Link>
@@ -110,15 +108,15 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-[#0A1628] border-t border-white/10">
+    <footer className="bg-[#F5F6F8] border-t border-[#E5E7EB]">
       {/* Main footer */}
       <div className="max-w-7xl mx-auto px-6 py-16">
         {/* Top: brand + newsletter */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 pb-12 border-b border-white/10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 pb-12 border-b border-[#E5E7EB]">
           <div className="max-w-md">
             <Link href="/" className="inline-block">
               <Image
-                src="/logo-white.svg"
+                src="/logo-dark.svg"
                 alt="Revun"
                 width={110}
                 height={34}
@@ -132,36 +130,23 @@ export function Footer() {
 
           <div className="lg:flex lg:justify-end lg:items-start">
             <div className="max-w-sm w-full">
-              <p className="text-sm font-semibold text-white">
+              <p className="text-sm font-semibold text-[#0A1628]">
                 Stay up to date
               </p>
               <p className="mt-1 text-sm text-[#64748B]">
                 Product updates, insights, and industry news.
               </p>
-              <form className="mt-4 flex gap-2" action="/api/contact" method="POST">
-                <label htmlFor="footer-email" className="sr-only">
-                  Email address
-                </label>
-                <input
-                  id="footer-email"
-                  type="email"
-                  placeholder="you@company.com"
-                  autoComplete="email"
-                  required
-                  className="flex-1 min-w-0 rounded-lg bg-white/5 border border-white/10 px-3.5 py-2 text-sm text-white placeholder:text-[#64748B] focus:outline-none focus:ring-2 focus:ring-[#176FEB] focus:border-transparent"
-                />
-                <button
-                  type="submit"
-                  className="shrink-0 rounded-lg bg-[#176FEB] px-4 py-2 text-sm font-semibold text-white hover:bg-[#1260CC] transition-colors focus:outline-none focus:ring-2 focus:ring-[#176FEB] focus:ring-offset-2 focus:ring-offset-[#0A1628]"
+              <div className="mt-4 flex gap-2">
+                <Link
+                  href="/contact/"
+                  className="inline-flex items-center gap-1.5 rounded-lg bg-[#176FEB] px-4 py-2 text-sm font-semibold text-white hover:bg-[#1260CC] transition-colors focus:outline-none focus:ring-2 focus:ring-[#176FEB] focus:ring-offset-2 focus:ring-offset-[#F5F6F8]"
                 >
-                  <span className="flex items-center gap-1.5">
-                    Subscribe
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
-                    </svg>
-                  </span>
-                </button>
-              </form>
+                  Get in Touch
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                  </svg>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -175,7 +160,7 @@ export function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-white/10">
+      <div className="border-t border-[#E5E7EB]">
         <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-[#555860]">
             &copy; 2026 Revun. All rights reserved.
@@ -184,13 +169,13 @@ export function Footer() {
           <div className="flex items-center gap-6">
             <Link
               href="/privacy/"
-              className="text-sm text-[#64748B] hover:text-white transition-colors duration-150"
+              className="text-sm text-[#64748B] hover:text-[#0A1628] transition-colors duration-150"
             >
               Privacy Policy
             </Link>
             <Link
               href="/terms/"
-              className="text-sm text-[#64748B] hover:text-white transition-colors duration-150"
+              className="text-sm text-[#64748B] hover:text-[#0A1628] transition-colors duration-150"
             >
               Terms of Service
             </Link>
@@ -203,7 +188,7 @@ export function Footer() {
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#555860] hover:text-white transition-colors duration-150"
+                className="text-[#555860] hover:text-[#0A1628] transition-colors duration-150"
                 aria-label={item.label}
               >
                 <item.icon className="h-5 w-5" />

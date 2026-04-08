@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
-import { Inter, Outfit, Instrument_Serif, Geist_Mono } from 'next/font/google'
+import { Inter, Instrument_Sans, Instrument_Serif, Geist_Mono } from 'next/font/google'
 import { GoogleTagManager } from '@next/third-parties/google'
-import { buildOrganizationSchema } from '@/lib/schema-builders'
+import { buildOrganizationSchema, buildWebSiteSchema, buildSoftwareApplicationSchema } from '@/lib/schema-builders'
 import { sanitizeJsonLd } from '@/lib/utils'
 import './globals.css'
 
@@ -12,12 +12,12 @@ const inter = Inter({
   variable: '--font-sans',
 })
 
-const outfit = Outfit({
+const instrumentSans = Instrument_Sans({
   subsets: ['latin'],
   display: 'swap',
   preload: true,
   variable: '--font-heading',
-  weight: ['300', '400', '500', '600', '700', '800'],
+  weight: ['400', '500', '600', '700'],
 })
 
 const instrumentSerif = Instrument_Serif({
@@ -106,13 +106,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en-CA"
-      className={`${inter.variable} ${outfit.variable} ${instrumentSerif.variable} ${geistMono.variable}`}
+      className={`${inter.variable} ${instrumentSans.variable} ${instrumentSerif.variable} ${geistMono.variable}`}
     >
       <body className="min-h-screen font-sans antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: sanitizeJsonLd(buildOrganizationSchema()),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: sanitizeJsonLd(buildWebSiteSchema()),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: sanitizeJsonLd(buildSoftwareApplicationSchema()),
           }}
         />
         {process.env.NEXT_PUBLIC_GTM_ID && (

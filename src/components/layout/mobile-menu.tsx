@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Menu, X, ChevronRight } from 'lucide-react'
+import { Menu, X, ChevronRight, Home, Building2, Handshake, FileText, Wrench, TrendingUp, Layers, Sparkles, Calendar, Wallet, Plug, MapPin } from 'lucide-react'
 import {
   Sheet,
   SheetTrigger,
@@ -21,6 +21,10 @@ import {
 } from '@/components/ui/accordion'
 import { NAV_ITEMS } from './header'
 
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  Home, Building2, Handshake, FileText, Wrench, TrendingUp, Layers, Sparkles, Calendar, Wallet, Plug, MapPin,
+}
+
 // ─── Mobile menu ─────────────────────────────────────────────────────────────
 
 export function MobileMenu({ scrolled }: { scrolled: boolean }) {
@@ -35,7 +39,7 @@ export function MobileMenu({ scrolled }: { scrolled: boolean }) {
             'inline-flex h-10 w-10 items-center justify-center rounded-lg transition-colors outline-none focus-visible:ring-2 focus-visible:ring-ring',
             scrolled
               ? 'text-brand-graphite hover:bg-[#F5F6F8]'
-              : 'text-white hover:bg-white/10'
+              : 'text-brand-graphite hover:bg-[#F5F6F8]'
           )}
           aria-label="Open navigation menu"
         >
@@ -99,9 +103,9 @@ export function MobileMenu({ scrolled }: { scrolled: boolean }) {
                                 )}
                                 onClick={() => setOpen(false)}
                               >
-                                {'icon' in child && child.icon ? (
-                                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-brand-blue/8 text-sm">
-                                    {child.icon}
+                                {'icon' in child && child.icon && iconMap[child.icon] ? (
+                                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-brand-blue/8 text-brand-blue">
+                                    {(() => { const Icon = iconMap[child.icon!]; return <Icon className="h-4 w-4" /> })()}
                                   </span>
                                 ) : null}
                                 <div className="min-w-0 flex-1">

@@ -46,7 +46,7 @@ const faqs = [
 
 export function PricingFaq() {
   return (
-    <section className="border-t border-[#D3D5DB] bg-[#F5F6F8] py-16 md:py-24">
+    <section className="border-t border-[#E5E7EB] bg-[#F5F6F8] py-12 md:py-16">
       <div className="mx-auto max-w-3xl px-6">
         <RevealOnScroll className="text-center mb-12">
           <motion.h2
@@ -66,8 +66,8 @@ export function PricingFaq() {
         <RevealOnScroll>
           <motion.div variants={revealItem}>
             <Accordion>
-              {faqs.map((faq, i) => (
-                <AccordionItem key={i} className="border-b border-[#D3D5DB]">
+              {faqs.map((faq) => (
+                <AccordionItem key={faq.q} className="border-b border-[#E5E7EB]">
                   <AccordionTrigger className="py-5 text-base font-medium text-[#0A1628] hover:no-underline">
                     {faq.q}
                   </AccordionTrigger>

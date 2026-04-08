@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { buildCanonicalUrl } from '@/lib/utils'
+import { RevealOnScroll } from '@/components/ui/reveal-on-scroll'
 
 const title = 'Privacy Policy'
 const description =
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <article className="mx-auto max-w-3xl px-6 pt-36 pb-24">
+    <article className="mx-auto max-w-3xl px-6 pt-24 pb-16">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -46,19 +47,21 @@ export default function PrivacyPolicyPage() {
         }}
       />
 
-      <header className="mb-12">
-        <p className="mb-3 text-sm font-medium uppercase tracking-widest text-brand-blue">
-          Legal
-        </p>
-        <h1 className="font-heading font-extrabold text-4xl leading-[1.1] tracking-tight text-foreground md:text-5xl">
-          Privacy Policy
-        </h1>
-        <p className="mt-4 text-sm text-muted-foreground">
-          Last updated: April 6, 2026
-        </p>
-      </header>
+      <RevealOnScroll>
+        <header className="mb-12">
+          <p className="mb-3 text-sm font-medium uppercase tracking-widest text-brand-blue">
+            Legal
+          </p>
+          <h1 className="font-display font-extrabold text-4xl leading-[1.1] tracking-tight text-foreground md:text-5xl">
+            Privacy Policy
+          </h1>
+          <p className="mt-4 text-sm text-muted-foreground">
+            Last updated: April 6, 2026
+          </p>
+        </header>
+      </RevealOnScroll>
 
-      <div className="prose prose-slate max-w-none dark:prose-invert [&_h2]:font-heading [&_h2]:text-xl [&_h2]:font-bold [&_h2]:tracking-tight [&_h2]:text-foreground [&_h2]:mt-10 [&_h2]:mb-4 [&_p]:text-[0.938rem] [&_p]:leading-relaxed [&_p]:text-muted-foreground [&_ul]:text-[0.938rem] [&_ul]:leading-relaxed [&_ul]:text-muted-foreground [&_li]:text-muted-foreground [&_a]:text-brand-blue [&_a]:no-underline hover:[&_a]:underline">
+      <div className="prose prose-slate max-w-none [&_h2]:font-heading [&_h2]:text-xl [&_h2]:font-bold [&_h2]:tracking-tight [&_h2]:text-foreground [&_h2]:mt-10 [&_h2]:mb-4 [&_p]:text-[0.938rem] [&_p]:leading-relaxed [&_p]:text-muted-foreground [&_ul]:text-[0.938rem] [&_ul]:leading-relaxed [&_ul]:text-muted-foreground [&_li]:text-muted-foreground [&_a]:text-brand-blue [&_a]:no-underline hover:[&_a]:underline">
         <p>
           Revun Inc. (&quot;Revun,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our platform, website, and related services (collectively, the &quot;Services&quot;).
         </p>

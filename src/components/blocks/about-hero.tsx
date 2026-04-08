@@ -18,21 +18,15 @@ const fadeUp = {
 
 export function AboutHero() {
   return (
-    <section className="relative flex min-h-[65vh] items-center justify-center overflow-hidden bg-[#0A1628]">
+    <section className="relative flex min-h-[65vh] items-center justify-center overflow-hidden bg-[#F5F6F8]">
       {/* Dot grid overlay */}
       <div
-        className="absolute inset-0 bg-grid-dark bg-grid-mask opacity-30"
-        aria-hidden
-      />
-
-      {/* Single blue radial gradient blob */}
-      <div
-        className="absolute right-[20%] top-[30%] h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(23,111,235,0.18)_0%,transparent_70%)] blur-3xl"
+        className="absolute inset-0 bg-dot-grid opacity-40"
         aria-hidden
       />
 
       <motion.div
-        className="relative z-10 mx-auto max-w-4xl px-6 pt-36 pb-24 text-center"
+        className="relative z-10 mx-auto max-w-4xl px-6 pt-28 pb-20 text-center"
         variants={stagger}
         initial="hidden"
         animate="visible"
@@ -40,9 +34,9 @@ export function AboutHero() {
         {/* Eyebrow pill */}
         <motion.div
           variants={fadeUp}
-          className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#D3D5DB]/15 bg-white/5 px-4 py-1.5 backdrop-blur-sm"
+          className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#E5E7EB] bg-white px-4 py-1.5"
         >
-          <span className="text-sm font-medium text-[#94A3B8]">
+          <span className="text-sm font-medium text-[#555860]">
             About Revun
           </span>
         </motion.div>
@@ -50,7 +44,7 @@ export function AboutHero() {
         {/* Headline */}
         <motion.h1
           variants={fadeUp}
-          className="font-heading font-extrabold text-5xl leading-[1.08] tracking-tight text-white md:text-7xl"
+          className="font-display font-extrabold text-5xl leading-[1.08] tracking-tight text-[#0A1628] md:text-7xl"
         >
           Built for{' '}
           <span className="text-[#176FEB]">Canadian</span>
@@ -60,7 +54,7 @@ export function AboutHero() {
         {/* Subtitle */}
         <motion.p
           variants={fadeUp}
-          className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[#94A3B8]"
+          className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[#555860]"
         >
           Property management infrastructure designed from the ground up for the
           Canadian market, with full US coverage built in.

@@ -86,17 +86,17 @@ export default function ResourcesPage() {
         }}
       />
       {/* ── Hero ── */}
-      <section className="bg-brand-navy">
-        <div className="mx-auto max-w-7xl px-6 py-24 text-center sm:py-32 lg:px-8">
+      <section className="bg-[#F5F6F8]">
+        <div className="mx-auto max-w-7xl px-6 py-16 text-center sm:py-16 lg:px-8">
           <RevealOnScroll>
             <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-brand-blue">
               Resources
             </p>
-            <h1 className="font-heading font-extrabold text-4xl text-white sm:text-5xl lg:text-6xl">
+            <h1 className="font-display font-extrabold text-4xl text-[#0A1628] sm:text-5xl lg:text-6xl">
               Guides, Reports, and Tools for{' '}
               <span className="text-brand-blue">Property Managers</span>
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[#D3D5DB]">
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-[#555860]">
               Practical content for Canadian operators. No fluff, no generic advice, only material built around the real decisions you make every week.
             </p>
           </RevealOnScroll>
@@ -104,9 +104,9 @@ export default function ResourcesPage() {
       </section>
 
       {/* ── Category Grid ── */}
-      <section className="bg-white py-24 md:py-32">
+      <section className="bg-white py-12 md:py-12">
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
-          <RevealOnScroll className="mb-16 text-center">
+          <RevealOnScroll className="mb-10 text-center">
             <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-brand-blue">
               What's Coming
             </p>
@@ -114,7 +114,7 @@ export default function ResourcesPage() {
               Four content types, one{' '}
               <span className="text-brand-blue">clear purpose</span>
             </h2>
-            <p className="mx-auto mt-4 max-w-xl text-brand-off-white0">
+            <p className="mx-auto mt-4 max-w-xl text-[#555860]">
               Everything in the Revun resource library is designed to save time or sharpen decisions. Nothing else makes it in.
             </p>
           </RevealOnScroll>
@@ -132,7 +132,7 @@ export default function ResourcesPage() {
                   <h3 className="mb-2 font-heading text-base font-bold text-brand-graphite">
                     {cat.title}
                   </h3>
-                  <p className="text-sm leading-relaxed text-brand-off-white0">
+                  <p className="text-sm leading-relaxed text-[#555860]">
                     {cat.description}
                   </p>
                   <div className="mt-5">
@@ -149,7 +149,7 @@ export default function ResourcesPage() {
       </section>
 
       {/* ── Featured Resource Previews ── */}
-      <section className="bg-brand-off-white py-24 md:py-32">
+      <section className="bg-brand-off-white py-12 md:py-12">
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <RevealOnScroll className="mb-16">
             <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-brand-blue">
@@ -159,7 +159,7 @@ export default function ResourcesPage() {
               What we're{' '}
               <span className="text-brand-blue">publishing first</span>
             </h2>
-            <p className="mt-4 max-w-xl text-brand-off-white0">
+            <p className="mt-4 max-w-xl text-[#555860]">
               These are in production. Sign up below to be notified when they go live.
             </p>
           </RevealOnScroll>
@@ -172,8 +172,8 @@ export default function ResourcesPage() {
                   className="group relative overflow-hidden rounded-2xl border border-[#E5E7EB] bg-white transition-colors duration-150 hover:border-brand-blue"
                 >
                   {/* Coming soon overlay */}
-                  <div className="absolute inset-0 z-10 flex items-center justify-center rounded-2xl bg-brand-navy/60 opacity-0 transition-opacity duration-150 group-hover:opacity-100">
-                    <span className="rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-sm font-semibold text-white backdrop-blur-sm">
+                  <div className="absolute inset-0 z-10 flex items-center justify-center rounded-2xl bg-black/50 opacity-0 transition-opacity duration-150 group-hover:opacity-100">
+                    <span className="rounded-full border border-white/30 bg-white/20 px-4 py-1.5 text-sm font-semibold text-white backdrop-blur-sm">
                       Coming soon
                     </span>
                   </div>
@@ -187,7 +187,7 @@ export default function ResourcesPage() {
                     <h3 className="mb-3 font-heading text-lg font-bold leading-snug text-brand-graphite">
                       {resource.title}
                     </h3>
-                    <p className="text-sm leading-relaxed text-brand-off-white0">
+                    <p className="text-sm leading-relaxed text-[#555860]">
                       {resource.description}
                     </p>
                   </div>
@@ -199,16 +199,16 @@ export default function ResourcesPage() {
       </section>
 
       {/* ── Newsletter CTA ── */}
-      <section className="bg-brand-navy py-24 md:py-32">
+      <section className="bg-[#F5F6F8] py-12 md:py-12">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <RevealOnScroll>
             <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-brand-blue">
               Stay ahead
             </p>
-            <h2 className="font-heading font-extrabold text-4xl tracking-tight text-white md:text-5xl">
+            <h2 className="font-heading font-extrabold text-4xl tracking-tight text-[#0A1628] md:text-5xl">
               Get notified when we publish
             </h2>
-            <p className="mx-auto mt-5 max-w-lg text-lg leading-relaxed text-[#D3D5DB]">
+            <p className="mx-auto mt-5 max-w-lg text-lg leading-relaxed text-[#555860]">
               Drop your email and we will send you each new guide, report, or template as it goes live. One email per publish, no noise.
             </p>
 
@@ -221,7 +221,7 @@ export default function ResourcesPage() {
                 type="email"
                 required
                 placeholder="your@email.com"
-                className="h-12 w-full rounded-xl border border-white/20 bg-white/10 px-4 text-base text-white placeholder:text-[#94A3B8] focus:border-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-blue/30"
+                className="h-12 w-full rounded-xl border border-[#E5E7EB] bg-white px-4 text-base text-[#0A1628] placeholder:text-[#94A3B8] focus:border-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-blue/30"
               />
               <button
                 type="submit"

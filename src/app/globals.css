@@ -23,7 +23,7 @@ html {
  *
  * Typography:
  *   Display:  Instrument Serif (hero headlines)
- *   Heading:  Outfit (section headings, bold UI)
+ *   Heading:  Instrument Sans (section headings, bold UI, logo font)
  *   Body:     Inter (paragraphs, navigation, general text)
  *   Mono:     Geist Mono (code, technical)
  */
@@ -34,9 +34,9 @@ html {
   --brand-blue-dark: #0B5AD4;
   --brand-blue-light: #4A91F0;
   --brand-blue-tint: #E8F2FE;
-  --brand-navy: #0A1628;
-  --brand-navy-mid: #0F2040;
-  --brand-navy-app: #001D3D;
+  --brand-navy: #F5F6F8;
+  --brand-navy-mid: #EEF0F3;
+  --brand-navy-app: #E8EBF0;
   --brand-graphite: #2C2E33;
   --brand-graphite-mid: #555860;
   --brand-graphite-light: #D3D5DB;
@@ -268,8 +268,14 @@ html {
 .delay-700 { animation-delay: 700ms; }
 
 /* ── Blue keyword highlight for section titles ── */
-.text-accent {
+.text-keyword {
   color: #176FEB;
+}
+
+/* ── Dot grid background ── */
+.bg-dot-grid {
+  background-image: radial-gradient(circle, #D3D5DB 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
 /* ── Grid background (Dub.co pattern) ── */

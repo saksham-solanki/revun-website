@@ -70,7 +70,7 @@ const workflowSteps = [
 ]
 
 const comparisonRows = [
-  { feature: 'Monthly cost', revun: 'From $30/unit/mo', pm: '8–12% of rent (~$160+/mo)' },
+  { feature: 'Monthly cost', revun: 'From $30/unit/mo', pm: '8-12% of rent (~$160+/mo)' },
   { feature: 'Tenant screening', revun: true, pm: true },
   { feature: 'Lease management', revun: true, pm: true },
   { feature: 'Rent collection', revun: true, pm: true },
@@ -131,23 +131,23 @@ export default function SelfManagePage() {
         }}
       />
       {/* ── Hero ──────────────────────────────────────────────────── */}
-      <section className="bg-white dark:bg-[#0B0A1A]">
+      <section className="bg-white">
         <motion.div
-          className="mx-auto max-w-3xl px-6 pt-36 pb-24 text-center"
+          className="mx-auto max-w-3xl px-6 pt-24 pb-16 text-center"
           variants={heroStagger}
           initial="hidden"
           animate="visible"
         >
           <motion.span
             variants={fadeUp}
-            className="mb-5 inline-flex items-center gap-2 rounded-full border border-brand-blue/20 bg-brand-blue/5 px-4 py-1.5 text-sm font-medium text-brand-blue dark:bg-brand-blue/10"
+            className="mb-5 inline-flex items-center gap-2 rounded-full border border-brand-blue/20 bg-brand-blue/5 px-4 py-1.5 text-sm font-medium text-brand-blue"
           >
             For self-managing owners
           </motion.span>
 
           <motion.h1
             variants={fadeUp}
-            className="font-heading font-extrabold text-4xl leading-[1.1] tracking-tight text-foreground md:text-5xl"
+            className="font-display font-extrabold text-4xl leading-[1.1] tracking-tight text-foreground md:text-5xl"
           >
             Manage your properties{' '}
             <span className="text-brand-blue">like a pro</span>
@@ -181,7 +181,7 @@ export default function SelfManagePage() {
       </section>
 
       {/* ── How It Works: 5-step flow ─────────────────────────────── */}
-      <section className="bg-brand-off-white py-24 dark:bg-[#0f0e1e]">
+      <section className="bg-brand-off-white py-12">
         <div className="mx-auto max-w-6xl px-6">
           <RevealOnScroll className="text-center">
             <motion.p
@@ -220,7 +220,7 @@ export default function SelfManagePage() {
 
                 <div className="flex items-start gap-4 md:flex-col md:items-center md:text-center p-6 md:px-4 md:py-8">
                   {/* Number badge */}
-                  <div className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-brand-blue/20 bg-white dark:bg-[#0B0A1A]">
+                  <div className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-brand-blue/20 bg-white">
                     <span className="font-heading text-sm font-bold text-brand-blue">{step.label}</span>
                   </div>
 
@@ -240,7 +240,7 @@ export default function SelfManagePage() {
                 {/* Desktop horizontal connector arrow */}
                 {i < workflowSteps.length - 1 && (
                   <div
-                    className="absolute right-0 top-1/2 hidden -translate-y-1/2 translate-x-1/2 z-10 md:flex h-6 w-6 items-center justify-center rounded-full border border-border bg-white dark:bg-[#0f0e1e]"
+                    className="absolute right-0 top-1/2 hidden -translate-y-1/2 translate-x-1/2 z-10 md:flex h-6 w-6 items-center justify-center rounded-full border border-border bg-white"
                     aria-hidden
                   >
                     <ArrowRight className="h-3 w-3 text-muted-foreground" />
@@ -264,7 +264,7 @@ export default function SelfManagePage() {
       </section>
 
       {/* ── Comparison Table ──────────────────────────────────────── */}
-      <section className="bg-white py-24 dark:bg-[#0B0A1A]">
+      <section className="bg-white py-12">
         <div className="mx-auto max-w-5xl px-6">
           <RevealOnScroll className="text-center">
             <motion.p
@@ -284,7 +284,7 @@ export default function SelfManagePage() {
               variants={revealItem}
               className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-muted-foreground"
             >
-              A PM company charges 8–12% of rent and makes decisions without you. Revun gives you the same tools and keeps you in charge.
+              A PM company charges 8-12% of rent and makes decisions without you. Revun gives you the same tools and keeps you in charge.
             </motion.p>
           </RevealOnScroll>
 
@@ -294,7 +294,7 @@ export default function SelfManagePage() {
               className="overflow-hidden rounded-2xl border border-border"
             >
               {/* Table header */}
-              <div className="grid grid-cols-3 border-b border-border bg-brand-off-white dark:bg-[#0f0e1e]">
+              <div className="grid grid-cols-3 border-b border-border bg-brand-off-white">
                 <div className="px-6 py-4 text-sm font-semibold text-muted-foreground" />
                 <div className="border-l border-border px-6 py-4 text-center">
                   <span className="font-heading text-sm font-bold text-foreground">Revun</span>
@@ -312,7 +312,7 @@ export default function SelfManagePage() {
                 <div
                   key={row.feature}
                   className={`grid grid-cols-3 border-b border-border last:border-0 ${
-                    i % 2 === 1 ? 'bg-brand-off-white/50 dark:bg-white/[0.02]' : 'bg-white dark:bg-[#0B0A1A]'
+                    i % 2 === 1 ? 'bg-brand-off-white/50' : 'bg-white'
                   }`}
                 >
                   <div className="px-6 py-4 text-sm font-medium text-foreground">
@@ -348,7 +348,7 @@ export default function SelfManagePage() {
       </section>
 
       {/* ── Feature Grid ──────────────────────────────────────────── */}
-      <section className="bg-brand-off-white py-24 dark:bg-[#0f0e1e]">
+      <section className="bg-brand-off-white py-12">
         <div className="mx-auto max-w-6xl px-6">
           <RevealOnScroll className="text-center">
             <motion.p
@@ -376,9 +376,9 @@ export default function SelfManagePage() {
                 <motion.div
                   key={f.title}
                   variants={revealItem}
-                  className="flex flex-col rounded-2xl border border-border bg-card p-8 transition-colors hover:border-brand-blue/30 dark:border-white/8 dark:bg-card"
+                  className="flex flex-col rounded-2xl border border-border bg-card p-8 transition-colors hover:border-brand-blue/30"
                 >
-                  <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-brand-blue/10 text-brand-blue dark:bg-brand-blue/20">
+                  <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-brand-blue/10 text-brand-blue">
                     <Icon className="h-5 w-5" strokeWidth={1.8} />
                   </div>
                   <h3 className="font-heading text-lg font-bold text-foreground">
@@ -395,7 +395,7 @@ export default function SelfManagePage() {
       </section>
 
       {/* ── Pricing Callout ───────────────────────────────────────── */}
-      <section className="bg-white py-24 dark:bg-[#0B0A1A]">
+      <section className="bg-white py-12">
         <div className="mx-auto max-w-3xl px-6">
           <RevealOnScroll className="text-center">
             <motion.p
@@ -453,7 +453,7 @@ export default function SelfManagePage() {
 
             <motion.div
               variants={revealItem}
-              className="relative flex flex-col rounded-2xl border border-brand-blue bg-brand-blue/5 p-8 dark:border-brand-blue/40 dark:bg-brand-blue/10"
+              className="relative flex flex-col rounded-2xl border border-brand-blue bg-brand-blue/5 p-8"
             >
               <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-brand-blue px-4 py-1 text-xs font-semibold text-white">
                 Most popular
@@ -497,12 +497,12 @@ export default function SelfManagePage() {
       </section>
 
       {/* ── Testimonial ───────────────────────────────────────────── */}
-      <section className="bg-brand-off-white py-24 dark:bg-[#0f0e1e]">
+      <section className="bg-brand-off-white py-12">
         <div className="mx-auto max-w-3xl px-6">
           <RevealOnScroll>
             <motion.div
               variants={revealItem}
-              className="rounded-2xl border border-border bg-card p-10 dark:border-white/8 dark:bg-card"
+              className="rounded-2xl border border-border bg-card p-10"
             >
               <div className="mb-5 flex gap-1">
                 {Array.from({ length: 5 }).map((_, i) => (
@@ -513,7 +513,9 @@ export default function SelfManagePage() {
                 "I was paying a property manager $200/month. Revun gives me everything they did, and I actually know what is happening with my property."
               </p>
               <div className="mt-8 flex items-center gap-4">
-                <div className="h-10 w-10 rounded-full bg-brand-blue/10" />
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-blue/10 text-sm font-semibold text-brand-blue">
+                  SM
+                </div>
                 <div>
                   <p className="text-sm font-semibold text-foreground">Sarah M.</p>
                   <p className="text-sm text-muted-foreground">Landlord, 3 units, Ontario</p>
@@ -525,7 +527,7 @@ export default function SelfManagePage() {
       </section>
 
       {/* ── Bottom CTA ────────────────────────────────────────────── */}
-      <section className="bg-white py-24 dark:bg-[#0B0A1A]">
+      <section className="bg-white py-12">
         <RevealOnScroll className="mx-auto max-w-2xl px-6 text-center">
           <motion.h2
             variants={revealItem}

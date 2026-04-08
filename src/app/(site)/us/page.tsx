@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, MapPin } from 'lucide-react'
 import { buildCanonicalUrl, sanitizeJsonLd } from '@/lib/utils'
-import { RevealOnScroll, revealItem } from '@/components/ui/reveal-on-scroll'
+import { RevealOnScroll } from '@/components/ui/reveal-on-scroll'
 import { buildBreadcrumbSchema } from '@/lib/schema-builders'
 
 export const metadata: Metadata = {
@@ -84,24 +84,26 @@ export default function USPage() {
         }}
       />
       {/* Hero */}
-      <section className="bg-brand-navy">
-        <div className="mx-auto max-w-7xl px-6 py-24 text-center sm:py-32 lg:px-8">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-brand-blue-light">
-            United States
-          </p>
-          <h1 className="font-heading font-extrabold text-4xl text-white sm:text-5xl lg:text-6xl">
-            Property Management Across the{' '}
-            <span className="text-brand-blue">United States</span>
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-[#D3D5DB]">
-            Revun is expanding to US markets. Built on the same infrastructure trusted by Canadian
-            property managers.
-          </p>
+      <section className="bg-[#F5F6F8]">
+        <div className="mx-auto max-w-7xl px-6 py-16 text-center sm:py-16 lg:px-8">
+          <RevealOnScroll>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-brand-blue">
+              United States
+            </p>
+            <h1 className="font-display font-extrabold text-4xl text-[#0A1628] sm:text-5xl lg:text-6xl">
+              Property Management Across the{' '}
+              <span className="text-brand-blue">United States</span>
+            </h1>
+            <p className="mx-auto mt-6 max-w-2xl text-lg text-[#555860]">
+              Revun is expanding to US markets. Built on the same infrastructure trusted by Canadian
+              property managers.
+            </p>
+          </RevealOnScroll>
         </div>
       </section>
 
       {/* Why US */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-14">
         <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
           <RevealOnScroll>
             <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-brand-blue">
@@ -111,7 +113,7 @@ export default function USPage() {
               One platform,{' '}
               <span className="text-brand-blue">every state</span>
             </h2>
-            <p className="mx-auto mt-6 max-w-2xl text-brand-off-white0">
+            <p className="mx-auto mt-6 max-w-2xl text-[#555860]">
               US property law varies dramatically by state and even by city. Revun adapts to local
               regulations automatically: eviction timelines, notice requirements, security deposit
               rules, and rent control ordinances are all handled at the state and municipality level.
@@ -121,10 +123,10 @@ export default function USPage() {
       </section>
 
       {/* State Cards */}
-      <section className="bg-brand-off-white py-20">
+      <section className="bg-brand-off-white py-14">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <RevealOnScroll>
-            <div className="mb-12 text-center">
+            <div className="mb-8 text-center">
               <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-brand-blue">
                 By State
               </p>
@@ -179,21 +181,21 @@ export default function USPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-brand-navy py-24 md:py-32">
+      <section className="bg-[#176FEB] py-12 md:py-12">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <RevealOnScroll>
             <h2 className="font-heading font-extrabold text-4xl tracking-tight text-white md:text-5xl">
               Manage properties across{' '}
-              <span className="text-brand-blue">state lines</span>
+              <span className="text-white/80">state lines</span>
             </h2>
-            <p className="mx-auto mt-5 max-w-lg text-lg text-[#D3D5DB]">
+            <p className="mx-auto mt-5 max-w-lg text-lg text-white/80">
               One platform that adapts to every state&apos;s regulations. See how Revun handles
               multi-state portfolio management.
             </p>
             <div className="mt-10">
               <Link
                 href="/contact/"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-brand-blue px-8 text-base font-semibold text-white transition-colors duration-100 hover:bg-brand-blue-dark"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-white px-8 text-base font-semibold text-[#176FEB] transition-colors duration-100 hover:bg-white/90"
               >
                 Book a Demo
                 <ArrowRight className="size-4" />

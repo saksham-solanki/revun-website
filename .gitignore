@@ -39,3 +39,17 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# design assets & reference files (not source code)
+/design-reference/
+*.zip
+
+# loose images at root
+/Wallet.png
+
+# build/template scripts
+/_build-template.js
+/website-factory-template/
+
+# planning docs (local only)
+/.planning/

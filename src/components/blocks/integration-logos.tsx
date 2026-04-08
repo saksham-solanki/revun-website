@@ -38,7 +38,7 @@ export function IntegrationLogos() {
   const doubled = [...integrations, ...integrations]
 
   return (
-    <section className="relative bg-white py-24 md:py-28">
+    <section className="relative bg-white py-12 md:py-16">
       <div className="mx-auto max-w-7xl px-6">
         <RevealOnScroll className="text-center">
           <motion.p
@@ -51,7 +51,7 @@ export function IntegrationLogos() {
             variants={revealItem}
             className="mx-auto mt-3 max-w-md font-heading text-3xl font-bold tracking-tight text-brand-graphite md:text-4xl"
           >
-            Works with the <span className="text-accent">tools</span> you already use
+            Works with the <span className="text-keyword">tools</span> you already use
           </motion.h2>
         </RevealOnScroll>
       </div>
