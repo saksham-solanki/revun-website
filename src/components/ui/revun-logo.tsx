@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils'
+import Image from 'next/image'
 import Link from 'next/link'
 
 interface RevunLogoProps {
@@ -10,20 +11,20 @@ interface RevunLogoProps {
 }
 
 /**
- * Revun brand logo — Instrument Sans Bold, white text on brand-blue bg.
- * Renders as real text so the font stays pixel-perfect everywhere.
+ * Revun brand logo — uses the exact Revun Logo.png (Instrument Sans Bold,
+ * white text on blue background). Single source of truth for every logo
+ * placement across the site.
  */
 export function RevunLogo({ size = 'h-8', linked = true, className }: RevunLogoProps) {
   const logo = (
-    <span
-      className={cn(
-        'inline-flex items-center justify-center rounded-lg bg-brand-blue px-3 py-1 font-heading font-bold text-white select-none tracking-tight',
-        size,
-        className,
-      )}
-    >
-      Revun
-    </span>
+    <Image
+      src="/revun-logo.png"
+      alt="Revun"
+      width={140}
+      height={44}
+      priority
+      className={cn('w-auto rounded', size, className)}
+    />
   )
 
   if (!linked) return logo
